@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>DevArchive // GitHub Visualizer</title>
+<title>DevArchive - GitHub Visualizer</title>
 <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/7.8.5/d3.min.js"></script>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
@@ -216,7 +216,7 @@
   .compare-input {
     background: rgba(21,26,33,0.9);
     border: 1px solid rgba(131,174,255,0.2);
-    color: #a8abb3; border-radius: 10px;
+    color: #555555; border-radius: 10px;
     padding: 0.75rem 1rem; font-size: 0.95rem; width: 100%;
     transition: border-color 0.2s, box-shadow 0.2s;
   }
@@ -224,7 +224,7 @@
     outline: none; border-color: rgba(131,174,255,0.6);
     box-shadow: 0 0 0 3px rgba(131,174,255,0.1);
   }
-  .compare-input::placeholder { color: rgba(168,171,179,0.4); }
+  .compare-input::placeholder { color: #5a5a5a66; }
 
   .compare-bar-wrap { width: 100%; background: rgba(255,255,255,0.06); border-radius: 4px; height: 8px; overflow: hidden; }
   .compare-bar { height: 100%; border-radius: 4px; transition: width 0.9s cubic-bezier(0.4,0,0.2,1); }
@@ -240,7 +240,7 @@
   .repo-search-input {
     background: rgba(21,26,33,0.9);
     border: 1px solid rgba(131,174,255,0.2);
-    color: #9a9a9a;
+    color: #555555;
     border-radius: 12px;
     padding: 1rem 4rem 1rem 1.5rem;
     font-size: 1.05rem;
@@ -430,7 +430,7 @@
       Explore any<br/><span class="text-primary">GitHub profile.</span>
     </h1>
     <p class="text-on-surface-variant text-lg mb-12 font-body max-w-md leading-relaxed">
-      Visualize repos, languages, contributions and compare any two developers — instantly.
+      "Dive into any GitHub profile and discover the developer behind the code."
     </p>
 
     <div class="w-full max-w-lg relative">
@@ -560,14 +560,14 @@
     <section class="grid grid-cols-1 lg:grid-cols-12 gap-8 mb-12">
       <div class="lg:col-span-5 bg-surface-container-low p-8 rounded-xl flex flex-col justify-between">
         <div>
-          <h2 class="text-xl font-bold mb-8 font-headline">Top Languages</h2>
+          <h2 class="text-xl font-bold mb-8 font-headline">Primary Languages</h2>
           <div id="languages-container" class="space-y-6"></div>
         </div>
         <div id="languages-meta" class="mt-8 pt-8 border-t border-outline-variant/10 text-xs text-on-surface-variant font-label leading-relaxed"></div>
       </div>
 
       <div class="lg:col-span-7 bg-surface-container-low p-8 rounded-xl">
-        <h2 class="text-xl font-bold mb-8 font-headline">Global Statistics</h2>
+        <h2 class="text-xl font-bold mb-8 font-headline">Profile Metrics</h2>
         <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
           <div class="stat-glow bg-surface-container-highest/40 border border-outline-variant/20 p-6 rounded-xl transition-all hover:bg-surface-container-highest/60">
             <span class="text-xs font-label uppercase tracking-widest text-on-surface-variant">Followers</span>
@@ -621,7 +621,7 @@
         <div class="flex items-center justify-between mb-6">
           <div>
             <h2 class="text-xl font-bold font-headline">Ecosystem Map</h2>
-            <p class="text-on-surface-variant text-sm mt-1 font-label">D3 force graph — repos grouped by primary language</p>
+            <p class="text-on-surface-variant text-sm mt-1 font-label">Explore how repositories connect across programming languages</p>
           </div>
           <div class="flex items-center gap-2">
             <span class="text-xs font-label text-on-surface-variant">Drag nodes · scroll to zoom</span>
@@ -672,7 +672,7 @@
       <h1 class="text-4xl font-extrabold tracking-tighter text-on-surface font-headline mb-2">
         Developer <span class="text-primary">Comparison</span>
       </h1>
-      <p class="text-on-surface-variant text-lg">Head-to-head stats between any two GitHub profiles.</p>
+      <p class="text-on-surface-variant text-lg">Side-by-side developer comparison with detailed metrics</p>
     </section>
 
     <section class="mb-10">
@@ -756,7 +756,7 @@
       <h1 class="text-4xl font-extrabold tracking-tighter text-on-surface font-headline mb-2">
         Repository <span class="text-primary">Explorer</span>
       </h1>
-      <p class="text-on-surface-variant text-lg">Search any public GitHub repository — across all of GitHub.</p>
+      <p class="text-on-surface-variant text-lg">“Search and explore repositories across GitHub.”</p>
     </section>
 
     <section class="mb-8">
