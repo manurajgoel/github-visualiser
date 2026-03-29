@@ -71,21 +71,30 @@
           "body": ["Inter"],
           "label": ["Space Grotesk"]
         },
-        borderRadius: {"DEFAULT": "0.125rem", "lg": "0.25rem", "xl": "0.5rem", "full": "0.75rem"},
-      },
-    },
+        borderRadius: { "DEFAULT": "0.125rem", "lg": "0.25rem", "xl": "0.5rem", "full": "0.75rem" }
+      }
+    }
   }
 </script>
 <style>
-  body { font-family: 'Inter', sans-serif; background-color: #0a0e14; color: #f1f3fc; }
-  .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; }
+  body {
+    font-family: 'Inter', sans-serif;
+    background-color: #0a0e14;
+    color: #f1f3fc;
+  }
 
+  .material-symbols-outlined {
+    font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+  }
+
+  /* view transitions */
   ::view-transition-old(root),
   ::view-transition-new(root) {
     animation-duration: 0.35s;
     animation-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
   }
 
+  /* stat cards glow effect */
   .stat-glow { position: relative; }
   .stat-glow::after {
     content: '';
@@ -96,6 +105,7 @@
     border-radius: inherit;
   }
 
+  /* landing screen layout */
   #landing-screen {
     min-height: 100vh;
     display: flex;
@@ -105,6 +115,7 @@
     position: relative;
     overflow: hidden;
   }
+
   .glow-orb {
     position: absolute;
     border-radius: 50%;
@@ -112,6 +123,7 @@
     opacity: 0.13;
     pointer-events: none;
   }
+
   .grid-bg {
     position: absolute;
     inset: 0;
@@ -121,6 +133,8 @@
     background-size: 48px 48px;
     pointer-events: none;
   }
+
+  /* landing search input */
   #search-input-landing {
     background: rgba(21,26,33,0.9);
     border: 1px solid rgba(131,174,255,0.25);
@@ -138,8 +152,9 @@
   }
   #search-input-landing::placeholder { color: rgba(168,171,179,0.45); }
 
+  /* skeleton shimmer */
   @keyframes shimmer {
-    0% { background-position: -200% 0; }
+    0%   { background-position: -200% 0; }
     100% { background-position: 200% 0; }
   }
   .skeleton {
@@ -149,98 +164,154 @@
     border-radius: 4px;
   }
 
+  /* language bars */
   .lang-bar { width: 0; transition: width 1s cubic-bezier(0.4,0,0.2,1); }
 
+  /* score ring */
   .score-ring { position: relative; width: 72px; height: 72px; flex-shrink: 0; }
   .score-ring svg { transform: rotate(-90deg); }
   .score-ring-text {
-    position: absolute; inset: 0;
-    display: flex; flex-direction: column;
-    align-items: center; justify-content: center;
+    position: absolute;
+    inset: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
   }
 
-  .grade-s  { color: #97f999; }
-  .grade-a  { color: #83aeff; }
-  .grade-b  { color: #ffa366; }
-  .grade-c  { color: #f1f3fc; }
+  /* grade colors */
+  .grade-s { color: #97f999; }
+  .grade-a { color: #83aeff; }
+  .grade-b { color: #ffa366; }
+  .grade-c { color: #f1f3fc; }
 
+  /* error banner */
   #error-banner {
-    display: none; position: fixed;
-    top: 0; left: 0; right: 0; z-index: 200;
-    background: #9f0519; color: #ffa8a3;
-    padding: 12px 24px; text-align: center;
-    font-size: 14px; font-family: 'Space Grotesk', sans-serif;
+    display: none;
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 200;
+    background: #9f0519;
+    color: #ffa8a3;
+    padding: 12px 24px;
+    text-align: center;
+    font-size: 14px;
+    font-family: 'Space Grotesk', sans-serif;
   }
 
-  #dashboard-screen { display: none; }
-  #compare-screen   { display: none; }
-  #repo-search-screen { display: none; }
-  #repo-detail-screen { display: none; }
+  /* screens hidden by default */
+  #dashboard-screen    { display: none; }
+  #compare-screen      { display: none; }
+  #repo-search-screen  { display: none; }
+  #repo-detail-screen  { display: none; }
 
   .stat-context {
-    font-size: 10px; font-family: 'Space Grotesk', sans-serif;
-    text-transform: uppercase; letter-spacing: 0.05em;
-    margin-top: 8px; display: flex; align-items: center; gap: 4px;
+    font-size: 10px;
+    font-family: 'Space Grotesk', sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-top: 8px;
+    display: flex;
+    align-items: center;
+    gap: 4px;
   }
 
   .score-pill {
-    display: flex; align-items: center; justify-content: space-between;
-    padding: 6px 10px; border-radius: 6px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 6px 10px;
+    border-radius: 6px;
     background: rgba(255,255,255,0.03);
     border: 1px solid rgba(255,255,255,0.06);
-    font-size: 11px; font-family: 'Space Grotesk', sans-serif;
+    font-size: 11px;
+    font-family: 'Space Grotesk', sans-serif;
   }
 
   .topic-chip {
-    display: inline-flex; align-items: center; gap: 3px;
+    display: inline-flex;
+    align-items: center;
+    gap: 3px;
     background: rgba(131,174,255,0.08);
     border: 1px solid rgba(131,174,255,0.18);
-    color: #83aeff; border-radius: 999px;
-    padding: 2px 8px; font-size: 10px;
+    color: #83aeff;
+    border-radius: 999px;
+    padding: 2px 8px;
+    font-size: 10px;
     font-family: 'Space Grotesk', sans-serif;
     white-space: nowrap;
   }
 
+  /* nav tabs */
   .nav-tab {
-    padding: 6px 14px; border-radius: 8px;
-    font-size: 13px; font-weight: 500; font-family: 'Space Grotesk', sans-serif;
-    cursor: pointer; transition: all 0.18s; color: #a8abb3;
-    border: 1px solid transparent; white-space: nowrap;
+    padding: 6px 14px;
+    border-radius: 8px;
+    font-size: 13px;
+    font-weight: 500;
+    font-family: 'Space Grotesk', sans-serif;
+    cursor: pointer;
+    transition: all 0.18s;
+    color: #a8abb3;
+    border: 1px solid transparent;
+    white-space: nowrap;
   }
   .nav-tab:hover { color: #f1f3fc; background: rgba(131,174,255,0.06); }
   .nav-tab.active {
-    color: #83aeff; background: rgba(131,174,255,0.1);
+    color: #83aeff;
+    background: rgba(131,174,255,0.1);
     border-color: rgba(131,174,255,0.2);
   }
 
+  /* compare inputs */
   .compare-input {
     background: rgba(21,26,33,0.9);
     border: 1px solid rgba(131,174,255,0.2);
-    color: #555555; border-radius: 10px;
-    padding: 0.75rem 1rem; font-size: 0.95rem; width: 100%;
+    color: #555;
+    border-radius: 10px;
+    padding: 0.75rem 1rem;
+    font-size: 0.95rem;
+    width: 100%;
     transition: border-color 0.2s, box-shadow 0.2s;
   }
   .compare-input:focus {
-    outline: none; border-color: rgba(131,174,255,0.6);
+    outline: none;
+    border-color: rgba(131,174,255,0.6);
     box-shadow: 0 0 0 3px rgba(131,174,255,0.1);
   }
   .compare-input::placeholder { color: #5a5a5a66; }
 
-  .compare-bar-wrap { width: 100%; background: rgba(255,255,255,0.06); border-radius: 4px; height: 8px; overflow: hidden; }
-  .compare-bar { height: 100%; border-radius: 4px; transition: width 0.9s cubic-bezier(0.4,0,0.2,1); }
-
-  .winner-badge {
-    display: inline-flex; align-items: center; gap: 4px;
-    background: rgba(151,249,153,0.1); border: 1px solid rgba(151,249,153,0.25);
-    color: #97f999; border-radius: 999px;
-    padding: 2px 8px; font-size: 10px; font-family: 'Space Grotesk', sans-serif;
+  /* compare bars */
+  .compare-bar-wrap {
+    width: 100%;
+    background: rgba(255,255,255,0.06);
+    border-radius: 4px;
+    height: 8px;
+    overflow: hidden;
+  }
+  .compare-bar {
+    height: 100%;
+    border-radius: 4px;
+    transition: width 0.9s cubic-bezier(0.4,0,0.2,1);
   }
 
-  /* ── REPO SEARCH ── */
+  .winner-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    background: rgba(151,249,153,0.1);
+    border: 1px solid rgba(151,249,153,0.25);
+    color: #97f999;
+    border-radius: 999px;
+    padding: 2px 8px;
+    font-size: 10px;
+    font-family: 'Space Grotesk', sans-serif;
+  }
+
+  /* repo search */
   .repo-search-input {
     background: rgba(21,26,33,0.9);
     border: 1px solid rgba(131,174,255,0.2);
-    color: #555555;
+    color: #555;
     border-radius: 12px;
     padding: 1rem 4rem 1rem 1.5rem;
     font-size: 1.05rem;
@@ -248,7 +319,8 @@
     transition: border-color 0.2s, box-shadow 0.2s;
   }
   .repo-search-input:focus {
-    outline: none; border-color: rgba(131,174,255,0.6);
+    outline: none;
+    border-color: rgba(131,174,255,0.6);
     box-shadow: 0 0 0 3px rgba(131,174,255,0.1);
   }
   .repo-search-input::placeholder { color: #9a9a9a; }
@@ -268,10 +340,14 @@
     transform: translateY(-2px);
   }
 
+  /* filter pills */
   .filter-pill {
-    padding: 6px 14px; border-radius: 999px;
-    font-size: 12px; font-family: 'Space Grotesk', sans-serif;
-    cursor: pointer; transition: all 0.18s;
+    padding: 6px 14px;
+    border-radius: 999px;
+    font-size: 12px;
+    font-family: 'Space Grotesk', sans-serif;
+    cursor: pointer;
+    transition: all 0.18s;
     color: #a8abb3;
     border: 1px solid rgba(131,174,255,0.15);
     background: transparent;
@@ -279,13 +355,16 @@
   }
   .filter-pill:hover { color: #f1f3fc; border-color: rgba(131,174,255,0.4); }
   .filter-pill.active {
-    color: #83aeff; background: rgba(131,174,255,0.1);
+    color: #83aeff;
+    background: rgba(131,174,255,0.1);
     border-color: rgba(131,174,255,0.4);
   }
 
-  /* ── RECENT SEARCHES DROPDOWN ── */
+  /* recent searches dropdown */
   .recent-dropdown {
-    position: absolute; top: calc(100% + 8px); left: 0; right: 0;
+    position: absolute;
+    top: calc(100% + 8px);
+    left: 0; right: 0;
     background: #0f141a;
     border: 1px solid rgba(131,174,255,0.2);
     border-radius: 12px;
@@ -295,25 +374,26 @@
     display: none;
   }
   .recent-dropdown.show { display: block; }
+
   .recent-item {
-    display: flex; align-items: center; justify-content: space-between;
-    padding: 10px 16px; cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 16px;
+    cursor: pointer;
     transition: background 0.15s;
     border-bottom: 1px solid rgba(131,174,255,0.06);
   }
   .recent-item:last-child { border-bottom: none; }
   .recent-item:hover { background: rgba(131,174,255,0.06); }
 
-  /* Loading states */
+  /* misc utility */
   .cursor-not-allowed { cursor: not-allowed; }
   .animate-spin { animation: spin 1s linear infinite; }
   @keyframes spin { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
 
-  /* ── DEPENDENCY GRAPH ── */
-  .dep-node circle {
-    cursor: pointer;
-    transition: stroke-width 0.2s;
-  }
+  /* ecosystem / dependency graph */
+  .dep-node circle { cursor: pointer; transition: stroke-width 0.2s; }
   .dep-node:hover circle { stroke-width: 3; }
   .dep-node text { pointer-events: none; user-select: none; }
   .dep-link { stroke: rgba(131,174,255,0.2); stroke-width: 1.5; }
@@ -341,9 +421,11 @@
     box-shadow: 0 8px 24px rgba(0,0,0,0.5);
   }
 
-  /* Back button */
+  /* back button */
   .back-btn {
-    display: inline-flex; align-items: center; gap: 8px;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
     color: #a8abb3;
     font-family: 'Space Grotesk', sans-serif;
     font-size: 13px;
@@ -355,15 +437,16 @@
   }
   .back-btn:hover { color: #83aeff; }
 
-  /* Contributor bar chart */
+  /* contributor bar chart */
   .contrib-bar {
-    height: 24px; border-radius: 4px;
+    height: 24px;
+    border-radius: 4px;
     background: linear-gradient(90deg, rgba(131,174,255,0.6), rgba(131,174,255,0.3));
     transition: width 0.9s cubic-bezier(0.4,0,0.2,1);
     min-width: 4px;
   }
 
-  /* Stat badge in detail page */
+  /* repo detail stat tiles */
   .detail-stat {
     background: rgba(131,174,255,0.06);
     border: 1px solid rgba(131,174,255,0.1);
@@ -372,28 +455,40 @@
     text-align: center;
   }
 
-  /* ── REPO DETAIL ── */
+  /* repo detail tabs */
   .detail-tab {
-    padding: 8px 18px; border-radius: 8px;
-    font-size: 13px; font-weight: 500; font-family: 'Space Grotesk', sans-serif;
-    cursor: pointer; transition: all 0.18s; color: #a8abb3;
-    border: 1px solid transparent; white-space: nowrap;
+    padding: 8px 18px;
+    border-radius: 8px;
+    font-size: 13px;
+    font-weight: 500;
+    font-family: 'Space Grotesk', sans-serif;
+    cursor: pointer;
+    transition: all 0.18s;
+    color: #a8abb3;
+    border: 1px solid transparent;
+    white-space: nowrap;
   }
   .detail-tab:hover { color: #f1f3fc; background: rgba(131,174,255,0.06); }
   .detail-tab.active {
-    color: #83aeff; background: rgba(131,174,255,0.1);
+    color: #83aeff;
+    background: rgba(131,174,255,0.1);
     border-color: rgba(131,174,255,0.2);
   }
+
   .detail-panel { display: none; }
   .detail-panel.active { display: block; }
 
+  /* issue list items */
   .issue-item {
-    display: flex; align-items: flex-start; gap: 12px;
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
     padding: 14px 0;
     border-bottom: 1px solid rgba(131,174,255,0.06);
   }
   .issue-item:last-child { border-bottom: none; }
 
+  /* release cards */
   .release-card {
     background: rgba(131,174,255,0.04);
     border: 1px solid rgba(131,174,255,0.1);
@@ -405,12 +500,14 @@
 </head>
 <body class="selection:bg-primary/30 selection:text-primary">
 
+<!-- error banner -->
 <div id="error-banner" role="alert">
   <span class="material-symbols-outlined text-sm align-middle mr-1" aria-hidden="true">error</span>
   <span id="error-message">Something went wrong.</span>
   <button onclick="App.dismissError()" class="ml-4 underline text-xs" aria-label="Dismiss error">Dismiss</button>
 </div>
 
+<!-- ── LANDING ── -->
 <div id="landing-screen">
   <div class="grid-bg"></div>
   <div class="glow-orb w-[500px] h-[500px] bg-primary" style="top:-15%;left:55%"></div>
@@ -422,6 +519,7 @@
       <span class="text-xs font-label text-on-surface-variant tracking-[0.2em] uppercase">GitHub Profile Visualizer</span>
     </div>
 
+    <!-- GitHub logo -->
     <svg class="w-12 h-12 text-on-surface-variant mb-6 opacity-75" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
       <path fill-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z" clip-rule="evenodd"></path>
     </svg>
@@ -430,9 +528,10 @@
       Explore any<br/><span class="text-primary">GitHub profile.</span>
     </h1>
     <p class="text-on-surface-variant text-lg mb-12 font-body max-w-md leading-relaxed">
-      "Dive into any GitHub profile and discover the developer behind the code."
+      Dive into any GitHub profile and discover the developer behind the code.
     </p>
 
+    <!-- main search -->
     <div class="w-full max-w-lg relative">
       <span class="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-on-surface-variant z-10" aria-hidden="true">terminal</span>
       <input id="search-input-landing" type="text" placeholder="Enter GitHub username..." autocomplete="off" spellcheck="false" aria-label="GitHub username"/>
@@ -442,6 +541,7 @@
       </button>
     </div>
 
+    <!-- example users -->
     <p class="mt-4 text-xs text-on-surface-variant font-label">
       Try:
       <button class="text-primary hover:underline ml-1" onclick="App.search('torvalds')">torvalds</button> ·
@@ -449,6 +549,7 @@
       <button class="text-primary hover:underline" onclick="App.search('sindresorhus')">sindresorhus</button>
     </p>
 
+    <!-- quick nav links -->
     <div class="flex flex-wrap items-center gap-3 mt-8 justify-center">
       <button onclick="App.switchTab('compare')" class="flex items-center gap-2 text-sm text-on-surface-variant hover:text-primary transition-colors font-label border border-outline-variant/30 px-4 py-2 rounded-full hover:border-primary/30">
         <span class="material-symbols-outlined text-sm" aria-hidden="true">compare_arrows</span>
@@ -467,6 +568,7 @@
   </div>
 </div>
 
+<!-- ── NAVBAR ── -->
 <nav id="main-nav" class="fixed top-0 w-full z-50 bg-[#0a0e14]/60 backdrop-blur-md shadow-[0_8px_32px_rgba(131,174,255,0.06)]" style="display:none">
   <div class="flex justify-between items-center w-full px-6 py-3 max-w-screen-2xl mx-auto">
     <div class="flex items-center gap-4">
@@ -483,12 +585,15 @@
         </button>
       </div>
     </div>
+
+    <!-- nav search -->
     <div class="flex items-center gap-4 flex-1 max-w-md mx-6">
       <div class="relative w-full" id="nav-search-wrap">
         <span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-on-surface-variant text-sm" aria-hidden="true">search</span>
         <input id="search-input-nav" aria-label="Search GitHub username"
           class="w-full bg-surface-container-lowest text-on-surface rounded-md py-2 pl-10 pr-4 focus:ring-1 focus:ring-primary border-none text-sm transition-all"
           placeholder="Search GitHub username..." type="text" autocomplete="off"/>
+        <!-- recent profile dropdown -->
         <div id="nav-recent-dropdown" class="recent-dropdown">
           <div class="px-4 py-2 border-b border-outline-variant/10 flex items-center gap-2">
             <span class="material-symbols-outlined text-xs text-on-surface-variant" aria-hidden="true">history</span>
@@ -500,18 +605,21 @@
       <button id="search-btn-nav" aria-label="Search"
         class="bg-primary text-on-primary rounded-md px-4 py-2 text-sm font-semibold hover:bg-primary-fixed active:scale-95 transition-all whitespace-nowrap">Go</button>
     </div>
-    <div class="flex items-center gap-3">
-      <div class="cursor-pointer text-on-surface-variant hover:text-white transition-colors flex-shrink-0" onclick="App.goHome()" aria-label="Home">
-        <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-          <path fill-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z" clip-rule="evenodd"></path>
-        </svg>
-      </div>
+
+    <!-- GitHub icon / home link -->
+    <div class="cursor-pointer text-on-surface-variant hover:text-white transition-colors flex-shrink-0" onclick="App.goHome()" aria-label="Home">
+      <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+        <path fill-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z" clip-rule="evenodd"></path>
+      </svg>
     </div>
   </div>
 </nav>
 
+<!-- ── DASHBOARD ── -->
 <div id="dashboard-screen">
   <main class="pt-24 pb-20 px-6 max-w-screen-2xl mx-auto min-h-screen">
+
+    <!-- profile hero -->
     <section class="mb-12">
       <div class="bg-surface-container-low p-8 rounded-xl border-l-4 border-primary relative overflow-hidden">
         <div class="absolute -top-24 -right-24 w-64 h-64 bg-primary/10 blur-[100px] rounded-full"></div>
@@ -557,6 +665,7 @@
       </div>
     </section>
 
+    <!-- languages + metrics -->
     <section class="grid grid-cols-1 lg:grid-cols-12 gap-8 mb-12">
       <div class="lg:col-span-5 bg-surface-container-low p-8 rounded-xl flex flex-col justify-between">
         <div>
@@ -591,6 +700,7 @@
           </div>
         </div>
 
+        <!-- profile score ring -->
         <div class="mt-6 bg-primary/5 border border-primary/15 rounded-xl p-5">
           <div class="flex items-center gap-5">
             <div class="score-ring" aria-label="Profile score ring">
@@ -616,6 +726,7 @@
       </div>
     </section>
 
+    <!-- ecosystem map -->
     <section class="mb-12">
       <div class="bg-surface-container-low p-8 rounded-xl">
         <div class="flex items-center justify-between mb-6">
@@ -623,9 +734,7 @@
             <h2 class="text-xl font-bold font-headline">Ecosystem Map</h2>
             <p class="text-on-surface-variant text-sm mt-1 font-label">Explore how repositories connect across programming languages</p>
           </div>
-          <div class="flex items-center gap-2">
-            <span class="text-xs font-label text-on-surface-variant">Drag nodes · scroll to zoom</span>
-          </div>
+          <span class="text-xs font-label text-on-surface-variant">Drag nodes · scroll to zoom</span>
         </div>
         <div class="relative">
           <svg id="dep-graph-svg"></svg>
@@ -635,6 +744,7 @@
       </div>
     </section>
 
+    <!-- featured repos -->
     <section class="mb-12">
       <div class="flex justify-between items-end mb-8">
         <div>
@@ -666,6 +776,7 @@
   </footer>
 </div>
 
+<!-- ── COMPARE ── -->
 <div id="compare-screen">
   <main class="pt-24 pb-20 px-6 max-w-screen-2xl mx-auto min-h-screen">
     <section class="mb-10">
@@ -675,6 +786,7 @@
       <p class="text-on-surface-variant text-lg">Side-by-side developer comparison with detailed metrics</p>
     </section>
 
+    <!-- inputs -->
     <section class="mb-10">
       <div class="grid grid-cols-1 md:grid-cols-2 gap-4 max-w-3xl">
         <div class="relative">
@@ -692,6 +804,7 @@
       </button>
     </section>
 
+    <!-- results (hidden until data loads) -->
     <div id="compare-results" style="display:none">
       <section class="grid grid-cols-2 gap-6 mb-8">
         <div id="cmp-card-a" class="bg-surface-container-low p-6 rounded-xl flex flex-col items-center text-center relative overflow-hidden">
@@ -740,6 +853,7 @@
       </section>
     </div>
 
+    <!-- empty state -->
     <div id="compare-empty" class="flex flex-col items-center justify-center py-24 text-center">
       <div class="w-20 h-20 rounded-full bg-primary/5 border border-primary/10 flex items-center justify-center mb-6">
         <span class="material-symbols-outlined text-primary text-3xl" aria-hidden="true">compare_arrows</span>
@@ -750,15 +864,17 @@
   </main>
 </div>
 
+<!-- ── REPO SEARCH ── -->
 <div id="repo-search-screen">
   <main class="pt-24 pb-20 px-6 max-w-screen-2xl mx-auto min-h-screen">
     <section class="mb-10">
       <h1 class="text-4xl font-extrabold tracking-tighter text-on-surface font-headline mb-2">
         Repository <span class="text-primary">Explorer</span>
       </h1>
-      <p class="text-on-surface-variant text-lg">“Search and explore repositories across GitHub.”</p>
+      <p class="text-on-surface-variant text-lg">Search and explore repositories across GitHub.</p>
     </section>
 
+    <!-- search bar + filters -->
     <section class="mb-8">
       <div class="relative max-w-3xl" id="repo-search-wrap">
         <input id="repo-search-input" class="repo-search-input" type="text" placeholder="Search any repo, topic, or keyword…" autocomplete="off" spellcheck="false" aria-label="Search repositories"/>
@@ -766,6 +882,7 @@
           class="absolute right-3 top-1/2 -translate-y-1/2 bg-primary text-on-primary rounded-lg px-5 py-2 text-sm font-semibold hover:bg-primary-fixed active:scale-95 transition-all z-10">
           Search
         </button>
+        <!-- recent repo searches dropdown -->
         <div id="repo-recent-dropdown" class="recent-dropdown">
           <div class="px-4 py-2 border-b border-outline-variant/10 flex items-center gap-2">
             <span class="material-symbols-outlined text-xs text-on-surface-variant" aria-hidden="true">history</span>
@@ -777,22 +894,23 @@
 
       <div class="flex flex-wrap gap-2 mt-5 items-center">
         <span class="text-xs font-label text-on-surface-variant uppercase tracking-wider mr-2">Sort by:</span>
-        <button class="filter-pill active" data-sort="stars" onclick="RepoSearch.setSort('stars', this)">⭐ Stars</button>
-        <button class="filter-pill" data-sort="forks" onclick="RepoSearch.setSort('forks', this)">🔱 Forks</button>
-        <button class="filter-pill" data-sort="updated" onclick="RepoSearch.setSort('updated', this)">🕐 Updated</button>
-        <button class="filter-pill" data-sort="best-match" onclick="RepoSearch.setSort('best-match', this)">✨ Best Match</button>
+        <button class="filter-pill active" data-sort="stars"      onclick="RepoSearch.setSort('stars', this)">⭐ Stars</button>
+        <button class="filter-pill"        data-sort="forks"      onclick="RepoSearch.setSort('forks', this)">🔱 Forks</button>
+        <button class="filter-pill"        data-sort="updated"    onclick="RepoSearch.setSort('updated', this)">🕐 Updated</button>
+        <button class="filter-pill"        data-sort="best-match" onclick="RepoSearch.setSort('best-match', this)">✨ Best Match</button>
         <div class="ml-4 flex flex-wrap gap-2 items-center">
           <span class="text-xs font-label text-on-surface-variant uppercase tracking-wider mr-2">Language:</span>
-          <button class="filter-pill active" data-lang="" onclick="RepoSearch.setLang('', this)">All</button>
-          <button class="filter-pill" data-lang="javascript" onclick="RepoSearch.setLang('javascript', this)">JS</button>
-          <button class="filter-pill" data-lang="typescript" onclick="RepoSearch.setLang('typescript', this)">TS</button>
-          <button class="filter-pill" data-lang="python" onclick="RepoSearch.setLang('python', this)">Python</button>
-          <button class="filter-pill" data-lang="go" onclick="RepoSearch.setLang('go', this)">Go</button>
-          <button class="filter-pill" data-lang="rust" onclick="RepoSearch.setLang('rust', this)">Rust</button>
+          <button class="filter-pill active" data-lang=""           onclick="RepoSearch.setLang('', this)">All</button>
+          <button class="filter-pill"        data-lang="javascript" onclick="RepoSearch.setLang('javascript', this)">JS</button>
+          <button class="filter-pill"        data-lang="typescript" onclick="RepoSearch.setLang('typescript', this)">TS</button>
+          <button class="filter-pill"        data-lang="python"     onclick="RepoSearch.setLang('python', this)">Python</button>
+          <button class="filter-pill"        data-lang="go"         onclick="RepoSearch.setLang('go', this)">Go</button>
+          <button class="filter-pill"        data-lang="rust"       onclick="RepoSearch.setLang('rust', this)">Rust</button>
         </div>
       </div>
     </section>
 
+    <!-- empty / loading / results states -->
     <div id="repo-search-empty" class="flex flex-col items-center justify-center py-24 text-center">
       <div class="w-20 h-20 rounded-full bg-primary/5 border border-primary/10 flex items-center justify-center mb-6">
         <span class="material-symbols-outlined text-primary text-3xl" aria-hidden="true">manage_search</span>
@@ -820,6 +938,7 @@
   </main>
 </div>
 
+<!-- ── REPO DETAIL ── -->
 <div id="repo-detail-screen">
   <main class="pt-24 pb-20 px-6 max-w-screen-2xl mx-auto min-h-screen">
     <div class="mb-6">
@@ -829,6 +948,7 @@
       </button>
     </div>
 
+    <!-- repo header -->
     <section class="bg-surface-container-low p-8 rounded-xl border-l-4 border-tertiary relative overflow-hidden mb-8">
       <div class="absolute -top-20 -right-20 w-56 h-56 bg-tertiary/10 blur-[80px] rounded-full pointer-events-none"></div>
       <div class="relative">
@@ -853,6 +973,7 @@
       </div>
     </section>
 
+    <!-- detail tabs -->
     <div class="flex items-center gap-1 bg-surface-container-lowest/60 rounded-xl p-1 mb-8 w-fit overflow-x-auto">
       <button class="detail-tab active" onclick="RepoDetail.switchTab('overview')" data-detail-tab="overview">
         <span class="material-symbols-outlined text-sm align-middle mr-1" aria-hidden="true">info</span>Overview
@@ -869,6 +990,7 @@
       </button>
     </div>
 
+    <!-- overview panel -->
     <div class="detail-panel active" id="detail-panel-overview">
       <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
         <div class="lg:col-span-2 bg-surface-container-low p-6 rounded-xl">
@@ -882,6 +1004,7 @@
       </div>
     </div>
 
+    <!-- issues panel -->
     <div class="detail-panel" id="detail-panel-issues">
       <div class="bg-surface-container-low rounded-xl overflow-hidden">
         <div class="p-6 border-b border-outline-variant/10 flex items-center justify-between">
@@ -897,6 +1020,7 @@
       </div>
     </div>
 
+    <!-- releases panel -->
     <div class="detail-panel" id="detail-panel-releases">
       <div id="rd-releases-list"></div>
       <div id="rd-releases-loading" class="space-y-3">
@@ -905,6 +1029,7 @@
       </div>
     </div>
 
+    <!-- contributors panel -->
     <div class="detail-panel" id="detail-panel-contributors">
       <div class="bg-surface-container-low p-6 rounded-xl">
         <h3 class="text-lg font-bold font-headline mb-6">Top Contributors</h3>
@@ -926,24 +1051,34 @@
   // ── 1. UTILITIES ───────────────────────────────────────────
   const Utils = {
     LANG_COLORS: {
-      JavaScript:'#f7df1e', TypeScript:'#3178c6', Python:'#3572A5', Rust:'#dea584',
-      Go:'#00ADD8', Java:'#b07219', 'C++':'#f34b7d', C:'#555555', 'C#':'#178600',
-      Ruby:'#701516', PHP:'#4F5D95', Swift:'#F05138', Kotlin:'#A97BFF', Dart:'#00B4AB',
-      HTML:'#e34c26', CSS:'#563d7c', Shell:'#89e051', Vue:'#41b883', Svelte:'#ff3e00',
-      Scala:'#c22d40', Haskell:'#5e5086', Elixir:'#6e4a7e', 'Jupyter Notebook':'#DA5B0B',
-      R:'#198CE7', SCSS:'#c6538c', Makefile:'#427819', Dockerfile:'#384d54', YAML:'#cb171e', default:'#83aeff'
+      JavaScript: '#f7df1e', TypeScript: '#3178c6', Python: '#3572A5', Rust: '#dea584',
+      Go: '#00ADD8', Java: '#b07219', 'C++': '#f34b7d', C: '#555555', 'C#': '#178600',
+      Ruby: '#701516', PHP: '#4F5D95', Swift: '#F05138', Kotlin: '#A97BFF', Dart: '#00B4AB',
+      HTML: '#e34c26', CSS: '#563d7c', Shell: '#89e051', Vue: '#41b883', Svelte: '#ff3e00',
+      Scala: '#c22d40', Haskell: '#5e5086', Elixir: '#6e4a7e', 'Jupyter Notebook': '#DA5B0B',
+      R: '#198CE7', SCSS: '#c6538c', Makefile: '#427819', Dockerfile: '#384d54',
+      YAML: '#cb171e', default: '#83aeff'
     },
-    getLangColor(l) { return this.LANG_COLORS[l] || this.LANG_COLORS.default; },
+
+    getLangColor(lang) {
+      return this.LANG_COLORS[lang] || this.LANG_COLORS.default;
+    },
+
     formatNum(n) {
       if (n === null || n === undefined) return '0';
       n = Number(n);
-      return n >= 1000 ? (n/1000).toFixed(1).replace(/\.0$/,'')+'k' : String(n);
+      return n >= 1000 ? (n / 1000).toFixed(1).replace(/\.0$/, '') + 'k' : String(n);
     },
+
     formatDate(str) {
       if (!str) return '';
-      try { return new Date(str).toLocaleDateString('en-US', { year:'numeric', month:'short', day:'numeric' }); }
-      catch { return ''; }
+      try {
+        return new Date(str).toLocaleDateString('en-US', { year: 'numeric', month: 'short', day: 'numeric' });
+      } catch {
+        return '';
+      }
     },
+
     escapeHTML(str) {
       if (str === null || str === undefined) return '';
       return String(str)
@@ -953,6 +1088,7 @@
         .replace(/"/g, '&quot;')
         .replace(/'/g, '&#039;');
     },
+
     sanitizeUrl(url) {
       if (!url) return '#';
       try {
@@ -960,11 +1096,14 @@
         if (u.protocol === 'http:') u.protocol = 'https:';
         if (u.protocol !== 'https:') return '#';
         return u.href;
-      } catch { return '#'; }
+      } catch {
+        return '#';
+      }
     },
+
     calcScore(user, totalStars, totalForks, ownRepoCount, accountAge) {
-      const impact = totalStars + (totalForks * 1.5);
-      const quality = totalStars / Math.max(ownRepoCount, 1);
+      const impact      = totalStars + (totalForks * 1.5);
+      const quality     = totalStars / Math.max(ownRepoCount, 1);
       const impactScore  = 40 * (1 - Math.exp(-impact / 1500));
       const reachScore   = 25 * (1 - Math.exp(-user.followers / 300));
       const prodScore    = 15 * (1 - Math.exp(-ownRepoCount / 30));
@@ -972,6 +1111,8 @@
       const ageScore     = Math.min(10, accountAge);
       return Math.round(impactScore + reachScore + prodScore + qualityScore + ageScore);
     },
+
+    // wait two frames so CSS transitions actually fire
     nextFrame(cb) { requestAnimationFrame(() => requestAnimationFrame(cb)); }
   };
 
@@ -987,8 +1128,13 @@
     MAX: 3,
     KEY_PROFILES: 'da_recent_profiles',
     KEY_REPOS: 'da_recent_repos',
-    _get(key) { try { return JSON.parse(localStorage.getItem(key) || '[]'); } catch { return []; } },
-    _set(key, arr) { try { localStorage.setItem(key, JSON.stringify(arr)); } catch {} },
+
+    _get(key) {
+      try { return JSON.parse(localStorage.getItem(key) || '[]'); } catch { return []; }
+    },
+    _set(key, arr) {
+      try { localStorage.setItem(key, JSON.stringify(arr)); } catch {}
+    },
 
     addProfile(username) {
       let list = this._get(this.KEY_PROFILES).filter(u => u.toLowerCase() !== username.toLowerCase());
@@ -996,13 +1142,16 @@
       this._set(this.KEY_PROFILES, list.slice(0, this.MAX));
       this.renderProfileDropdown();
     },
+
     getProfiles() { return this._get(this.KEY_PROFILES); },
+
     addRepo(query) {
       let list = this._get(this.KEY_REPOS).filter(q => q.toLowerCase() !== query.toLowerCase());
       list.unshift(query);
       this._set(this.KEY_REPOS, list.slice(0, this.MAX));
       this.renderRepoDropdown();
     },
+
     getRepos() { return this._get(this.KEY_REPOS); },
 
     renderProfileDropdown() {
@@ -1022,6 +1171,7 @@
           </button>
         </div>`).join('');
     },
+
     renderRepoDropdown() {
       const list = this.getRepos();
       const el = document.getElementById('repo-recent-list');
@@ -1039,30 +1189,35 @@
           </button>
         </div>`).join('');
     },
+
     removeProfile(u) {
       this._set(this.KEY_PROFILES, this._get(this.KEY_PROFILES).filter(x => x.toLowerCase() !== u.toLowerCase()));
       this.renderProfileDropdown();
     },
+
     removeRepo(q) {
       this._set(this.KEY_REPOS, this._get(this.KEY_REPOS).filter(x => x.toLowerCase() !== q.toLowerCase()));
       this.renderRepoDropdown();
     },
+
     showProfileDropdown() {
       if (!this.getProfiles().length) return;
       this.renderProfileDropdown();
       const dd = document.getElementById('nav-recent-dropdown');
       if (dd) dd.classList.add('show');
     },
+
     showRepoDropdown() {
       if (!this.getRepos().length) return;
       this.renderRepoDropdown();
       const dd = document.getElementById('repo-recent-dropdown');
       if (dd) dd.classList.add('show');
     },
+
     hideAll() {
-      const nav = document.getElementById('nav-recent-dropdown');
+      const nav  = document.getElementById('nav-recent-dropdown');
       const repo = document.getElementById('repo-recent-dropdown');
-      if (nav) nav.classList.remove('show');
+      if (nav)  nav.classList.remove('show');
       if (repo) repo.classList.remove('show');
     }
   };
@@ -1073,6 +1228,7 @@
       window.addEventListener('popstate', e => this.handlePopState(e));
       this.parseUrl();
     },
+
     navigate(view, params = {}, pushState = true) {
       if (view === 'landing') {
         if (pushState) history.pushState({ view: 'landing' }, '', window.location.pathname);
@@ -1082,9 +1238,9 @@
       if (pushState) {
         const url = new URL(window.location);
         url.search = '';
-        if (view === 'dashboard' && params.user) url.searchParams.set('user', params.user);
-        if (view === 'compare' && params.a && params.b) { url.searchParams.set('a', params.a); url.searchParams.set('b', params.b); }
-        if (view === 'repo-search' && params.q) url.searchParams.set('q', params.q);
+        if (view === 'dashboard'   && params.user)               url.searchParams.set('user', params.user);
+        if (view === 'compare'     && params.a && params.b)      { url.searchParams.set('a', params.a); url.searchParams.set('b', params.b); }
+        if (view === 'repo-search' && params.q)                  url.searchParams.set('q', params.q);
         if (view === 'repo-detail' && params.owner && params.repo) {
           url.searchParams.set('owner', params.owner);
           url.searchParams.set('repo', params.repo);
@@ -1093,9 +1249,13 @@
       }
       UI.switchView(view);
     },
+
     handlePopState(e) {
       const state = e.state;
-      if (!state || state.view === 'landing') { UI.transition(() => UI.switchView('landing')); return; }
+      if (!state || state.view === 'landing') {
+        UI.transition(() => UI.switchView('landing'));
+        return;
+      }
       if (state.view === 'dashboard' && state.user) {
         API.fetchProfile(state.user, false);
       } else if (state.view === 'compare' && state.a && state.b) {
@@ -1103,7 +1263,8 @@
         document.getElementById('compare-input-b').value = state.b;
         API.executeCompare(state.a, state.b, false);
       } else if (state.view === 'compare') {
-        UI.transition(() => UI.switchView('compare')); App.resetCompare();
+        UI.transition(() => UI.switchView('compare'));
+        App.resetCompare();
       } else if (state.view === 'repo-search') {
         UI.transition(() => UI.switchView('repo-search'));
         if (state.q) RepoSearch.searchQuery(state.q, false);
@@ -1114,6 +1275,7 @@
         UI.transition(() => UI.switchView(state.view));
       }
     },
+
     parseUrl() {
       const params = new URLSearchParams(window.location.search);
       if (params.has('owner') && params.has('repo')) {
@@ -1130,9 +1292,11 @@
         UI.switchView('repo-search');
         RepoSearch.searchQuery(params.get('q'), false);
       } else if (params.get('view') === 'repo-search') {
-        UI.switchView('repo-search'); RepoSearch.reset();
+        UI.switchView('repo-search');
+        RepoSearch.reset();
       } else if (params.get('view') === 'compare') {
-        UI.switchView('compare'); App.resetCompare();
+        UI.switchView('compare');
+        App.resetCompare();
       } else {
         UI.switchView('landing');
       }
@@ -1145,9 +1309,10 @@
       if (!document.startViewTransition) { cb(); return; }
       try { document.startViewTransition(cb); } catch { cb(); }
     },
+
     showError(msg) {
       const banner = document.getElementById('error-banner');
-      const msgEl = document.getElementById('error-message');
+      const msgEl  = document.getElementById('error-message');
       if (!banner || !msgEl) return;
       msgEl.textContent = msg;
       banner.style.display = 'block';
@@ -1155,22 +1320,26 @@
       UI._errorTimer = setTimeout(() => { banner.style.display = 'none'; }, 7000);
     },
     _errorTimer: null,
+
     switchView(view) {
-      const ALL_VIEWS = ['landing','dashboard','compare','repo-search','repo-detail'];
+      const ALL_VIEWS = ['landing', 'dashboard', 'compare', 'repo-search', 'repo-detail'];
       ALL_VIEWS.forEach(v => {
         const el = document.getElementById(v === 'landing' ? 'landing-screen' : v + '-screen');
         if (el) el.style.display = 'none';
       });
       const target = document.getElementById(view === 'landing' ? 'landing-screen' : view + '-screen');
       if (target) target.style.display = view === 'landing' ? 'flex' : 'block';
+
       const nav = document.getElementById('main-nav');
       if (nav) nav.style.display = view !== 'landing' ? 'block' : 'none';
+
       if (view !== 'landing') {
-        ['dashboard','compare','repo-search'].forEach(t => {
+        ['dashboard', 'compare', 'repo-search'].forEach(t => {
           const el = document.getElementById('tab-' + t);
           if (el) el.classList.toggle('active', view === t);
         });
       }
+
       window.scrollTo(0, 0);
       RecentSearches.hideAll();
     },
@@ -1181,11 +1350,11 @@
       setEl('profile-name',  '<div class="skeleton h-12 w-3/4 rounded mt-2 mb-2"></div>');
       setEl('profile-login', '<div class="skeleton h-5 w-1/3 rounded mb-3"></div>');
       setEl('profile-bio',   '<div class="skeleton h-5 w-full rounded mb-1"></div><div class="skeleton h-5 w-4/5 rounded"></div>');
-      ['profile-location','profile-website','profile-company','profile-created'].forEach(id => {
+      ['profile-location', 'profile-website', 'profile-company', 'profile-created'].forEach(id => {
         const el = document.getElementById(id);
         if (el) { el.classList.add('hidden'); el.classList.remove('flex'); }
       });
-      ['stat-followers','stat-stars','stat-repos','stat-following'].forEach(id => {
+      ['stat-followers', 'stat-stars', 'stat-repos', 'stat-following'].forEach(id => {
         setEl(id, '<div class="skeleton h-10 w-20 rounded mt-1"></div>');
       });
       const ring = document.getElementById('score-ring-fill');
@@ -1196,7 +1365,6 @@
       setEl('score-breakdown', '<div class="skeleton h-6 w-full rounded mb-2"></div><div class="skeleton h-6 w-full rounded"></div>');
       setEl('languages-container', '<div class="skeleton h-4 w-full rounded mb-4"></div><div class="skeleton h-4 w-4/5 rounded mb-4"></div><div class="skeleton h-4 w-3/5 rounded"></div>');
       setEl('repos-grid', Array(6).fill('<div class="bg-surface-container p-6 rounded-xl"><div class="skeleton h-5 w-1/2 rounded mb-4"></div><div class="skeleton h-4 w-full rounded mb-2"></div><div class="skeleton h-4 w-3/4 rounded mb-6"></div><div class="skeleton h-3 w-16 rounded"></div></div>').join(''));
-      
       const svg = document.getElementById('dep-graph-svg');
       if (svg) svg.innerHTML = '';
       const legend = document.getElementById('dep-legend');
@@ -1205,15 +1373,15 @@
 
     setCompareSkeletons() {
       const setEl = (id, html) => { const el = document.getElementById(id); if (el) el.innerHTML = html; };
-      ['a','b'].forEach(side => {
+      ['a', 'b'].forEach(side => {
         const av = document.getElementById('cmp-avatar-' + side);
         if (av) av.src = 'data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=';
-        setEl('cmp-name-' + side,  '<div class="skeleton h-6 w-3/4 mx-auto rounded mb-2"></div>');
+        setEl('cmp-name-'  + side, '<div class="skeleton h-6 w-3/4 mx-auto rounded mb-2"></div>');
         setEl('cmp-login-' + side, '<div class="skeleton h-4 w-1/2 mx-auto rounded"></div>');
         setEl('cmp-score-' + side + '-wrap', '<div class="skeleton h-10 w-24 mx-auto rounded mt-3"></div>');
       });
       setEl('compare-stat-rows', Array(8).fill('<div class="px-6 py-5"><div class="skeleton h-3 w-full rounded mb-3"></div><div class="grid grid-cols-2 gap-4"><div><div class="skeleton h-3 w-16 rounded mb-1.5"></div><div class="skeleton h-2 w-full rounded"></div></div><div><div class="skeleton h-3 w-16 rounded mb-1.5"></div><div class="skeleton h-2 w-full rounded"></div></div></div></div>').join(''));
-      ['a','b'].forEach(side => {
+      ['a', 'b'].forEach(side => {
         setEl('cmp-lang-title-' + side, '<div class="skeleton h-4 w-32 rounded"></div>');
         setEl('cmp-langs-' + side, Array(4).fill('<div class="mb-3"><div class="flex justify-between mb-1"><div class="skeleton h-3 w-20 rounded"></div><div class="skeleton h-3 w-8 rounded"></div></div><div class="skeleton h-1.5 w-full rounded"></div></div>').join(''));
       });
@@ -1228,6 +1396,7 @@
       setTxt('profile-name',  escapedName);
       setTxt('profile-login', '@' + Utils.escapeHTML(user.login));
       setTxt('profile-bio',   Utils.escapeHTML(user.bio || 'No bio provided.'));
+
       const gl = document.getElementById('github-link');
       if (gl) gl.href = Utils.escapeHTML(user.html_url);
       const grl = document.getElementById('github-repos-link');
@@ -1235,7 +1404,8 @@
       const sn = document.getElementById('search-input-nav');
       if (sn) sn.value = user.login;
 
-      ['profile-location','profile-website','profile-company','profile-created'].forEach(id => {
+      // hide all meta fields first, then show what we have
+      ['profile-location', 'profile-website', 'profile-company', 'profile-created'].forEach(id => {
         const el = document.getElementById(id);
         if (el) { el.classList.add('hidden'); el.classList.remove('flex'); }
       });
@@ -1250,7 +1420,7 @@
         if (el) { el.classList.remove('hidden'); el.classList.add('flex'); }
         const link = document.getElementById('profile-website-link');
         if (link) {
-          link.textContent = user.blog.replace(/^https?:\/\//,'').split('/')[0];
+          link.textContent = user.blog.replace(/^https?:\/\//, '').split('/')[0];
           link.href = Utils.sanitizeUrl(user.blog);
         }
       }
@@ -1275,64 +1445,68 @@
       setTxt('stat-repos',     Utils.formatNum(user.public_repos));
       setTxt('stat-following', Utils.formatNum(user.following));
 
+      // contextual labels
       const fLabel = document.getElementById('stat-followers-label');
       if (fLabel) {
-        if (user.followers === 0) fLabel.textContent = 'Just getting started';
-        else if (user.followers < 10) fLabel.textContent = user.followers + ' people follow this dev';
-        else if (user.followers < 100) fLabel.textContent = 'Growing community presence';
-        else if (user.followers < 500) fLabel.textContent = 'Notable open-source contributor';
-        else if (user.followers < 2000) fLabel.textContent = 'Established GitHub developer';
-        else if (user.followers < 10000) fLabel.textContent = 'Top-tier GitHub influencer';
-        else fLabel.textContent = 'Elite — top 0.1% of GitHub';
+        const f = user.followers;
+        if (f === 0)           fLabel.textContent = 'Just getting started';
+        else if (f < 10)       fLabel.textContent = f + ' people follow this dev';
+        else if (f < 100)      fLabel.textContent = 'Growing community presence';
+        else if (f < 500)      fLabel.textContent = 'Notable open-source contributor';
+        else if (f < 2000)     fLabel.textContent = 'Established GitHub developer';
+        else if (f < 10000)    fLabel.textContent = 'Top-tier GitHub influencer';
+        else                   fLabel.textContent = 'Elite — top 0.1% of GitHub';
       }
 
       const sLabel = document.getElementById('stat-stars-label');
       if (sLabel) {
-        if (totalStars === 0) sLabel.textContent = 'No starred repos yet';
-        else if (totalStars < 10) sLabel.textContent = totalStars + ' total stars earned';
-        else if (totalStars < 100) sLabel.textContent = 'Building an open-source footprint';
-        else if (totalStars < 500) sLabel.textContent = 'Solid community traction';
-        else if (totalStars < 2000) sLabel.textContent = 'Strong open-source impact';
+        if (totalStars === 0)        sLabel.textContent = 'No starred repos yet';
+        else if (totalStars < 10)    sLabel.textContent = totalStars + ' total stars earned';
+        else if (totalStars < 100)   sLabel.textContent = 'Building an open-source footprint';
+        else if (totalStars < 500)   sLabel.textContent = 'Solid community traction';
+        else if (totalStars < 2000)  sLabel.textContent = 'Strong open-source impact';
         else if (totalStars < 10000) sLabel.textContent = 'Highly impactful repositories';
-        else sLabel.textContent = 'Legendary open-source impact';
+        else                         sLabel.textContent = 'Legendary open-source impact';
       }
 
       const rLabel = document.getElementById('stat-repos-label');
       if (rLabel) {
-        if (ownRepoCount === 0) rLabel.textContent = 'No original repos yet';
-        else if (ownRepoCount < 5) rLabel.textContent = ownRepoCount + ' original repos';
-        else if (ownRepoCount < 20) rLabel.textContent = 'Active builder';
-        else if (ownRepoCount < 50) rLabel.textContent = 'Prolific — ' + ownRepoCount + ' original projects';
-        else rLabel.textContent = 'Power contributor — ' + ownRepoCount + ' repos';
+        if (ownRepoCount === 0)       rLabel.textContent = 'No original repos yet';
+        else if (ownRepoCount < 5)    rLabel.textContent = ownRepoCount + ' original repos';
+        else if (ownRepoCount < 20)   rLabel.textContent = 'Active builder';
+        else if (ownRepoCount < 50)   rLabel.textContent = 'Prolific — ' + ownRepoCount + ' original projects';
+        else                          rLabel.textContent = 'Power contributor — ' + ownRepoCount + ' repos';
       }
 
       const foLabel = document.getElementById('stat-following-label');
       if (foLabel) {
         const ratio = user.followers > 0 ? (user.followers / Math.max(user.following, 1)).toFixed(1) : 0;
-        if (user.following === 0) foLabel.textContent = 'Not following anyone yet';
+        if (user.following === 0)   foLabel.textContent = 'Not following anyone yet';
         else if (user.following < 10) foLabel.textContent = 'Selective networker';
-        else if (ratio > 5) foLabel.textContent = ratio + '× follower/following ratio';
-        else if (ratio > 2) foLabel.textContent = 'Well-networked developer';
-        else foLabel.textContent = 'Follows ' + user.following + ' developers';
+        else if (ratio > 5)         foLabel.textContent = ratio + '× follower/following ratio';
+        else if (ratio > 2)         foLabel.textContent = 'Well-networked developer';
+        else                        foLabel.textContent = 'Follows ' + user.following + ' developers';
       }
     },
 
     renderScore(user, totalStars, totalForks, ownRepoCount, accountAge) {
       const components = [
-        { label:'Global Impact',    icon:'public',         raw:totalStars+(totalForks*1.5), score:40*(1-Math.exp(-(totalStars+(totalForks*1.5))/1500)), max:40 },
-        { label:'Community Reach',  icon:'people',         raw:user.followers,              score:25*(1-Math.exp(-user.followers/300)),                  max:25 },
-        { label:'Productivity',     icon:'inventory_2',    raw:ownRepoCount,                score:15*(1-Math.exp(-ownRepoCount/30)),                     max:15 },
-        { label:'Code Quality',     icon:'military_tech',  raw:totalStars/Math.max(ownRepoCount,1), score:10*(1-Math.exp(-(totalStars/Math.max(ownRepoCount,1))/40)), max:10 },
-        { label:'Account Maturity', icon:'calendar_month', raw:accountAge,                  score:Math.min(10, accountAge),                             max:10 }
+        { label: 'Global Impact',    icon: 'public',         raw: totalStars + (totalForks * 1.5), score: 40 * (1 - Math.exp(-(totalStars + (totalForks * 1.5)) / 1500)), max: 40 },
+        { label: 'Community Reach',  icon: 'people',         raw: user.followers,                  score: 25 * (1 - Math.exp(-user.followers / 300)),                      max: 25 },
+        { label: 'Productivity',     icon: 'inventory_2',    raw: ownRepoCount,                    score: 15 * (1 - Math.exp(-ownRepoCount / 30)),                         max: 15 },
+        { label: 'Code Quality',     icon: 'military_tech',  raw: totalStars / Math.max(ownRepoCount, 1), score: 10 * (1 - Math.exp(-(totalStars / Math.max(ownRepoCount, 1)) / 40)), max: 10 },
+        { label: 'Account Maturity', icon: 'calendar_month', raw: accountAge,                      score: Math.min(10, accountAge),                                        max: 10 }
       ];
-      const totalScore = Math.round(components.reduce((s,c) => s+c.score, 0));
-      let grade, gradeBg;
-      if (totalScore >= 85) { grade='S'; gradeBg='bg-secondary/10 text-secondary'; }
-      else if (totalScore >= 65) { grade='A'; gradeBg='bg-primary/10 text-primary'; }
-      else if (totalScore >= 40) { grade='B'; gradeBg='bg-tertiary/10 text-tertiary'; }
-      else { grade='C'; gradeBg='bg-outline-variant/20 text-on-surface-variant'; }
 
-      const gradeDesc = { S:'Elite developer profile', A:'Strong, impactful presence', B:'Growing community footprint', C:'Early-stage developer' }[grade];
+      const totalScore = Math.round(components.reduce((s, c) => s + c.score, 0));
+      let grade, gradeBg;
+      if      (totalScore >= 85) { grade = 'S'; gradeBg = 'bg-secondary/10 text-secondary'; }
+      else if (totalScore >= 65) { grade = 'A'; gradeBg = 'bg-primary/10 text-primary'; }
+      else if (totalScore >= 40) { grade = 'B'; gradeBg = 'bg-tertiary/10 text-tertiary'; }
+      else                       { grade = 'C'; gradeBg = 'bg-outline-variant/20 text-on-surface-variant'; }
+
+      const gradeDesc = { S: 'Elite developer profile', A: 'Strong, impactful presence', B: 'Growing community footprint', C: 'Early-stage developer' }[grade];
+
       const sv = document.getElementById('score-value');
       if (sv) sv.textContent = totalScore;
       const gradeEl = document.getElementById('score-grade');
@@ -1341,8 +1515,8 @@
       if (sl) sl.textContent = gradeDesc;
 
       const circumference = 188.5;
-      const offset = circumference - (totalScore/100)*circumference;
-      const ringColors = { S:'#97f999', A:'#83aeff', B:'#ffa366', C:'#a8abb3' };
+      const offset = circumference - (totalScore / 100) * circumference;
+      const ringColors = { S: '#97f999', A: '#83aeff', B: '#ffa366', C: '#a8abb3' };
       Utils.nextFrame(() => {
         const ring = document.getElementById('score-ring-fill');
         if (ring) { ring.style.strokeDashoffset = offset; ring.style.stroke = ringColors[grade]; }
@@ -1350,26 +1524,29 @@
 
       const sb = document.getElementById('score-breakdown');
       if (sb) {
-        sb.innerHTML = components.slice(0,3).map(c => {
-          const pct = Math.round((c.score/c.max)*100);
+        sb.innerHTML = components.slice(0, 3).map(c => {
+          const pct = Math.round((c.score / c.max) * 100);
           const barColor = pct >= 70 ? '#97f999' : pct >= 40 ? '#83aeff' : '#ffa366';
-          return '<div class="score-pill">' +
-            '<div class="flex items-center gap-1.5 text-on-surface-variant">' +
-              '<span class="material-symbols-outlined" style="font-size:12px" aria-hidden="true">' + c.icon + '</span>' + Utils.escapeHTML(c.label) +
-            '</div>' +
-            '<div class="flex items-center gap-2">' +
-              '<div style="width:48px;height:4px;background:rgba(255,255,255,0.08);border-radius:2px;overflow:hidden">' +
-                '<div style="width:' + pct + '%;height:100%;background:' + barColor + ';border-radius:2px"></div>' +
+          return (
+            '<div class="score-pill">' +
+              '<div class="flex items-center gap-1.5 text-on-surface-variant">' +
+                '<span class="material-symbols-outlined" style="font-size:12px" aria-hidden="true">' + c.icon + '</span>' +
+                Utils.escapeHTML(c.label) +
               '</div>' +
-              '<span style="color:' + barColor + ';font-weight:700;font-size:11px">' + pct + '%</span>' +
-            '</div>' +
-          '</div>';
+              '<div class="flex items-center gap-2">' +
+                '<div style="width:48px;height:4px;background:rgba(255,255,255,0.08);border-radius:2px;overflow:hidden">' +
+                  '<div style="width:' + pct + '%;height:100%;background:' + barColor + ';border-radius:2px"></div>' +
+                '</div>' +
+                '<span style="color:' + barColor + ';font-weight:700;font-size:11px">' + pct + '%</span>' +
+              '</div>' +
+            '</div>'
+          );
         }).join('');
       }
     },
 
     renderLanguages(topLangs, ownRepoCount, totalRepoCount) {
-      const c = document.getElementById('languages-container');
+      const c    = document.getElementById('languages-container');
       const meta = document.getElementById('languages-meta');
       if (!c) return;
       if (!topLangs.length) {
@@ -1377,11 +1554,12 @@
         if (meta) meta.textContent = 'No original repositories found.';
         return;
       }
-      c.innerHTML = topLangs.map(({lang, pct}) =>
+      c.innerHTML = topLangs.map(({ lang, pct }) =>
         '<div class="group">' +
           '<div class="flex justify-between items-end mb-2">' +
             '<span class="text-sm font-medium text-on-surface flex items-center gap-2">' +
-              '<span class="w-2 h-2 rounded-full flex-shrink-0" style="background:' + Utils.getLangColor(lang) + '"></span>' + Utils.escapeHTML(lang) +
+              '<span class="w-2 h-2 rounded-full flex-shrink-0" style="background:' + Utils.getLangColor(lang) + '"></span>' +
+              Utils.escapeHTML(lang) +
             '</span>' +
             '<span class="text-xs font-label text-on-surface-variant">' + pct + '%</span>' +
           '</div>' +
@@ -1390,15 +1568,17 @@
           '</div>' +
         '</div>'
       ).join('');
+
       const forkedNote = totalRepoCount > ownRepoCount ? ' (forks excluded)' : '';
       if (meta) meta.textContent = 'Based on ' + ownRepoCount + ' original repositories' + forkedNote + '.';
+
       Utils.nextFrame(() => {
         document.querySelectorAll('.lang-bar').forEach(b => { b.style.width = b.dataset.width + '%'; });
       });
     },
 
     renderRepoCards(topRepos, totalRepoCount) {
-      const g = document.getElementById('repos-grid');
+      const g        = document.getElementById('repos-grid');
       const subtitle = document.getElementById('repos-subtitle');
       if (!g) return;
       if (!topRepos.length) {
@@ -1410,14 +1590,13 @@
           ? 'Showing all ' + topRepos.length + ' repositor' + (topRepos.length === 1 ? 'y' : 'ies') + '.'
           : 'Top 6 repositories by stars — ' + totalRepoCount + ' total.';
       }
-
       g.innerHTML = topRepos.map(repo => {
         const topics = (repo.topics || []).slice(0, 4);
         const topicsHtml = topics.length
           ? '<div class="flex flex-wrap gap-1 mt-3">' + topics.map(t => '<span class="topic-chip">' + Utils.escapeHTML(t) + '</span>').join('') + '</div>'
           : '';
         const ownerLogin = Utils.escapeHTML(repo.owner ? repo.owner.login : '');
-        const repoName = Utils.escapeHTML(repo.name);
+        const repoName   = Utils.escapeHTML(repo.name);
         return (
           '<div class="bg-surface-container p-6 rounded-xl hover:bg-surface-bright transition-all transform hover:-translate-y-1 cursor-pointer" ' +
             'onclick="RepoDetail.open(\'' + ownerLogin + '\',\'' + repoName + '\',true)" ' +
@@ -1452,7 +1631,7 @@
     },
 
     renderCompare(a, b) {
-      ['a','b'].forEach(side => {
+      ['a', 'b'].forEach(side => {
         const d = side === 'a' ? a : b;
         const av = document.getElementById('cmp-avatar-' + side);
         if (av) { av.src = d.user.avatar_url; av.alt = 'Profile of ' + Utils.escapeHTML(d.user.login); }
@@ -1464,36 +1643,41 @@
         if (lk) lk.href = d.user.html_url;
 
         const grade = d.score >= 85 ? 'S' : d.score >= 65 ? 'A' : d.score >= 40 ? 'B' : 'C';
-        const gradeColors = { S:'text-secondary bg-secondary/10', A:'text-primary bg-primary/10', B:'text-tertiary bg-tertiary/10', C:'text-on-surface-variant bg-outline-variant/10' };
+        const gradeColors = {
+          S: 'text-secondary bg-secondary/10',
+          A: 'text-primary bg-primary/10',
+          B: 'text-tertiary bg-tertiary/10',
+          C: 'text-on-surface-variant bg-outline-variant/10'
+        };
         const sw = document.getElementById('cmp-score-' + side + '-wrap');
         if (sw) sw.innerHTML =
           '<div class="flex items-center gap-2">' +
-            '<span class="text-2xl font-black font-headline ' + (side==='a'?'text-primary':'text-tertiary') + '">' + d.score + '</span>' +
+            '<span class="text-2xl font-black font-headline ' + (side === 'a' ? 'text-primary' : 'text-tertiary') + '">' + d.score + '</span>' +
             '<span class="text-xs font-label font-bold px-2 py-0.5 rounded-full ' + gradeColors[grade] + '">Grade ' + grade + '</span>' +
           '</div>' +
           '<p class="text-xs text-on-surface-variant font-label mt-1">Profile Score</p>';
       });
 
       const stats = [
-        { label:'Followers',    va:a.user.followers,    vb:b.user.followers,    fmt:Utils.formatNum.bind(Utils), higherBetter:true },
-        { label:'Total Stars',  va:a.totalStars,        vb:b.totalStars,        fmt:Utils.formatNum.bind(Utils), higherBetter:true },
-        { label:'Public Repos', va:a.user.public_repos, vb:b.user.public_repos, fmt:Utils.formatNum.bind(Utils), higherBetter:true },
-        { label:'Own Repos',    va:a.ownRepos.length,   vb:b.ownRepos.length,   fmt:v=>String(v),                higherBetter:true },
-        { label:'Total Forks',  va:a.totalForks,        vb:b.totalForks,        fmt:Utils.formatNum.bind(Utils), higherBetter:true },
-        { label:'Following',    va:a.user.following,    vb:b.user.following,    fmt:Utils.formatNum.bind(Utils), higherBetter:false },
-        { label:'Account Age',  va:a.accountAge,        vb:b.accountAge,        fmt:v=>v.toFixed(1)+'y',         higherBetter:true },
-        { label:'Profile Score',va:a.score,             vb:b.score,             fmt:v=>String(v),                higherBetter:true },
+        { label: 'Followers',    va: a.user.followers,    vb: b.user.followers,    fmt: Utils.formatNum.bind(Utils), higherBetter: true  },
+        { label: 'Total Stars',  va: a.totalStars,        vb: b.totalStars,        fmt: Utils.formatNum.bind(Utils), higherBetter: true  },
+        { label: 'Public Repos', va: a.user.public_repos, vb: b.user.public_repos, fmt: v => String(v),             higherBetter: true  },
+        { label: 'Own Repos',    va: a.ownRepos.length,   vb: b.ownRepos.length,   fmt: v => String(v),             higherBetter: true  },
+        { label: 'Total Forks',  va: a.totalForks,        vb: b.totalForks,        fmt: Utils.formatNum.bind(Utils), higherBetter: true  },
+        { label: 'Following',    va: a.user.following,    vb: b.user.following,    fmt: Utils.formatNum.bind(Utils), higherBetter: false },
+        { label: 'Account Age',  va: a.accountAge,        vb: b.accountAge,        fmt: v => v.toFixed(1) + 'y',    higherBetter: true  },
+        { label: 'Profile Score',va: a.score,             vb: b.score,             fmt: v => String(v),             higherBetter: true  }
       ];
 
       const csr = document.getElementById('compare-stat-rows');
       if (csr) {
         csr.innerHTML = stats.map(stat => {
           const maxVal = Math.max(stat.va, stat.vb, 1);
-          const pctA = Math.round((stat.va/maxVal)*100);
-          const pctB = Math.round((stat.vb/maxVal)*100);
-          const aWins = stat.higherBetter ? stat.va > stat.vb : stat.va < stat.vb;
-          const bWins = stat.higherBetter ? stat.vb > stat.va : stat.vb < stat.va;
-          const tie   = stat.va === stat.vb;
+          const pctA   = Math.round((stat.va / maxVal) * 100);
+          const pctB   = Math.round((stat.vb / maxVal) * 100);
+          const aWins  = stat.higherBetter ? stat.va > stat.vb : stat.va < stat.vb;
+          const bWins  = stat.higherBetter ? stat.vb > stat.va : stat.vb < stat.va;
+          const tie    = stat.va === stat.vb;
           return (
             '<div class="px-6 py-5">' +
               '<div class="flex items-center justify-between mb-3">' +
@@ -1526,18 +1710,20 @@
         });
       }
 
-      ['a','b'].forEach(side => {
-        const d = side === 'a' ? a : b;
+      // language breakdown per developer
+      ['a', 'b'].forEach(side => {
+        const d     = side === 'a' ? a : b;
         const color = side === 'a' ? '#83aeff' : '#ffa366';
         const title = document.getElementById('cmp-lang-title-' + side);
         if (title) title.innerHTML =
           '<span class="w-3 h-3 rounded-full inline-block" style="background:' + color + '"></span> ' +
           Utils.escapeHTML(d.user.login) + "'s Languages";
-        const allLangTotal = d.topLangs.reduce((s,l) => s+l.n, 0) || 1;
+
+        const allLangTotal = d.topLangs.reduce((s, l) => s + l.n, 0) || 1;
         const langsEl = document.getElementById('cmp-langs-' + side);
         if (langsEl) {
-          langsEl.innerHTML = d.topLangs.map(({lang,n}) => {
-            const pct = ((n/allLangTotal)*100).toFixed(1);
+          langsEl.innerHTML = d.topLangs.map(({ lang, n }) => {
+            const pct = ((n / allLangTotal) * 100).toFixed(1);
             return (
               '<div>' +
                 '<div class="flex justify-between text-xs font-label mb-1">' +
@@ -1559,6 +1745,7 @@
         }
       });
 
+      // winner banner
       const winnerEl = document.getElementById('compare-winner-content');
       if (winnerEl) {
         const aPoints = stats.filter(s => s.higherBetter ? s.va > s.vb : s.va < s.vb).length;
@@ -1568,8 +1755,8 @@
             '<div class="text-2xl font-black font-headline text-on-surface">It\'s a tie! 🤝</div>' +
             '<p class="text-on-surface-variant text-sm mt-1">Both developers are evenly matched across ' + stats.length + ' categories.</p>';
         } else {
-          const winner   = aPoints > bPoints ? a : b;
-          const winColor = aPoints > bPoints ? '#83aeff' : '#ffa366';
+          const winner    = aPoints > bPoints ? a : b;
+          const winColor  = aPoints > bPoints ? '#83aeff' : '#ffa366';
           const winPoints = Math.max(aPoints, bPoints);
           winnerEl.innerHTML =
             '<img src="' + winner.user.avatar_url + '" alt="Winner Avatar" class="w-16 h-16 rounded-full border-2 mx-auto mb-3 object-cover" style="border-color:' + winColor + '"/>' +
@@ -1621,10 +1808,11 @@
         State.currentRepos = repos;
 
         const ownRepos      = repos.filter(r => !r.fork);
-        const sortedByStars = [...repos].sort((a,b) => b.stargazers_count - a.stargazers_count);
-        const totalStars    = repos.reduce((s,r) => s + r.stargazers_count, 0);
-        const totalForks    = repos.reduce((s,r) => s + r.forks_count, 0);
+        const sortedByStars = [...repos].sort((a, b) => b.stargazers_count - a.stargazers_count);
+        const totalStars    = repos.reduce((s, r) => s + r.stargazers_count, 0);
+        const totalForks    = repos.reduce((s, r) => s + r.forks_count, 0);
 
+        // weight languages by repo star count
         const langMap = {};
         ownRepos.forEach(r => {
           if (r.language) {
@@ -1632,12 +1820,12 @@
             langMap[r.language] = (langMap[r.language] || 0) + w;
           }
         });
-        const totalLangWeight = Object.values(langMap).reduce((a,b)=>a+b,0) || 1;
-        const topLangs = Object.entries(langMap).sort((a,b)=>b[1]-a[1]).slice(0,6)
-          .map(([lang,w]) => ({ lang, pct: ((w/totalLangWeight)*100).toFixed(1) }));
+        const totalLangWeight = Object.values(langMap).reduce((a, b) => a + b, 0) || 1;
+        const topLangs = Object.entries(langMap).sort((a, b) => b[1] - a[1]).slice(0, 6)
+          .map(([lang, w]) => ({ lang, pct: ((w / totalLangWeight) * 100).toFixed(1) }));
 
         const accountAge = user.created_at
-          ? (Date.now() - new Date(user.created_at)) / (1000*60*60*24*365) : 0;
+          ? (Date.now() - new Date(user.created_at)) / (1000 * 60 * 60 * 24 * 365) : 0;
 
         UI.transition(() => {
           UI.renderProfile(user);
@@ -1653,9 +1841,9 @@
           const url = new URL(window.location);
           url.search = '';
           url.searchParams.set('user', username);
-          history.pushState({ view:'dashboard', user:username }, '', url);
+          history.pushState({ view: 'dashboard', user: username }, '', url);
         }
-      } catch(err) {
+      } catch (err) {
         UI.showError(err.message);
       }
     },
@@ -1664,13 +1852,16 @@
       const user  = await this.fetchWithFallback('https://api.github.com/users/' + encodeURIComponent(username));
       const repos = await this.fetchAllUserRepos(username);
       const ownRepos   = repos.filter(r => !r.fork);
-      const totalStars = repos.reduce((s,r) => s + r.stargazers_count, 0);
-      const totalForks = repos.reduce((s,r) => s + r.forks_count, 0);
-      const accountAge = user.created_at ? (Date.now() - new Date(user.created_at)) / (1000*60*60*24*365) : 0;
-      const score = Utils.calcScore(user, totalStars, totalForks, ownRepos.length, accountAge);
+      const totalStars = repos.reduce((s, r) => s + r.stargazers_count, 0);
+      const totalForks = repos.reduce((s, r) => s + r.forks_count, 0);
+      const accountAge = user.created_at ? (Date.now() - new Date(user.created_at)) / (1000 * 60 * 60 * 24 * 365) : 0;
+      const score      = Utils.calcScore(user, totalStars, totalForks, ownRepos.length, accountAge);
+
       const langMap = {};
-      ownRepos.forEach(r => { if (r.language) langMap[r.language] = (langMap[r.language]||0)+1; });
-      const topLangs = Object.entries(langMap).sort((a,b)=>b[1]-a[1]).slice(0,5).map(([lang,n])=>({lang,n}));
+      ownRepos.forEach(r => { if (r.language) langMap[r.language] = (langMap[r.language] || 0) + 1; });
+      const topLangs = Object.entries(langMap).sort((a, b) => b[1] - a[1]).slice(0, 5)
+        .map(([lang, n]) => ({ lang, n }));
+
       return { user, repos, ownRepos, totalStars, totalForks, accountAge, score, topLangs };
     },
 
@@ -1678,7 +1869,8 @@
       const banner = document.getElementById('error-banner');
       if (banner) banner.style.display = 'none';
       UI.transition(() => {
-        UI.setCompareSkeletons(); UI.switchView('compare');
+        UI.setCompareSkeletons();
+        UI.switchView('compare');
         const cr = document.getElementById('compare-results');
         const ce = document.getElementById('compare-empty');
         if (cr) cr.style.display = 'block';
@@ -1690,10 +1882,11 @@
         if (pushState) {
           const url = new URL(window.location);
           url.search = '';
-          url.searchParams.set('a', nameA); url.searchParams.set('b', nameB);
-          history.pushState({ view:'compare', a:nameA, b:nameB }, '', url);
+          url.searchParams.set('a', nameA);
+          url.searchParams.set('b', nameB);
+          history.pushState({ view: 'compare', a: nameA, b: nameB }, '', url);
         }
-      } catch(err) {
+      } catch (err) {
         UI.transition(() => {
           const ce = document.getElementById('compare-empty');
           const cr = document.getElementById('compare-results');
@@ -1713,7 +1906,7 @@
     }
   };
 
-  // ── 7. DEPENDENCY / ECOSYSTEM GRAPH ───────────────────────
+  // ── 7. ECOSYSTEM GRAPH ─────────────────────────────────────
   const DepGraph = {
     simulation: null,
 
@@ -1723,40 +1916,43 @@
       svgEl.innerHTML = '';
       if (!repos || repos.length === 0) return;
 
-      const width = svgEl.parentElement ? (svgEl.parentElement.clientWidth || 900) : 900;
+      const width  = svgEl.parentElement ? (svgEl.parentElement.clientWidth || 900) : 900;
       const height = 420;
       svgEl.setAttribute('viewBox', '0 0 ' + width + ' ' + height);
 
+      // group repos by language
       const langGroups = {};
       repos.forEach(r => {
         const lang = r.language || 'Other';
         if (!langGroups[lang]) langGroups[lang] = [];
         langGroups[lang].push(r);
       });
-
-      const sortedLangs = Object.entries(langGroups).sort((a,b)=>b[1].length-a[1].length).slice(0,8);
+      const sortedLangs = Object.entries(langGroups).sort((a, b) => b[1].length - a[1].length).slice(0, 8);
 
       const nodes = [];
       const links = [];
 
+      // hub node = developer
       const hubNode = { id: '__hub__', type: 'hub', label: State.currentUser ? State.currentUser.login : 'Dev', stars: 0 };
       nodes.push(hubNode);
 
       sortedLangs.forEach(([lang, langRepos]) => {
-        const langNode = { id: '__lang__' + lang, type: 'lang', label: lang, stars: langRepos.reduce((s,r)=>s+r.stargazers_count,0) };
+        const langNode = {
+          id: '__lang__' + lang, type: 'lang', label: lang,
+          stars: langRepos.reduce((s, r) => s + r.stargazers_count, 0)
+        };
         nodes.push(langNode);
         links.push({ source: '__hub__', target: '__lang__' + lang, type: 'hub-lang' });
 
-        langRepos.sort((a,b)=>b.stargazers_count-a.stargazers_count).slice(0,4).forEach(repo => {
-          const repoNode = { id: repo.full_name, type: 'repo', label: repo.name, lang, stars: repo.stargazers_count, url: repo.html_url, desc: repo.description };
-          nodes.push(repoNode);
+        // top 4 repos per language
+        langRepos.sort((a, b) => b.stargazers_count - a.stargazers_count).slice(0, 4).forEach(repo => {
+          nodes.push({ id: repo.full_name, type: 'repo', label: repo.name, lang, stars: repo.stargazers_count, url: repo.html_url, desc: repo.description });
           links.push({ source: '__lang__' + lang, target: repo.full_name, type: 'lang-repo' });
         });
       });
 
       const d3svg = d3.select(svgEl);
       d3svg.style('background', '#080c11');
-
       const g = d3svg.append('g');
       d3svg.call(d3.zoom().scaleExtent([0.3, 3]).on('zoom', e => g.attr('transform', e.transform)));
 
@@ -1774,17 +1970,17 @@
 
       nodeG.append('circle')
         .attr('r', d => {
-          if (d.type === 'hub') return 28;
+          if (d.type === 'hub')  return 28;
           if (d.type === 'lang') return 18;
           return 6 + Math.min(16, Math.sqrt(d.stars + 1) * 1.5);
         })
         .attr('fill', d => {
-          if (d.type === 'hub') return 'rgba(131,174,255,0.15)';
+          if (d.type === 'hub')  return 'rgba(131,174,255,0.15)';
           if (d.type === 'lang') return Utils.getLangColor(d.label) + '22';
           return Utils.getLangColor(d.lang) + '18';
         })
         .attr('stroke', d => {
-          if (d.type === 'hub') return '#83aeff';
+          if (d.type === 'hub')  return '#83aeff';
           if (d.type === 'lang') return Utils.getLangColor(d.label);
           return Utils.getLangColor(d.lang);
         })
@@ -1794,44 +1990,48 @@
         .attr('dy', '0.35em')
         .attr('text-anchor', 'middle')
         .attr('fill', d => {
-          if (d.type === 'hub') return '#83aeff';
+          if (d.type === 'hub')  return '#83aeff';
           if (d.type === 'lang') return Utils.getLangColor(d.label);
           return '#a8abb3';
         })
-        .attr('font-size', d => d.type === 'hub' ? '11px' : d.type === 'lang' ? '10px' : '8px')
+        .attr('font-size',   d => d.type === 'hub' ? '11px' : d.type === 'lang' ? '10px' : '8px')
         .attr('font-family', "'Space Grotesk', sans-serif")
         .attr('font-weight', d => d.type !== 'repo' ? '700' : '400')
-        .text(d => d.label.length > 12 ? d.label.slice(0,11) + '…' : d.label);
+        .text(d => d.label.length > 12 ? d.label.slice(0, 11) + '…' : d.label);
 
       const depTooltip = document.getElementById('dep-tooltip');
-      nodeG.on('mouseenter', function(event, d) {
-        if (d.type === 'hub' || !depTooltip) return;
-        let content = '';
-        if (d.type === 'lang') {
-          const count = (sortedLangs.find(([l]) => l === d.label) || [])[1];
-          content = '<strong>' + d.label + '</strong><br>' + (count ? count.length : 0) + ' repos · ' + Utils.formatNum(d.stars) + ' stars';
-        } else {
-          content = '<strong>' + d.label + '</strong><br>' + (d.lang || 'Unknown') + ' · ⭐ ' + Utils.formatNum(d.stars) +
-            (d.desc ? '<br><span style="opacity:0.7">' + d.desc.slice(0,50) + (d.desc.length>50?'…':'') + '</span>' : '');
-        }
-        depTooltip.innerHTML = content;
-        depTooltip.style.display = 'block';
-      }).on('mousemove', function(event) {
-        if (!depTooltip) return;
-        const rect = svgEl.parentElement ? svgEl.parentElement.getBoundingClientRect() : { left:0, top:0 };
-        depTooltip.style.left = (event.clientX - rect.left + 12) + 'px';
-        depTooltip.style.top  = (event.clientY - rect.top - 28) + 'px';
-      }).on('mouseleave', function() {
-        if (depTooltip) depTooltip.style.display = 'none';
-      }).on('click', function(event, d) {
-        if (d.type === 'repo' && d.url) window.open(d.url, '_blank', 'noopener noreferrer');
-      });
+      nodeG
+        .on('mouseenter', function (event, d) {
+          if (d.type === 'hub' || !depTooltip) return;
+          let content = '';
+          if (d.type === 'lang') {
+            const count = (sortedLangs.find(([l]) => l === d.label) || [])[1];
+            content = '<strong>' + d.label + '</strong><br>' + (count ? count.length : 0) + ' repos · ' + Utils.formatNum(d.stars) + ' stars';
+          } else {
+            content = '<strong>' + d.label + '</strong><br>' + (d.lang || 'Unknown') + ' · ⭐ ' + Utils.formatNum(d.stars) +
+              (d.desc ? '<br><span style="opacity:0.7">' + d.desc.slice(0, 50) + (d.desc.length > 50 ? '…' : '') + '</span>' : '');
+          }
+          depTooltip.innerHTML = content;
+          depTooltip.style.display = 'block';
+        })
+        .on('mousemove', function (event) {
+          if (!depTooltip) return;
+          const rect = svgEl.parentElement ? svgEl.parentElement.getBoundingClientRect() : { left: 0, top: 0 };
+          depTooltip.style.left = (event.clientX - rect.left + 12) + 'px';
+          depTooltip.style.top  = (event.clientY - rect.top - 28) + 'px';
+        })
+        .on('mouseleave', function () {
+          if (depTooltip) depTooltip.style.display = 'none';
+        })
+        .on('click', function (event, d) {
+          if (d.type === 'repo' && d.url) window.open(d.url, '_blank', 'noopener noreferrer');
+        });
 
       if (this.simulation) this.simulation.stop();
       this.simulation = d3.forceSimulation(nodes)
-        .force('link', d3.forceLink(links).id(d => d.id).distance(d => d.type === 'hub-lang' ? 90 : 55).strength(0.7))
-        .force('charge', d3.forceManyBody().strength(d => d.type === 'hub' ? -400 : d.type === 'lang' ? -150 : -60))
-        .force('center', d3.forceCenter(width/2, height/2))
+        .force('link',      d3.forceLink(links).id(d => d.id).distance(d => d.type === 'hub-lang' ? 90 : 55).strength(0.7))
+        .force('charge',    d3.forceManyBody().strength(d => d.type === 'hub' ? -400 : d.type === 'lang' ? -150 : -60))
+        .force('center',    d3.forceCenter(width / 2, height / 2))
         .force('collision', d3.forceCollide().radius(d => d.type === 'hub' ? 38 : d.type === 'lang' ? 28 : 20))
         .on('tick', () => {
           link
@@ -1852,7 +2052,7 @@
 
       const legend = document.getElementById('dep-legend');
       if (legend) {
-        legend.innerHTML = sortedLangs.slice(0,8).map(([lang, lr]) =>
+        legend.innerHTML = sortedLangs.slice(0, 8).map(([lang, lr]) =>
           '<div class="flex items-center gap-1.5 text-xs font-label text-on-surface-variant">' +
             '<span class="w-2.5 h-2.5 rounded-full flex-shrink-0" style="background:' + Utils.getLangColor(lang) + '"></span>' +
             Utils.escapeHTML(lang) + ' <span class="text-on-surface-variant/50">(' + lr.length + ')</span>' +
@@ -1869,12 +2069,13 @@
     fromView: 'dashboard',
 
     async open(owner, repo, pushState = true) {
-      this.fromView = this._guessFromView();
+      this.fromView    = this._guessFromView();
       this.currentOwner = owner;
       this.currentRepo  = repo;
 
       UI.switchView('repo-detail');
 
+      // reset tabs to overview
       document.querySelectorAll('[data-detail-tab]').forEach(t => t.classList.remove('active'));
       const overviewTab = document.querySelector('[data-detail-tab="overview"]');
       if (overviewTab) overviewTab.classList.add('active');
@@ -1885,11 +2086,12 @@
       const backLabel = document.getElementById('repo-detail-back-label');
       if (backLabel) backLabel.textContent = this.fromView === 'dashboard' ? 'Back to dashboard' : 'Back to results';
 
-      const setTxt = (id, v) => { const el = document.getElementById(id); if (el) el.textContent = v; };
+      // show skeletons while we load
+      const setTxt  = (id, v) => { const el = document.getElementById(id); if (el) el.textContent = v; };
       const setHTML = (id, v) => { const el = document.getElementById(id); if (el) el.innerHTML = v; };
-      setTxt('rd-name', repo);
+      setTxt('rd-name',  repo);
       setTxt('rd-owner', owner);
-      setTxt('rd-desc', 'Loading...');
+      setTxt('rd-desc',  'Loading...');
       setHTML('rd-topics', '');
       setHTML('rd-stats-row', '<div class="skeleton h-20 rounded-xl"></div><div class="skeleton h-20 rounded-xl"></div><div class="skeleton h-20 rounded-xl"></div><div class="skeleton h-20 rounded-xl"></div>');
       setHTML('rd-overview-content', '<div class="skeleton h-4 w-full rounded mb-2"></div><div class="skeleton h-4 w-4/5 rounded"></div>');
@@ -1910,7 +2112,7 @@
         url.search = '';
         url.searchParams.set('owner', owner);
         url.searchParams.set('repo', repo);
-        history.pushState({ view:'repo-detail', owner, repo }, '', url);
+        history.pushState({ view: 'repo-detail', owner, repo }, '', url);
       }
 
       try {
@@ -1920,6 +2122,7 @@
         this._renderHeader(repoData);
         this._renderOverview(repoData);
 
+        // fetch issues, releases, contributors in parallel
         const [issues, releases, contributors] = await Promise.allSettled([
           API.fetchWithFallback('https://api.github.com/repos/' + encodeURIComponent(owner) + '/' + encodeURIComponent(repo) + '/issues?state=open&per_page=20'),
           API.fetchWithFallback('https://api.github.com/repos/' + encodeURIComponent(owner) + '/' + encodeURIComponent(repo) + '/releases?per_page=10'),
@@ -1929,8 +2132,7 @@
         this._renderIssues(issues.status === 'fulfilled' ? issues.value : [], repoData.open_issues_count);
         this._renderReleases(releases.status === 'fulfilled' ? releases.value : []);
         this._renderContributors(contributors.status === 'fulfilled' ? contributors.value : []);
-
-      } catch(err) {
+      } catch (err) {
         UI.showError(err.message);
       }
     },
@@ -1938,16 +2140,12 @@
     _guessFromView() {
       const s = window.history.state;
       if (!s) return 'dashboard';
-      if (s.view === 'repo-search') return 'repo-search';
-      return 'dashboard';
+      return s.view === 'repo-search' ? 'repo-search' : 'dashboard';
     },
 
     goBack() {
-      if (window.history.length > 1) {
-        history.back();
-      } else {
-        UI.switchView(this.fromView === 'repo-search' ? 'repo-search' : 'dashboard');
-      }
+      if (window.history.length > 1) history.back();
+      else UI.switchView(this.fromView === 'repo-search' ? 'repo-search' : 'dashboard');
     },
 
     switchTab(tab) {
@@ -1960,7 +2158,7 @@
     },
 
     _renderHeader(repo) {
-      const setTxt = (id, v) => { const el = document.getElementById(id); if (el) el.textContent = v; };
+      const setTxt  = (id, v) => { const el = document.getElementById(id); if (el) el.textContent = v; };
       const setHTML = (id, v) => { const el = document.getElementById(id); if (el) el.innerHTML = v; };
       setTxt('rd-name',  repo.name);
       setTxt('rd-owner', repo.owner ? repo.owner.login : '');
@@ -1972,10 +2170,10 @@
       setHTML('rd-topics', topics.map(t => '<span class="topic-chip">' + Utils.escapeHTML(t) + '</span>').join(''));
 
       const stats = [
-        { icon:'star',            label:'Stars',       val:Utils.formatNum(repo.stargazers_count), color:'text-primary' },
-        { icon:'fork_right',      label:'Forks',       val:Utils.formatNum(repo.forks_count),      color:'text-tertiary' },
-        { icon:'remove_red_eye',  label:'Watchers',    val:Utils.formatNum(repo.watchers_count),   color:'text-secondary' },
-        { icon:'bug_report',      label:'Open Issues', val:Utils.formatNum(repo.open_issues_count),color:'text-error' },
+        { icon: 'star',           label: 'Stars',       val: Utils.formatNum(repo.stargazers_count), color: 'text-primary'  },
+        { icon: 'fork_right',     label: 'Forks',       val: Utils.formatNum(repo.forks_count),      color: 'text-tertiary' },
+        { icon: 'remove_red_eye', label: 'Watchers',    val: Utils.formatNum(repo.watchers_count),   color: 'text-secondary'},
+        { icon: 'bug_report',     label: 'Open Issues', val: Utils.formatNum(repo.open_issues_count),color: 'text-error'    }
       ];
       setHTML('rd-stats-row', stats.map(s =>
         '<div class="detail-stat">' +
@@ -1993,18 +2191,18 @@
         repo.license ? '<div class="flex items-center gap-3 p-3 bg-surface-container-highest/30 rounded-lg"><span class="material-symbols-outlined text-on-surface-variant text-sm" aria-hidden="true">gavel</span><span class="font-label text-sm text-on-surface">' + Utils.escapeHTML(repo.license.spdx_id || repo.license.name) + '</span><span class="text-xs text-on-surface-variant ml-2">License</span></div>' : '',
         '<div class="flex items-center gap-3 p-3 bg-surface-container-highest/30 rounded-lg"><span class="material-symbols-outlined text-on-surface-variant text-sm" aria-hidden="true">calendar_today</span><span class="font-label text-sm text-on-surface">' + Utils.formatDate(repo.created_at) + '</span><span class="text-xs text-on-surface-variant ml-2">Created</span></div>',
         '<div class="flex items-center gap-3 p-3 bg-surface-container-highest/30 rounded-lg"><span class="material-symbols-outlined text-on-surface-variant text-sm" aria-hidden="true">update</span><span class="font-label text-sm text-on-surface">' + Utils.formatDate(repo.updated_at) + '</span><span class="text-xs text-on-surface-variant ml-2">Last updated</span></div>',
-        repo.fork ? '<div class="flex items-center gap-3 p-3 bg-tertiary/5 border border-tertiary/10 rounded-lg"><span class="material-symbols-outlined text-tertiary text-sm" aria-hidden="true">fork_right</span><span class="font-label text-sm text-on-surface">Forked repository</span></div>' : '',
-        repo.archived ? '<div class="flex items-center gap-3 p-3 bg-error/5 border border-error/10 rounded-lg"><span class="material-symbols-outlined text-error text-sm" aria-hidden="true">archive</span><span class="font-label text-sm text-on-surface">Archived</span></div>' : '',
+        repo.fork     ? '<div class="flex items-center gap-3 p-3 bg-tertiary/5 border border-tertiary/10 rounded-lg"><span class="material-symbols-outlined text-tertiary text-sm" aria-hidden="true">fork_right</span><span class="font-label text-sm text-on-surface">Forked repository</span></div>' : '',
+        repo.archived ? '<div class="flex items-center gap-3 p-3 bg-error/5 border border-error/10 rounded-lg"><span class="material-symbols-outlined text-error text-sm" aria-hidden="true">archive</span><span class="font-label text-sm text-on-surface">Archived</span></div>' : ''
       ].filter(Boolean);
 
       const oc = document.getElementById('rd-overview-content');
       if (oc) oc.innerHTML = overview.join('');
 
       const details = [
-        repo.homepage ? '<div class="flex items-center gap-2 text-on-surface-variant"><span class="material-symbols-outlined text-sm" aria-hidden="true">link</span><a href="' + Utils.sanitizeUrl(repo.homepage) + '" target="_blank" rel="noopener noreferrer" class="text-primary hover:underline truncate text-sm">' + Utils.escapeHTML(repo.homepage.replace(/^https?:\/\//,'')) + '</a></div>' : '',
+        repo.homepage ? '<div class="flex items-center gap-2 text-on-surface-variant"><span class="material-symbols-outlined text-sm" aria-hidden="true">link</span><a href="' + Utils.sanitizeUrl(repo.homepage) + '" target="_blank" rel="noopener noreferrer" class="text-primary hover:underline truncate text-sm">' + Utils.escapeHTML(repo.homepage.replace(/^https?:\/\//, '')) + '</a></div>' : '',
         '<div class="flex items-center gap-2 text-on-surface-variant"><span class="material-symbols-outlined text-sm" aria-hidden="true">code</span><span class="text-on-surface text-sm">' + Utils.escapeHTML(repo.visibility || 'public') + '</span></div>',
         repo.default_branch ? '<div class="flex items-center gap-2 text-on-surface-variant"><span class="material-symbols-outlined text-sm" aria-hidden="true">device_hub</span><span class="text-on-surface text-sm">' + Utils.escapeHTML(repo.default_branch) + '</span></div>' : '',
-        repo.size ? '<div class="flex items-center gap-2 text-on-surface-variant"><span class="material-symbols-outlined text-sm" aria-hidden="true">storage</span><span class="text-on-surface text-sm">' + (repo.size/1024).toFixed(1) + ' MB</span></div>' : '',
+        repo.size ? '<div class="flex items-center gap-2 text-on-surface-variant"><span class="material-symbols-outlined text-sm" aria-hidden="true">storage</span><span class="text-on-surface text-sm">' + (repo.size / 1024).toFixed(1) + ' MB</span></div>' : ''
       ].filter(Boolean);
 
       const dc = document.getElementById('rd-details-content');
@@ -2036,7 +2234,7 @@
               '<span class="text-xs font-label text-on-surface-variant">#' + issue.number + '</span>' +
               '<span class="text-xs font-label text-on-surface-variant">by ' + Utils.escapeHTML((issue.user && issue.user.login) || 'unknown') + '</span>' +
               '<span class="text-xs font-label text-on-surface-variant">' + Utils.formatDate(issue.created_at) + '</span>' +
-              (issue.labels || []).slice(0,3).map(l =>
+              (issue.labels || []).slice(0, 3).map(l =>
                 '<span class="text-[10px] font-label px-1.5 py-0.5 rounded-full" style="background:#' + l.color + '22;color:#' + l.color + ';border:1px solid #' + l.color + '44">' + Utils.escapeHTML(l.name) + '</span>'
               ).join('') +
             '</div>' +
@@ -2067,9 +2265,9 @@
             '</div>' +
             '<span class="text-xs font-label text-on-surface-variant flex-shrink-0">' + Utils.formatDate(r.published_at) + '</span>' +
           '</div>' +
-          (r.body ? '<p class="text-sm text-on-surface-variant line-clamp-3 font-body">' + Utils.escapeHTML(r.body.slice(0,280)) + (r.body.length>280?'…':'') + '</p>' : '') +
+          (r.body ? '<p class="text-sm text-on-surface-variant line-clamp-3 font-body">' + Utils.escapeHTML(r.body.slice(0, 280)) + (r.body.length > 280 ? '…' : '') + '</p>' : '') +
           '<div class="flex items-center gap-4 mt-3 text-xs font-label text-on-surface-variant">' +
-            (r.assets && r.assets.length ? '<span class="flex items-center gap-1"><span class="material-symbols-outlined text-xs" aria-hidden="true">download</span>' + r.assets.length + ' asset' + (r.assets.length!==1?'s':'') + '</span>' : '') +
+            (r.assets && r.assets.length ? '<span class="flex items-center gap-1"><span class="material-symbols-outlined text-xs" aria-hidden="true">download</span>' + r.assets.length + ' asset' + (r.assets.length !== 1 ? 's' : '') + '</span>' : '') +
             '<span>by ' + Utils.escapeHTML((r.author && r.author.login) || 'unknown') + '</span>' +
           '</div>' +
         '</div>'
@@ -2088,14 +2286,14 @@
       const maxContribs = (contributors[0] && contributors[0].contributions) || 1;
       list.innerHTML = contributors.map((c, i) =>
         '<div class="flex items-center gap-4">' +
-          '<span class="text-xs font-label text-on-surface-variant w-5 text-right flex-shrink-0">' + (i+1) + '</span>' +
+          '<span class="text-xs font-label text-on-surface-variant w-5 text-right flex-shrink-0">' + (i + 1) + '</span>' +
           '<img src="' + Utils.escapeHTML(c.avatar_url) + '" alt="' + Utils.escapeHTML(c.login) + '" class="w-8 h-8 rounded-full flex-shrink-0 border border-outline-variant/20" loading="lazy"/>' +
           '<a href="' + Utils.escapeHTML(c.html_url) + '" target="_blank" rel="noopener noreferrer" class="text-sm font-label font-semibold text-on-surface hover:text-primary transition-colors w-28 truncate flex-shrink-0">' +
             Utils.escapeHTML(c.login) +
           '</a>' +
           '<div class="flex-1">' +
             '<div class="w-full bg-surface-container-highest rounded h-2 overflow-hidden">' +
-              '<div class="contrib-bar" style="width:' + ((c.contributions/maxContribs)*100).toFixed(1) + '%"></div>' +
+              '<div class="contrib-bar" style="width:' + ((c.contributions / maxContribs) * 100).toFixed(1) + '%"></div>' +
             '</div>' +
           '</div>' +
           '<span class="text-xs font-label text-on-surface-variant flex-shrink-0 w-20 text-right">' + Utils.formatNum(c.contributions) + ' commits</span>' +
@@ -2104,25 +2302,33 @@
     }
   };
 
-  // ── 9. REPO SEARCH ────────────────────────────────────────
+  // ── 9. REPO SEARCH ─────────────────────────────────────────
   const RepoSearch = {
-    currentQuery: '', currentSort: 'stars', currentLang: '', currentPage: 1, totalCount: 0,
+    currentQuery: '',
+    currentSort:  'stars',
+    currentLang:  '',
+    currentPage:  1,
+    totalCount:   0,
 
     reset() {
-      this.currentQuery = ''; this.currentSort = 'stars'; this.currentLang = ''; this.currentPage = 1; this.totalCount = 0;
+      this.currentQuery = '';
+      this.currentSort  = 'stars';
+      this.currentLang  = '';
+      this.currentPage  = 1;
+      this.totalCount   = 0;
       const inp = document.getElementById('repo-search-input');
       if (inp) inp.value = '';
-      const empty = document.getElementById('repo-search-empty');
+      const empty   = document.getElementById('repo-search-empty');
       const results = document.getElementById('repo-search-results');
       const loading = document.getElementById('repo-search-loading');
-      if (empty) empty.style.display = 'flex';
+      if (empty)   empty.style.display   = 'flex';
       if (results) results.style.display = 'none';
       if (loading) loading.style.display = 'none';
       document.querySelectorAll('.filter-pill').forEach(b => b.classList.remove('active'));
       const sortStars = document.querySelector('[data-sort="stars"]');
-      const langAll = document.querySelector('[data-lang=""]');
+      const langAll   = document.querySelector('[data-lang=""]');
       if (sortStars) sortStars.classList.add('active');
-      if (langAll) langAll.classList.add('active');
+      if (langAll)   langAll.classList.add('active');
     },
 
     setSort(sort, btn) {
@@ -2150,12 +2356,14 @@
       const query = this.currentQuery;
       if (!query) return;
       this.currentPage = page;
-      const empty = document.getElementById('repo-search-empty');
+
+      const empty   = document.getElementById('repo-search-empty');
       const results = document.getElementById('repo-search-results');
       const loading = document.getElementById('repo-search-loading');
-      if (empty) empty.style.display   = 'none';
+      if (empty)   empty.style.display   = 'none';
       if (results) results.style.display = 'none';
       if (loading) loading.style.display = 'block';
+
       try {
         const data = await API.searchRepos(query, this.currentSort, this.currentLang, page);
         this.totalCount = Math.min(data.total_count, 1000);
@@ -2165,11 +2373,11 @@
           const url = new URL(window.location);
           url.search = '';
           url.searchParams.set('q', query);
-          history.pushState({ view:'repo-search', q:query }, '', url);
+          history.pushState({ view: 'repo-search', q: query }, '', url);
         }
-      } catch(err) {
+      } catch (err) {
         if (loading) loading.style.display = 'none';
-        if (empty) empty.style.display   = 'flex';
+        if (empty)   empty.style.display   = 'flex';
         UI.showError(err.message);
       }
     },
@@ -2195,11 +2403,10 @@
           const topicsHtml = topics.length
             ? '<div class="flex flex-wrap gap-1 mt-3">' + topics.map(t => '<span class="topic-chip">' + Utils.escapeHTML(t) + '</span>').join('') + '</div>'
             : '';
-          const updated = repo.updated_at
-            ? new Date(repo.updated_at).toLocaleDateString('en-US', {month:'short', day:'numeric', year:'numeric'}) : '';
+          const updated    = repo.updated_at ? new Date(repo.updated_at).toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' }) : '';
           const ownerLogin = Utils.escapeHTML(repo.owner ? repo.owner.login : '');
-          const ownerAvatar = Utils.escapeHTML(repo.owner ? repo.owner.avatar_url : '');
-          const repoName = Utils.escapeHTML(repo.name);
+          const ownerAvatar= Utils.escapeHTML(repo.owner ? repo.owner.avatar_url : '');
+          const repoName   = Utils.escapeHTML(repo.name);
           return (
             '<div class="repo-card cursor-pointer" ' +
               'onclick="RepoDetail.open(\'' + ownerLogin + '\',\'' + repoName + '\',true)" ' +
@@ -2231,26 +2438,27 @@
         }).join('');
       }
 
-      const pagHtml = this.buildPagination(this.currentPage, totalPages);
-      const pag = document.getElementById('repo-pagination');
-      const pagBot = document.getElementById('repo-pagination-bottom');
-      if (pag) pag.innerHTML = pagHtml;
+      const pagHtml    = this.buildPagination(this.currentPage, totalPages);
+      const pag        = document.getElementById('repo-pagination');
+      const pagBot     = document.getElementById('repo-pagination-bottom');
+      if (pag)    pag.innerHTML    = pagHtml;
       if (pagBot) pagBot.innerHTML = pagHtml;
     },
 
     buildPagination(current, total) {
       if (total <= 1) return '';
       const pages = [];
-      if (current > 1) pages.push('<button onclick="RepoSearch.goToPage(' + (current-1) + ')" class="filter-pill">← Prev</button>');
-      const start = Math.max(1, current - 2), end = Math.min(total, current + 2);
+      if (current > 1) pages.push('<button onclick="RepoSearch.goToPage(' + (current - 1) + ')" class="filter-pill">← Prev</button>');
+      const start = Math.max(1, current - 2);
+      const end   = Math.min(total, current + 2);
       if (start > 1) pages.push('<button onclick="RepoSearch.goToPage(1)" class="filter-pill">1</button>');
       if (start > 2) pages.push('<span class="text-on-surface-variant text-sm px-2">…</span>');
       for (let i = start; i <= end; i++) {
-        pages.push('<button onclick="RepoSearch.goToPage(' + i + ')" class="filter-pill' + (i===current?' active':'') + '">' + i + '</button>');
+        pages.push('<button onclick="RepoSearch.goToPage(' + i + ')" class="filter-pill' + (i === current ? ' active' : '') + '">' + i + '</button>');
       }
       if (end < total - 1) pages.push('<span class="text-on-surface-variant text-sm px-2">…</span>');
-      if (end < total) pages.push('<button onclick="RepoSearch.goToPage(' + total + ')" class="filter-pill">' + total + '</button>');
-      if (current < total) pages.push('<button onclick="RepoSearch.goToPage(' + (current+1) + ')" class="filter-pill">Next →</button>');
+      if (end < total)     pages.push('<button onclick="RepoSearch.goToPage(' + total + ')" class="filter-pill">' + total + '</button>');
+      if (current < total) pages.push('<button onclick="RepoSearch.goToPage(' + (current + 1) + ')" class="filter-pill">Next →</button>');
       return pages.join('');
     },
 
@@ -2269,7 +2477,7 @@
       if (inp) inp.value = '';
       UI.transition(() => {
         const s = window.history.state;
-        if (!s || s.view !== 'landing') history.pushState({ view:'landing' }, '', window.location.pathname);
+        if (!s || s.view !== 'landing') history.pushState({ view: 'landing' }, '', window.location.pathname);
         UI.switchView('landing');
       });
     },
@@ -2287,22 +2495,25 @@
 
     switchTab(tab) {
       if (tab === 'repo-search') RepoSearch.reset();
-      if (tab === 'compare') App.resetCompare();
+      if (tab === 'compare')     App.resetCompare();
       UI.transition(() => { UI.switchView(tab); });
       if (tab === 'compare') {
         const s = window.history.state;
-        if (!s || s.view !== 'compare') history.pushState({ view:'compare' }, '', '?view=compare');
+        if (!s || s.view !== 'compare') history.pushState({ view: 'compare' }, '', '?view=compare');
       } else if (tab === 'repo-search') {
         const s = window.history.state;
-        if (!s || s.view !== 'repo-search') history.pushState({ view:'repo-search' }, '', '?view=repo-search');
+        if (!s || s.view !== 'repo-search') history.pushState({ view: 'repo-search' }, '', '?view=repo-search');
       }
     },
 
-    dismissError() { const b = document.getElementById('error-banner'); if (b) b.style.display = 'none'; },
+    dismissError() {
+      const b = document.getElementById('error-banner');
+      if (b) b.style.display = 'none';
+    },
 
     openCompare() {
       UI.transition(() => { UI.switchView('compare'); });
-      history.pushState({ view:'compare' }, '', '?view=compare');
+      history.pushState({ view: 'compare' }, '', '?view=compare');
       if (State.currentUser) {
         const ia = document.getElementById('compare-input-a');
         if (ia) ia.value = State.currentUser.login;
@@ -2310,8 +2521,8 @@
     },
 
     async runCompare() {
-      const ia = document.getElementById('compare-input-a');
-      const ib = document.getElementById('compare-input-b');
+      const ia    = document.getElementById('compare-input-a');
+      const ib    = document.getElementById('compare-input-b');
       const nameA = ia ? ia.value.trim() : '';
       const nameB = ib ? ib.value.trim() : '';
       if (!nameA || !nameB) { UI.showError('Enter two GitHub usernames to compare.'); return; }
@@ -2319,15 +2530,19 @@
 
       const btn = document.getElementById('compare-go-btn');
       const originalHTML = btn ? btn.innerHTML : '';
-      if (btn) { btn.disabled = true; btn.innerHTML = '<span class="material-symbols-outlined text-sm animate-spin" aria-hidden="true">progress_activity</span><span>Loading...</span>'; }
+      if (btn) {
+        btn.disabled  = true;
+        btn.innerHTML = '<span class="material-symbols-outlined text-sm animate-spin" aria-hidden="true">progress_activity</span><span>Loading...</span>';
+      }
       await API.executeCompare(nameA, nameB, true);
       if (btn) { btn.disabled = false; btn.innerHTML = originalHTML; }
     }
   };
 
-  window.RepoSearch  = RepoSearch;
-  window.RepoDetail  = RepoDetail;
-  window.RecentSearches = RecentSearches;
+  // expose modules used in inline onclick attributes
+  window.RepoSearch      = RepoSearch;
+  window.RepoDetail      = RepoDetail;
+  window.RecentSearches  = RecentSearches;
 
   // ── 11. BIND EVENTS ────────────────────────────────────────
   function bindEvent(id, event, handler) {
@@ -2335,6 +2550,7 @@
     if (el) el.addEventListener(event, handler);
   }
 
+  // landing search
   bindEvent('search-btn-landing', 'click', () => {
     const v = document.getElementById('search-input-landing').value.trim();
     if (v) App.search(v);
@@ -2342,6 +2558,8 @@
   bindEvent('search-input-landing', 'keydown', e => {
     if (e.key === 'Enter') { const v = e.target.value.trim(); if (v) App.search(v); }
   });
+
+  // nav search
   bindEvent('search-btn-nav', 'click', () => {
     const v = document.getElementById('search-input-nav').value.trim();
     if (v) App.search(v);
@@ -2351,11 +2569,13 @@
   });
   bindEvent('search-input-nav', 'focus', () => RecentSearches.showProfileDropdown());
   bindEvent('search-input-nav', 'input', () => {
-    const v = document.getElementById('search-input-nav').value.trim();
+    const v  = document.getElementById('search-input-nav').value.trim();
+    const dd = document.getElementById('nav-recent-dropdown');
     if (!v) RecentSearches.showProfileDropdown();
-    else { const dd = document.getElementById('nav-recent-dropdown'); if (dd) dd.classList.remove('show'); }
+    else if (dd) dd.classList.remove('show');
   });
 
+  // compare inputs — tab between them, enter to submit
   bindEvent('compare-input-a', 'keydown', e => {
     if (e.key === 'Enter') { const ib = document.getElementById('compare-input-b'); if (ib) ib.focus(); }
   });
@@ -2367,6 +2587,7 @@
     }
   });
 
+  // repo search
   bindEvent('repo-search-btn', 'click', () => {
     const q = document.getElementById('repo-search-input').value.trim();
     if (q) { RepoSearch.currentQuery = q; RepoSearch.executeSearch(1); }
@@ -2379,15 +2600,16 @@
   });
   bindEvent('repo-search-input', 'focus', () => RecentSearches.showRepoDropdown());
   bindEvent('repo-search-input', 'input', () => {
-    const v = document.getElementById('repo-search-input').value.trim();
+    const v  = document.getElementById('repo-search-input').value.trim();
+    const dd = document.getElementById('repo-recent-dropdown');
     if (!v) RecentSearches.showRepoDropdown();
-    else { const dd = document.getElementById('repo-recent-dropdown'); if (dd) dd.classList.remove('show'); }
+    else if (dd) dd.classList.remove('show');
   });
 
-  // Event delegation for recent dropdowns
+  // event delegation for recent dropdowns (profile)
   const navRecentList = document.getElementById('nav-recent-list');
   if (navRecentList) {
-    navRecentList.addEventListener('click', (e) => {
+    navRecentList.addEventListener('click', e => {
       const removeBtn = e.target.closest('.js-remove-profile');
       if (removeBtn) { e.stopPropagation(); RecentSearches.removeProfile(removeBtn.dataset.profile); return; }
       const item = e.target.closest('.js-recent-profile');
@@ -2395,9 +2617,10 @@
     });
   }
 
+  // event delegation for recent dropdowns (repo)
   const repoRecentList = document.getElementById('repo-recent-list');
   if (repoRecentList) {
-    repoRecentList.addEventListener('click', (e) => {
+    repoRecentList.addEventListener('click', e => {
       const removeBtn = e.target.closest('.js-remove-repo');
       if (removeBtn) { e.stopPropagation(); RecentSearches.removeRepo(removeBtn.dataset.query); return; }
       const item = e.target.closest('.js-recent-repo');
@@ -2405,16 +2628,17 @@
     });
   }
 
-  document.addEventListener('click', (e) => {
+  // close dropdowns on outside click
+  document.addEventListener('click', e => {
     const navWrap  = document.getElementById('nav-search-wrap');
     const repoWrap = document.getElementById('repo-search-wrap');
-    const navDd = document.getElementById('nav-recent-dropdown');
-    const repoDd = document.getElementById('repo-recent-dropdown');
-    if (navWrap && !navWrap.contains(e.target) && navDd) navDd.classList.remove('show');
+    const navDd    = document.getElementById('nav-recent-dropdown');
+    const repoDd   = document.getElementById('repo-recent-dropdown');
+    if (navWrap  && !navWrap.contains(e.target)  && navDd)  navDd.classList.remove('show');
     if (repoWrap && !repoWrap.contains(e.target) && repoDd) repoDd.classList.remove('show');
   });
 
-  // Init
+  // kick off routing
   if (document.readyState === 'loading') {
     document.addEventListener('DOMContentLoaded', () => Router.init());
   } else {
