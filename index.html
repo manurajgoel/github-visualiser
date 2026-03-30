@@ -91,14 +91,12 @@
       font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
     }
 
-    /* view transitions */
     ::view-transition-old(root),
     ::view-transition-new(root) {
       animation-duration: 0.35s;
       animation-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
     }
 
-    /* stat cards glow effect */
     .stat-glow {
       position: relative;
     }
@@ -112,7 +110,6 @@
       border-radius: inherit;
     }
 
-    /* landing screen layout */
     #landing-screen {
       min-height: 100vh;
       display: flex;
@@ -141,7 +138,6 @@
       pointer-events: none;
     }
 
-    /* landing search input */
     #search-input-landing {
       background: rgba(21, 26, 33, 0.9);
       border: 1px solid rgba(131, 174, 255, 0.25);
@@ -163,15 +159,9 @@
       color: rgba(168, 171, 179, 0.45);
     }
 
-    /* skeleton shimmer */
     @keyframes shimmer {
-      0% {
-        background-position: -200% 0;
-      }
-
-      100% {
-        background-position: 200% 0;
-      }
+      0% { background-position: -200% 0; }
+      100% { background-position: 200% 0; }
     }
 
     .skeleton {
@@ -181,13 +171,11 @@
       border-radius: 4px;
     }
 
-    /* language bars */
     .lang-bar {
       width: 0;
       transition: width 1s cubic-bezier(0.4, 0, 0.2, 1);
     }
 
-    /* score ring */
     .score-ring {
       position: relative;
       width: 72px;
@@ -208,24 +196,11 @@
       justify-content: center;
     }
 
-    /* grade colors */
-    .grade-s {
-      color: #97f999;
-    }
+    .grade-s { color: #97f999; }
+    .grade-a { color: #83aeff; }
+    .grade-b { color: #ffa366; }
+    .grade-c { color: #f1f3fc; }
 
-    .grade-a {
-      color: #83aeff;
-    }
-
-    .grade-b {
-      color: #ffa366;
-    }
-
-    .grade-c {
-      color: #f1f3fc;
-    }
-
-    /* error banner */
     #error-banner {
       display: none;
       position: fixed;
@@ -241,22 +216,10 @@
       font-family: 'Space Grotesk', sans-serif;
     }
 
-    /* screens hidden by default */
-    #dashboard-screen {
-      display: none;
-    }
-
-    #compare-screen {
-      display: none;
-    }
-
-    #repo-search-screen {
-      display: none;
-    }
-
-    #repo-detail-screen {
-      display: none;
-    }
+    #dashboard-screen { display: none; }
+    #compare-screen { display: none; }
+    #repo-search-screen { display: none; }
+    #repo-detail-screen { display: none; }
 
     .stat-context {
       font-size: 10px;
@@ -295,7 +258,6 @@
       white-space: nowrap;
     }
 
-    /* nav tabs */
     .nav-tab {
       padding: 6px 14px;
       border-radius: 8px;
@@ -320,7 +282,6 @@
       border-color: rgba(131, 174, 255, 0.2);
     }
 
-    /* compare inputs */
     .compare-input {
       background: rgba(21, 26, 33, 0.9);
       border: 1px solid rgba(131, 174, 255, 0.2);
@@ -342,7 +303,6 @@
       color: rgba(168, 171, 179, 0.45);
     }
 
-    /* compare bars */
     .compare-bar-wrap {
       width: 100%;
       background: rgba(255, 255, 255, 0.06);
@@ -370,7 +330,6 @@
       font-family: 'Space Grotesk', sans-serif;
     }
 
-    /* repo search */
     .repo-search-input {
       background: rgba(21, 26, 33, 0.9);
       border: 1px solid rgba(131, 174, 255, 0.2);
@@ -388,9 +347,7 @@
       box-shadow: 0 0 0 3px rgba(131, 174, 255, 0.1);
     }
 
-    .repo-search-input::placeholder {
-      color: #9a9a9a;
-    }
+    .repo-search-input::placeholder { color: #9a9a9a; }
 
     .repo-card {
       background: #0f141a;
@@ -408,7 +365,6 @@
       transform: translateY(-2px);
     }
 
-    /* filter pills */
     .filter-pill {
       padding: 6px 14px;
       border-radius: 999px;
@@ -433,7 +389,6 @@
       border-color: rgba(131, 174, 255, 0.4);
     }
 
-    /* recent searches dropdown */
     .recent-dropdown {
       position: absolute;
       top: calc(100% + 8px);
@@ -448,9 +403,7 @@
       display: none;
     }
 
-    .recent-dropdown.show {
-      display: block;
-    }
+    .recent-dropdown.show { display: block; }
 
     .recent-item {
       display: flex;
@@ -462,42 +415,24 @@
       border-bottom: 1px solid rgba(131, 174, 255, 0.06);
     }
 
-    .recent-item:last-child {
-      border-bottom: none;
-    }
+    .recent-item:last-child { border-bottom: none; }
+    .recent-item:hover { background: rgba(131, 174, 255, 0.06); }
 
-    .recent-item:hover {
-      background: rgba(131, 174, 255, 0.06);
-    }
+    .cursor-not-allowed { cursor: not-allowed; }
 
-    /* misc utility */
-    .cursor-not-allowed {
-      cursor: not-allowed;
-    }
-
-    .animate-spin {
-      animation: spin 1s linear infinite;
-    }
+    .animate-spin { animation: spin 1s linear infinite; }
 
     @keyframes spin {
-      from {
-        transform: rotate(0deg);
-      }
-
-      to {
-        transform: rotate(360deg);
-      }
+      from { transform: rotate(0deg); }
+      to { transform: rotate(360deg); }
     }
 
-    /* ecosystem / dependency graph */
     .dep-node circle {
       cursor: pointer;
       transition: stroke-width 0.2s;
     }
 
-    .dep-node:hover circle {
-      stroke-width: 3;
-    }
+    .dep-node:hover circle { stroke-width: 3; }
 
     .dep-node text {
       pointer-events: none;
@@ -532,7 +467,6 @@
       box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5);
     }
 
-    /* back button */
     .back-btn {
       display: inline-flex;
       align-items: center;
@@ -547,11 +481,8 @@
       border: none;
     }
 
-    .back-btn:hover {
-      color: #83aeff;
-    }
+    .back-btn:hover { color: #83aeff; }
 
-    /* contributor bar chart */
     .contrib-bar {
       height: 24px;
       border-radius: 4px;
@@ -560,7 +491,6 @@
       min-width: 4px;
     }
 
-    /* repo detail stat tiles */
     .detail-stat {
       background: rgba(131, 174, 255, 0.06);
       border: 1px solid rgba(131, 174, 255, 0.1);
@@ -569,7 +499,6 @@
       text-align: center;
     }
 
-    /* repo detail tabs */
     .detail-tab {
       padding: 8px 18px;
       border-radius: 8px;
@@ -594,15 +523,9 @@
       border-color: rgba(131, 174, 255, 0.2);
     }
 
-    .detail-panel {
-      display: none;
-    }
+    .detail-panel { display: none; }
+    .detail-panel.active { display: block; }
 
-    .detail-panel.active {
-      display: block;
-    }
-
-    /* issue list items */
     .issue-item {
       display: flex;
       align-items: flex-start;
@@ -611,11 +534,8 @@
       border-bottom: 1px solid rgba(131, 174, 255, 0.06);
     }
 
-    .issue-item:last-child {
-      border-bottom: none;
-    }
+    .issue-item:last-child { border-bottom: none; }
 
-    /* release cards */
     .release-card {
       background: rgba(131, 174, 255, 0.04);
       border: 1px solid rgba(131, 174, 255, 0.1);
@@ -628,7 +548,6 @@
 
 <body class="selection:bg-primary/30 selection:text-primary">
 
-  <!-- error banner -->
   <div id="error-banner" role="alert">
     <span class="material-symbols-outlined text-sm align-middle mr-1" aria-hidden="true">error</span>
     <span id="error-message">Something went wrong.</span>
@@ -644,16 +563,11 @@
     <div class="relative z-10 flex flex-col items-center text-center px-6 max-w-2xl w-full">
       <div class="mb-6 flex flex-col items-center gap-1">
         <span class="text-3xl font-black tracking-tight text-primary font-headline">DevArchive</span>
-        <span class="text-xs font-label text-on-surface-variant tracking-[0.2em] uppercase">GitHub Profile
-          Visualizer</span>
+        <span class="text-xs font-label text-on-surface-variant tracking-[0.2em] uppercase">GitHub Profile Visualizer</span>
       </div>
 
-      <!-- GitHub logo -->
-      <svg class="w-12 h-12 text-on-surface-variant mb-6 opacity-75" fill="currentColor" viewBox="0 0 24 24"
-        aria-hidden="true">
-        <path fill-rule="evenodd"
-          d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"
-          clip-rule="evenodd"></path>
+      <svg class="w-12 h-12 text-on-surface-variant mb-6 opacity-75" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+        <path fill-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z" clip-rule="evenodd"></path>
       </svg>
 
       <h1 class="text-5xl md:text-6xl font-extrabold tracking-tighter text-on-surface mb-4 font-headline leading-tight">
@@ -663,19 +577,15 @@
         Dive into any GitHub profile and discover the developer behind the code.
       </p>
 
-      <!-- main search -->
       <div class="w-full max-w-lg relative">
-        <span class="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-on-surface-variant z-10"
-          aria-hidden="true">terminal</span>
-        <input id="search-input-landing" type="text" placeholder="Enter GitHub username..." autocomplete="off"
-          spellcheck="false" aria-label="GitHub username" />
+        <span class="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-on-surface-variant z-10" aria-hidden="true">terminal</span>
+        <input id="search-input-landing" type="text" placeholder="Enter GitHub username..." autocomplete="off" spellcheck="false" aria-label="GitHub username" />
         <button id="search-btn-landing" aria-label="Search GitHub Profile"
           class="absolute right-3 top-1/2 -translate-y-1/2 bg-primary text-on-primary rounded-lg p-2 hover:bg-primary-fixed active:scale-95 transition-all z-10">
           <span class="material-symbols-outlined" style="font-size:20px" aria-hidden="true">arrow_forward</span>
         </button>
       </div>
 
-      <!-- example users -->
       <p class="mt-4 text-xs text-on-surface-variant font-label">
         Try:
         <button class="text-primary hover:underline ml-1" onclick="App.search('torvalds')">torvalds</button> ·
@@ -683,7 +593,6 @@
         <button class="text-primary hover:underline" onclick="App.search('sindresorhus')">sindresorhus</button>
       </p>
 
-      <!-- quick nav links -->
       <div class="flex flex-wrap items-center gap-3 mt-8 justify-center">
         <button onclick="App.switchTab('compare')"
           class="flex items-center gap-2 text-sm text-on-surface-variant hover:text-primary transition-colors font-label border border-outline-variant/30 px-4 py-2 rounded-full hover:border-primary/30">
@@ -699,9 +608,7 @@
 
       <div class="flex items-center gap-3 mt-12 opacity-35">
         <span class="text-xs font-label text-on-surface-variant">Powered by</span>
-        <span
-          class="text-xs font-label text-on-surface-variant px-2 py-1 border border-outline-variant/40 rounded-full">GitHub
-          REST API</span>
+        <span class="text-xs font-label text-on-surface-variant px-2 py-1 border border-outline-variant/40 rounded-full">GitHub REST API</span>
       </div>
     </div>
   </div>
@@ -712,35 +619,26 @@
     style="display:none">
     <div class="flex justify-between items-center w-full px-6 py-3 max-w-screen-2xl mx-auto">
       <div class="flex items-center gap-4">
-        <span class="text-xl font-bold tracking-tight text-[#f1f3fc] font-headline cursor-pointer"
-          onclick="App.goHome()" aria-label="Go to home">DevArchive</span>
+        <span class="text-xl font-bold tracking-tight text-[#f1f3fc] font-headline cursor-pointer" onclick="App.goHome()" aria-label="Go to home">DevArchive</span>
         <div class="hidden md:flex items-center gap-1 bg-surface-container-lowest/60 rounded-xl p-1">
-          <button id="tab-dashboard" class="nav-tab active" onclick="App.switchTab('dashboard')"
-            aria-label="Dashboard View">
-            <span class="material-symbols-outlined text-sm align-middle mr-1"
-              aria-hidden="true">dashboard</span>Dashboard
+          <button id="tab-dashboard" class="nav-tab active" onclick="App.switchTab('dashboard')" aria-label="Dashboard View">
+            <span class="material-symbols-outlined text-sm align-middle mr-1" aria-hidden="true">dashboard</span>Dashboard
           </button>
           <button id="tab-compare" class="nav-tab" onclick="App.switchTab('compare')" aria-label="Compare View">
-            <span class="material-symbols-outlined text-sm align-middle mr-1"
-              aria-hidden="true">compare_arrows</span>Compare
+            <span class="material-symbols-outlined text-sm align-middle mr-1" aria-hidden="true">compare_arrows</span>Compare
           </button>
           <button id="tab-repo-search" class="nav-tab" onclick="App.switchTab('repo-search')" aria-label="Repo Search">
-            <span class="material-symbols-outlined text-sm align-middle mr-1"
-              aria-hidden="true">manage_search</span>Repos
+            <span class="material-symbols-outlined text-sm align-middle mr-1" aria-hidden="true">manage_search</span>Repos
           </button>
         </div>
       </div>
 
-      <!-- nav search -->
       <div class="flex items-center gap-4 flex-1 max-w-md mx-6">
         <div class="relative w-full" id="nav-search-wrap">
-          <span
-            class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-on-surface-variant text-sm"
-            aria-hidden="true">search</span>
+          <span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-on-surface-variant text-sm" aria-hidden="true">search</span>
           <input id="search-input-nav" aria-label="Search GitHub username"
             class="w-full bg-surface-container-lowest text-on-surface rounded-md py-2 pl-10 pr-4 focus:ring-1 focus:ring-primary border-none text-sm transition-all"
             placeholder="Search GitHub username..." type="text" autocomplete="off" />
-          <!-- recent profile dropdown -->
           <div id="nav-recent-dropdown" class="recent-dropdown">
             <div class="px-4 py-2 border-b border-outline-variant/10 flex items-center gap-2">
               <span class="material-symbols-outlined text-xs text-on-surface-variant" aria-hidden="true">history</span>
@@ -753,13 +651,9 @@
           class="bg-primary text-on-primary rounded-md px-4 py-2 text-sm font-semibold hover:bg-primary-fixed active:scale-95 transition-all whitespace-nowrap">Go</button>
       </div>
 
-      <!-- GitHub icon / home link -->
-      <div class="cursor-pointer text-on-surface-variant hover:text-white transition-colors flex-shrink-0"
-        onclick="App.goHome()" aria-label="Home">
+      <div class="cursor-pointer text-on-surface-variant hover:text-white transition-colors flex-shrink-0" onclick="App.goHome()" aria-label="Home">
         <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-          <path fill-rule="evenodd"
-            d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"
-            clip-rule="evenodd"></path>
+          <path fill-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z" clip-rule="evenodd"></path>
         </svg>
       </div>
     </div>
@@ -768,35 +662,28 @@
   <!-- ── DASHBOARD ── -->
   <div id="dashboard-screen">
     <main class="pt-24 pb-20 px-6 max-w-screen-2xl mx-auto min-h-screen">
-
-      <!-- profile hero -->
       <section class="mb-12">
         <div class="bg-surface-container-low p-8 rounded-xl border-l-4 border-primary relative overflow-hidden">
           <div class="absolute -top-24 -right-24 w-64 h-64 bg-primary/10 blur-[100px] rounded-full"></div>
           <div class="relative flex flex-col md:flex-row items-center md:items-start gap-8">
             <div class="relative group flex-shrink-0">
-              <div
-                class="absolute -inset-1 bg-gradient-to-tr from-primary to-secondary rounded-full opacity-20 group-hover:opacity-40 transition-opacity">
-              </div>
+              <div class="absolute -inset-1 bg-gradient-to-tr from-primary to-secondary rounded-full opacity-20 group-hover:opacity-40 transition-opacity"></div>
               <img id="profile-avatar" alt="GitHub Profile Avatar"
                 class="h-32 w-32 rounded-full object-cover border-2 border-surface relative z-10"
                 src="data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" />
             </div>
             <div class="flex-1 text-center md:text-left">
-              <h1 id="profile-name" class="text-5xl font-extrabold tracking-tighter text-on-surface mb-2 font-headline">
-              </h1>
+              <h1 id="profile-name" class="text-5xl font-extrabold tracking-tighter text-on-surface mb-2 font-headline"></h1>
               <p id="profile-login" class="text-on-surface-variant text-sm font-label mb-3"></p>
               <p id="profile-bio" class="text-lg text-on-surface-variant max-w-2xl font-body"></p>
-              <div
-                class="flex flex-wrap gap-4 mt-3 justify-center md:justify-start text-sm text-on-surface-variant font-label">
+              <div class="flex flex-wrap gap-4 mt-3 justify-center md:justify-start text-sm text-on-surface-variant font-label">
                 <span id="profile-location" class="hidden items-center gap-1">
                   <span class="material-symbols-outlined text-sm" aria-hidden="true">location_on</span>
                   <span id="profile-location-text"></span>
                 </span>
                 <span id="profile-website" class="hidden items-center gap-1">
                   <span class="material-symbols-outlined text-sm" aria-hidden="true">link</span>
-                  <a id="profile-website-link" href="#" target="_blank" rel="noopener noreferrer"
-                    class="text-primary hover:underline"></a>
+                  <a id="profile-website-link" href="#" target="_blank" rel="noopener noreferrer" class="text-primary hover:underline"></a>
                 </span>
                 <span id="profile-company" class="hidden items-center gap-1">
                   <span class="material-symbols-outlined text-sm" aria-hidden="true">business</span>
@@ -823,56 +710,40 @@
         </div>
       </section>
 
-      <!-- languages + metrics -->
       <section class="grid grid-cols-1 lg:grid-cols-12 gap-8 mb-12">
         <div class="lg:col-span-5 bg-surface-container-low p-8 rounded-xl flex flex-col justify-between">
           <div>
             <h2 class="text-xl font-bold mb-8 font-headline">Primary Languages</h2>
             <div id="languages-container" class="space-y-6"></div>
           </div>
-          <div id="languages-meta"
-            class="mt-8 pt-8 border-t border-outline-variant/10 text-xs text-on-surface-variant font-label leading-relaxed">
-          </div>
+          <div id="languages-meta" class="mt-8 pt-8 border-t border-outline-variant/10 text-xs text-on-surface-variant font-label leading-relaxed"></div>
         </div>
 
         <div class="lg:col-span-7 bg-surface-container-low p-8 rounded-xl">
           <h2 class="text-xl font-bold mb-8 font-headline">Profile Metrics</h2>
           <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-            <div
-              class="stat-glow bg-surface-container-highest/40 border border-outline-variant/20 p-6 rounded-xl transition-all hover:bg-surface-container-highest/60">
+            <div class="stat-glow bg-surface-container-highest/40 border border-outline-variant/20 p-6 rounded-xl transition-all hover:bg-surface-container-highest/60">
               <span class="text-xs font-label uppercase tracking-widest text-on-surface-variant">Followers</span>
               <div class="text-4xl font-black text-primary font-headline mt-1" id="stat-followers"></div>
-              <div class="stat-context"><span class="material-symbols-outlined text-xs"
-                  aria-hidden="true">people</span><span id="stat-followers-label"
-                  class="text-on-surface-variant/60"></span></div>
+              <div class="stat-context"><span class="material-symbols-outlined text-xs" aria-hidden="true">people</span><span id="stat-followers-label" class="text-on-surface-variant/60"></span></div>
             </div>
-            <div
-              class="stat-glow bg-surface-container-highest/40 border border-outline-variant/20 p-6 rounded-xl transition-all hover:bg-surface-container-highest/60">
+            <div class="stat-glow bg-surface-container-highest/40 border border-outline-variant/20 p-6 rounded-xl transition-all hover:bg-surface-container-highest/60">
               <span class="text-xs font-label uppercase tracking-widest text-on-surface-variant">Total Stars</span>
               <div class="text-4xl font-black text-primary font-headline mt-1" id="stat-stars"></div>
-              <div class="stat-context"><span class="material-symbols-outlined text-xs"
-                  aria-hidden="true">star</span><span id="stat-stars-label" class="text-on-surface-variant/60"></span>
-              </div>
+              <div class="stat-context"><span class="material-symbols-outlined text-xs" aria-hidden="true">star</span><span id="stat-stars-label" class="text-on-surface-variant/60"></span></div>
             </div>
-            <div
-              class="stat-glow bg-surface-container-highest/40 border border-outline-variant/20 p-6 rounded-xl transition-all hover:bg-surface-container-highest/60">
+            <div class="stat-glow bg-surface-container-highest/40 border border-outline-variant/20 p-6 rounded-xl transition-all hover:bg-surface-container-highest/60">
               <span class="text-xs font-label uppercase tracking-widest text-on-surface-variant">Public Repos</span>
               <div class="text-4xl font-black text-primary font-headline mt-1" id="stat-repos"></div>
-              <div class="stat-context"><span class="material-symbols-outlined text-xs"
-                  aria-hidden="true">terminal</span><span id="stat-repos-label"
-                  class="text-on-surface-variant/60"></span></div>
+              <div class="stat-context"><span class="material-symbols-outlined text-xs" aria-hidden="true">terminal</span><span id="stat-repos-label" class="text-on-surface-variant/60"></span></div>
             </div>
-            <div
-              class="stat-glow bg-surface-container-highest/40 border border-outline-variant/20 p-6 rounded-xl transition-all hover:bg-surface-container-highest/60">
+            <div class="stat-glow bg-surface-container-highest/40 border border-outline-variant/20 p-6 rounded-xl transition-all hover:bg-surface-container-highest/60">
               <span class="text-xs font-label uppercase tracking-widest text-on-surface-variant">Following</span>
               <div class="text-4xl font-black text-primary font-headline mt-1" id="stat-following"></div>
-              <div class="stat-context"><span class="material-symbols-outlined text-xs"
-                  aria-hidden="true">group</span><span id="stat-following-label"
-                  class="text-on-surface-variant/60"></span></div>
+              <div class="stat-context"><span class="material-symbols-outlined text-xs" aria-hidden="true">group</span><span id="stat-following-label" class="text-on-surface-variant/60"></span></div>
             </div>
           </div>
 
-          <!-- profile score ring -->
           <div class="mt-6 bg-primary/5 border border-primary/15 rounded-xl p-5">
             <div class="flex items-center gap-5">
               <div class="score-ring" aria-label="Profile score ring">
@@ -890,8 +761,7 @@
               <div class="flex-1">
                 <div class="flex items-center gap-2 mb-1">
                   <span class="text-sm font-bold font-headline">Profile Score</span>
-                  <span id="score-grade"
-                    class="text-xs font-label font-bold px-2 py-0.5 rounded-full bg-primary/10 grade-a"></span>
+                  <span id="score-grade" class="text-xs font-label font-bold px-2 py-0.5 rounded-full bg-primary/10 grade-a"></span>
                 </div>
                 <p id="score-label" class="text-xs text-on-surface-variant font-label mb-3"></p>
                 <div class="flex flex-col gap-1.5" id="score-breakdown"></div>
@@ -901,14 +771,12 @@
         </div>
       </section>
 
-      <!-- ecosystem map -->
       <section class="mb-12">
         <div class="bg-surface-container-low p-8 rounded-xl">
           <div class="flex items-center justify-between mb-6">
             <div>
               <h2 class="text-xl font-bold font-headline">Ecosystem Map</h2>
-              <p class="text-on-surface-variant text-sm mt-1 font-label">Explore how repositories connect across
-                programming languages</p>
+              <p class="text-on-surface-variant text-sm mt-1 font-label">Explore how repositories connect across programming languages</p>
             </div>
             <span class="text-xs font-label text-on-surface-variant">Drag nodes · scroll to zoom</span>
           </div>
@@ -920,15 +788,13 @@
         </div>
       </section>
 
-      <!-- featured repos -->
       <section class="mb-12">
         <div class="flex justify-between items-end mb-8">
           <div>
             <h2 class="text-2xl font-bold font-headline">Featured Repositories</h2>
             <p id="repos-subtitle" class="text-on-surface-variant text-sm mt-1"></p>
           </div>
-          <a id="github-repos-link" href="#" target="_blank" rel="noopener noreferrer"
-            class="text-primary text-sm font-medium hover:underline">View All on GitHub</a>
+          <a id="github-repos-link" href="#" target="_blank" rel="noopener noreferrer" class="text-primary text-sm font-medium hover:underline">View All on GitHub</a>
         </div>
         <div id="repos-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"></div>
       </section>
@@ -941,18 +807,13 @@
           <span class="text-xs font-label text-on-surface-variant mt-1">GitHub API Visualizer</span>
         </div>
         <div class="flex gap-8">
-          <a class="text-on-surface-variant hover:text-primary transition-colors text-sm font-label uppercase tracking-widest"
-            href="#">Documentation</a>
-          <a class="text-on-surface-variant hover:text-primary transition-colors text-sm font-label uppercase tracking-widest"
-            href="#">Feedback</a>
+          <a class="text-on-surface-variant hover:text-primary transition-colors text-sm font-label uppercase tracking-widest" href="#">Documentation</a>
+          <a class="text-on-surface-variant hover:text-primary transition-colors text-sm font-label uppercase tracking-widest" href="#">Feedback</a>
         </div>
         <div class="flex gap-4">
-          <span class="material-symbols-outlined text-on-surface-variant cursor-pointer hover:text-white"
-            aria-hidden="true">terminal</span>
-          <span class="material-symbols-outlined text-on-surface-variant cursor-pointer hover:text-white"
-            aria-hidden="true">code</span>
-          <span class="material-symbols-outlined text-on-surface-variant cursor-pointer hover:text-white"
-            aria-hidden="true">hub</span>
+          <span class="material-symbols-outlined text-on-surface-variant cursor-pointer hover:text-white" aria-hidden="true">terminal</span>
+          <span class="material-symbols-outlined text-on-surface-variant cursor-pointer hover:text-white" aria-hidden="true">code</span>
+          <span class="material-symbols-outlined text-on-surface-variant cursor-pointer hover:text-white" aria-hidden="true">hub</span>
         </div>
       </div>
     </footer>
@@ -968,20 +829,15 @@
         <p class="text-on-surface-variant text-lg">Side-by-side developer comparison with detailed metrics</p>
       </section>
 
-      <!-- inputs -->
       <section class="mb-10">
         <div class="grid grid-cols-1 md:grid-cols-2 gap-4 max-w-3xl">
           <div class="relative">
-            <span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-on-surface-variant"
-              aria-hidden="true">person</span>
-            <input id="compare-input-a" class="compare-input pl-10" type="text" placeholder="First username..."
-              autocomplete="off" spellcheck="false" aria-label="First developer username" />
+            <span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-on-surface-variant" aria-hidden="true">person</span>
+            <input id="compare-input-a" class="compare-input pl-10" type="text" placeholder="First username..." autocomplete="off" spellcheck="false" aria-label="First developer username" />
           </div>
           <div class="relative">
-            <span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-on-surface-variant"
-              aria-hidden="true">person</span>
-            <input id="compare-input-b" class="compare-input pl-10" type="text" placeholder="Second username..."
-              autocomplete="off" spellcheck="false" aria-label="Second developer username" />
+            <span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-on-surface-variant" aria-hidden="true">person</span>
+            <input id="compare-input-b" class="compare-input pl-10" type="text" placeholder="Second username..." autocomplete="off" spellcheck="false" aria-label="Second developer username" />
           </div>
         </div>
         <button id="compare-go-btn" onclick="App.runCompare()"
@@ -991,30 +847,23 @@
         </button>
       </section>
 
-      <!-- results (hidden until data loads) -->
       <div id="compare-results" style="display:none">
         <section class="grid grid-cols-2 gap-6 mb-8">
-          <div id="cmp-card-a"
-            class="bg-surface-container-low p-6 rounded-xl flex flex-col items-center text-center relative overflow-hidden">
+          <div id="cmp-card-a" class="bg-surface-container-low p-6 rounded-xl flex flex-col items-center text-center relative overflow-hidden">
             <div class="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-primary to-primary-container"></div>
-            <img id="cmp-avatar-a" src="" alt="Developer A Profile"
-              class="h-20 w-20 rounded-full border-2 border-primary/30 mb-4 object-cover" />
+            <img id="cmp-avatar-a" src="" alt="Developer A Profile" class="h-20 w-20 rounded-full border-2 border-primary/30 mb-4 object-cover" />
             <h2 id="cmp-name-a" class="text-xl font-bold font-headline text-on-surface"></h2>
             <p id="cmp-login-a" class="text-xs font-label text-on-surface-variant mb-2"></p>
             <div id="cmp-score-a-wrap" class="mt-2"></div>
-            <a id="cmp-link-a" href="#" target="_blank" rel="noopener noreferrer"
-              class="mt-3 text-xs text-primary hover:underline font-label">View on GitHub →</a>
+            <a id="cmp-link-a" href="#" target="_blank" rel="noopener noreferrer" class="mt-3 text-xs text-primary hover:underline font-label">View on GitHub →</a>
           </div>
-          <div id="cmp-card-b"
-            class="bg-surface-container-low p-6 rounded-xl flex flex-col items-center text-center relative overflow-hidden">
+          <div id="cmp-card-b" class="bg-surface-container-low p-6 rounded-xl flex flex-col items-center text-center relative overflow-hidden">
             <div class="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-tertiary to-tertiary-container"></div>
-            <img id="cmp-avatar-b" src="" alt="Developer B Profile"
-              class="h-20 w-20 rounded-full border-2 border-tertiary/30 mb-4 object-cover" />
+            <img id="cmp-avatar-b" src="" alt="Developer B Profile" class="h-20 w-20 rounded-full border-2 border-tertiary/30 mb-4 object-cover" />
             <h2 id="cmp-name-b" class="text-xl font-bold font-headline text-on-surface"></h2>
             <p id="cmp-login-b" class="text-xs font-label text-on-surface-variant mb-2"></p>
             <div id="cmp-score-b-wrap" class="mt-2"></div>
-            <a id="cmp-link-b" href="#" target="_blank" rel="noopener noreferrer"
-              class="mt-3 text-xs text-tertiary hover:underline font-label">View on GitHub →</a>
+            <a id="cmp-link-b" href="#" target="_blank" rel="noopener noreferrer" class="mt-3 text-xs text-tertiary hover:underline font-label">View on GitHub →</a>
           </div>
         </section>
 
@@ -1040,21 +889,18 @@
           </div>
         </section>
 
-        <section id="compare-winner-banner"
-          class="bg-surface-container-low border border-primary/20 rounded-xl p-6 text-center">
+        <section id="compare-winner-banner" class="bg-surface-container-low border border-primary/20 rounded-xl p-6 text-center">
           <p class="text-xs font-label text-on-surface-variant uppercase tracking-widest mb-2">Overall Winner</p>
           <div id="compare-winner-content"></div>
         </section>
       </div>
 
-      <!-- empty state -->
       <div id="compare-empty" class="flex flex-col items-center justify-center py-24 text-center">
         <div class="w-20 h-20 rounded-full bg-primary/5 border border-primary/10 flex items-center justify-center mb-6">
           <span class="material-symbols-outlined text-primary text-3xl" aria-hidden="true">compare_arrows</span>
         </div>
         <h3 class="text-xl font-bold font-headline mb-2">Pick two developers</h3>
-        <p class="text-on-surface-variant text-sm max-w-xs">Enter two GitHub usernames above to see a detailed
-          side-by-side comparison.</p>
+        <p class="text-on-surface-variant text-sm max-w-xs">Enter two GitHub usernames above to see a detailed side-by-side comparison.</p>
       </div>
     </main>
   </div>
@@ -1069,17 +915,13 @@
         <p class="text-on-surface-variant text-lg">Search and explore repositories across GitHub.</p>
       </section>
 
-      <!-- search bar + filters -->
       <section class="mb-8">
         <div class="relative max-w-3xl" id="repo-search-wrap">
-          <input id="repo-search-input" class="repo-search-input" type="text"
-            placeholder="Search any repo, topic, or keyword…" autocomplete="off" spellcheck="false"
-            aria-label="Search repositories" />
+          <input id="repo-search-input" class="repo-search-input" type="text" placeholder="Search any repo, topic, or keyword…" autocomplete="off" spellcheck="false" aria-label="Search repositories" />
           <button id="repo-search-btn"
             class="absolute right-3 top-1/2 -translate-y-1/2 bg-primary text-on-primary rounded-lg px-5 py-2 text-sm font-semibold hover:bg-primary-fixed active:scale-95 transition-all z-10">
             Search
           </button>
-          <!-- recent repo searches dropdown -->
           <div id="repo-recent-dropdown" class="recent-dropdown">
             <div class="px-4 py-2 border-b border-outline-variant/10 flex items-center gap-2">
               <span class="material-symbols-outlined text-xs text-on-surface-variant" aria-hidden="true">history</span>
@@ -1091,20 +933,15 @@
 
         <div class="flex flex-wrap gap-2 mt-5 items-center">
           <span class="text-xs font-label text-on-surface-variant uppercase tracking-wider mr-2">Sort by:</span>
-          <button class="filter-pill active" data-sort="stars" onclick="RepoSearch.setSort('stars', this)">⭐
-            Stars</button>
+          <button class="filter-pill active" data-sort="stars" onclick="RepoSearch.setSort('stars', this)">⭐ Stars</button>
           <button class="filter-pill" data-sort="forks" onclick="RepoSearch.setSort('forks', this)">🔱 Forks</button>
-          <button class="filter-pill" data-sort="updated" onclick="RepoSearch.setSort('updated', this)">🕐
-            Updated</button>
-          <button class="filter-pill" data-sort="best-match" onclick="RepoSearch.setSort('best-match', this)">✨ Best
-            Match</button>
+          <button class="filter-pill" data-sort="updated" onclick="RepoSearch.setSort('updated', this)">🕐 Updated</button>
+          <button class="filter-pill" data-sort="best-match" onclick="RepoSearch.setSort('best-match', this)">✨ Best Match</button>
           <div class="ml-4 flex flex-wrap gap-2 items-center">
             <span class="text-xs font-label text-on-surface-variant uppercase tracking-wider mr-2">Language:</span>
             <button class="filter-pill active" data-lang="" onclick="RepoSearch.setLang('', this)">All</button>
-            <button class="filter-pill" data-lang="javascript"
-              onclick="RepoSearch.setLang('javascript', this)">JS</button>
-            <button class="filter-pill" data-lang="typescript"
-              onclick="RepoSearch.setLang('typescript', this)">TS</button>
+            <button class="filter-pill" data-lang="javascript" onclick="RepoSearch.setLang('javascript', this)">JS</button>
+            <button class="filter-pill" data-lang="typescript" onclick="RepoSearch.setLang('typescript', this)">TS</button>
             <button class="filter-pill" data-lang="python" onclick="RepoSearch.setLang('python', this)">Python</button>
             <button class="filter-pill" data-lang="go" onclick="RepoSearch.setLang('go', this)">Go</button>
             <button class="filter-pill" data-lang="rust" onclick="RepoSearch.setLang('rust', this)">Rust</button>
@@ -1112,62 +949,33 @@
         </div>
       </section>
 
-      <!-- empty / loading / results states -->
       <div id="repo-search-empty" class="flex flex-col items-center justify-center py-24 text-center">
         <div class="w-20 h-20 rounded-full bg-primary/5 border border-primary/10 flex items-center justify-center mb-6">
           <span class="material-symbols-outlined text-primary text-3xl" aria-hidden="true">manage_search</span>
         </div>
         <h3 class="text-xl font-bold font-headline mb-2">Search GitHub Repositories</h3>
-        <p class="text-on-surface-variant text-sm max-w-xs">Enter a keyword to search across all public repositories on
-          GitHub.</p>
+        <p class="text-on-surface-variant text-sm max-w-xs">Enter a keyword to search across all public repositories on GitHub.</p>
       </div>
 
       <div id="repo-search-loading" style="display:none">
         <div class="grid grid-cols-1 gap-4">
           <div class="bg-surface-container-low rounded-xl p-6">
             <div class="flex items-start justify-between mb-3">
-              <div>
-                <div class="skeleton h-5 w-48 rounded mb-2"></div>
-                <div class="skeleton h-4 w-24 rounded"></div>
-              </div>
+              <div><div class="skeleton h-5 w-48 rounded mb-2"></div><div class="skeleton h-4 w-24 rounded"></div></div>
               <div class="skeleton h-8 w-20 rounded-full"></div>
             </div>
             <div class="skeleton h-4 w-full rounded mb-2"></div>
             <div class="skeleton h-4 w-3/4 rounded mb-4"></div>
-            <div class="flex gap-4">
-              <div class="skeleton h-4 w-16 rounded"></div>
-              <div class="skeleton h-4 w-16 rounded"></div>
-            </div>
+            <div class="flex gap-4"><div class="skeleton h-4 w-16 rounded"></div><div class="skeleton h-4 w-16 rounded"></div></div>
           </div>
           <div class="bg-surface-container-low rounded-xl p-6">
             <div class="flex items-start justify-between mb-3">
-              <div>
-                <div class="skeleton h-5 w-48 rounded mb-2"></div>
-                <div class="skeleton h-4 w-24 rounded"></div>
-              </div>
+              <div><div class="skeleton h-5 w-48 rounded mb-2"></div><div class="skeleton h-4 w-24 rounded"></div></div>
               <div class="skeleton h-8 w-20 rounded-full"></div>
             </div>
             <div class="skeleton h-4 w-full rounded mb-2"></div>
             <div class="skeleton h-4 w-3/4 rounded mb-4"></div>
-            <div class="flex gap-4">
-              <div class="skeleton h-4 w-16 rounded"></div>
-              <div class="skeleton h-4 w-16 rounded"></div>
-            </div>
-          </div>
-          <div class="bg-surface-container-low rounded-xl p-6">
-            <div class="flex items-start justify-between mb-3">
-              <div>
-                <div class="skeleton h-5 w-48 rounded mb-2"></div>
-                <div class="skeleton h-4 w-24 rounded"></div>
-              </div>
-              <div class="skeleton h-8 w-20 rounded-full"></div>
-            </div>
-            <div class="skeleton h-4 w-full rounded mb-2"></div>
-            <div class="skeleton h-4 w-3/4 rounded mb-4"></div>
-            <div class="flex gap-4">
-              <div class="skeleton h-4 w-16 rounded"></div>
-              <div class="skeleton h-4 w-16 rounded"></div>
-            </div>
+            <div class="flex gap-4"><div class="skeleton h-4 w-16 rounded"></div><div class="skeleton h-4 w-16 rounded"></div></div>
           </div>
         </div>
       </div>
@@ -1193,10 +1001,8 @@
         </button>
       </div>
 
-      <!-- repo header -->
       <section class="bg-surface-container-low p-8 rounded-xl border-l-4 border-tertiary relative overflow-hidden mb-8">
-        <div class="absolute -top-20 -right-20 w-56 h-56 bg-tertiary/10 blur-[80px] rounded-full pointer-events-none">
-        </div>
+        <div class="absolute -top-20 -right-20 w-56 h-56 bg-tertiary/10 blur-[80px] rounded-full pointer-events-none"></div>
         <div class="relative">
           <div class="flex flex-wrap items-start justify-between gap-6">
             <div class="flex-1">
@@ -1219,26 +1025,22 @@
         </div>
       </section>
 
-      <!-- detail tabs -->
       <div class="flex items-center gap-1 bg-surface-container-lowest/60 rounded-xl p-1 mb-8 w-fit overflow-x-auto">
         <button class="detail-tab active" onclick="RepoDetail.switchTab('overview')" data-detail-tab="overview">
           <span class="material-symbols-outlined text-sm align-middle mr-1" aria-hidden="true">info</span>Overview
         </button>
         <button class="detail-tab" onclick="RepoDetail.switchTab('issues')" data-detail-tab="issues">
           <span class="material-symbols-outlined text-sm align-middle mr-1" aria-hidden="true">bug_report</span>Issues
-          <span id="rd-issue-count-badge"
-            class="ml-1 bg-primary/15 text-primary text-[10px] px-1.5 py-0.5 rounded-full font-label font-bold"></span>
+          <span id="rd-issue-count-badge" class="ml-1 bg-primary/15 text-primary text-[10px] px-1.5 py-0.5 rounded-full font-label font-bold"></span>
         </button>
         <button class="detail-tab" onclick="RepoDetail.switchTab('releases')" data-detail-tab="releases">
-          <span class="material-symbols-outlined text-sm align-middle mr-1"
-            aria-hidden="true">new_releases</span>Releases
+          <span class="material-symbols-outlined text-sm align-middle mr-1" aria-hidden="true">new_releases</span>Releases
         </button>
         <button class="detail-tab" onclick="RepoDetail.switchTab('contributors')" data-detail-tab="contributors">
           <span class="material-symbols-outlined text-sm align-middle mr-1" aria-hidden="true">group</span>Contributors
         </button>
       </div>
 
-      <!-- overview panel -->
       <div class="detail-panel active" id="detail-panel-overview">
         <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
           <div class="lg:col-span-2 bg-surface-container-low p-6 rounded-xl">
@@ -1252,7 +1054,6 @@
         </div>
       </div>
 
-      <!-- issues panel -->
       <div class="detail-panel" id="detail-panel-issues">
         <div class="bg-surface-container-low rounded-xl overflow-hidden">
           <div class="p-6 border-b border-outline-variant/10 flex items-center justify-between">
@@ -1268,7 +1069,6 @@
         </div>
       </div>
 
-      <!-- releases panel -->
       <div class="detail-panel" id="detail-panel-releases">
         <div id="rd-releases-list"></div>
         <div id="rd-releases-loading" class="space-y-3">
@@ -1277,7 +1077,6 @@
         </div>
       </div>
 
-      <!-- contributors panel -->
       <div class="detail-panel" id="detail-panel-contributors">
         <div class="bg-surface-container-low p-6 rounded-xl">
           <h3 class="text-lg font-bold font-headline mb-6">Top Contributors</h3>
@@ -1308,9 +1107,7 @@
             YAML: '#cb171e', default: '#83aeff'
           },
 
-          getLangColor(lang) {
-            return this.LANG_COLORS[lang] || this.LANG_COLORS.default;
-          },
+          getLangColor(lang) { return this.LANG_COLORS[lang] || this.LANG_COLORS.default; },
 
           formatNum(n) {
             if (n === null || n === undefined) return '0';
@@ -1320,21 +1117,13 @@
 
           formatDate(str) {
             if (!str) return '';
-            try {
-              return new Date(str).toLocaleDateString('en-US', { year: 'numeric', month: 'short', day: 'numeric' });
-            } catch {
-              return '';
-            }
+            try { return new Date(str).toLocaleDateString('en-US', { year: 'numeric', month: 'short', day: 'numeric' }); }
+            catch { return ''; }
           },
 
           escapeHTML(str) {
             if (str === null || str === undefined) return '';
-            return String(str)
-              .replace(/&/g, '&amp;')
-              .replace(/</g, '&lt;')
-              .replace(/>/g, '&gt;')
-              .replace(/"/g, '&quot;')
-              .replace(/'/g, '&#039;');
+            return String(str).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;').replace(/'/g, '&#039;');
           },
 
           sanitizeUrl(url) {
@@ -1344,23 +1133,19 @@
               if (u.protocol === 'http:') u.protocol = 'https:';
               if (u.protocol !== 'https:') return '#';
               return u.href;
-            } catch {
-              return '#';
-            }
+            } catch { return '#'; }
           },
 
           calcScore(user, totalStars, totalForks, ownRepoCount, accountAge) {
             const impact = totalStars + (totalForks * 1.5);
-            const quality = totalStars / Math.max(ownRepoCount, 1);
             const impactScore = 40 * (1 - Math.exp(-impact / 1500));
             const reachScore = 25 * (1 - Math.exp(-user.followers / 300));
             const prodScore = 15 * (1 - Math.exp(-ownRepoCount / 30));
-            const qualityScore = 10 * (1 - Math.exp(-quality / 40));
+            const qualityScore = 10 * (1 - Math.exp(-(totalStars / Math.max(ownRepoCount, 1)) / 40));
             const ageScore = Math.min(10, accountAge);
             return Math.round(impactScore + reachScore + prodScore + qualityScore + ageScore);
           },
 
-          // wait two frames so CSS transitions actually fire
           nextFrame(cb) { requestAnimationFrame(() => requestAnimationFrame(cb)); }
         };
 
@@ -1377,12 +1162,8 @@
           KEY_PROFILES: 'da_recent_profiles',
           KEY_REPOS: 'da_recent_repos',
 
-          _get(key) {
-            try { return JSON.parse(localStorage.getItem(key) || '[]'); } catch { return []; }
-          },
-          _set(key, arr) {
-            try { localStorage.setItem(key, JSON.stringify(arr)); } catch { }
-          },
+          _get(key) { try { return JSON.parse(localStorage.getItem(key) || '[]'); } catch { return []; } },
+          _set(key, arr) { try { localStorage.setItem(key, JSON.stringify(arr)); } catch {} },
 
           addProfile(username) {
             let list = this._get(this.KEY_PROFILES).filter(u => u.toLowerCase() !== username.toLowerCase());
@@ -1409,15 +1190,15 @@
             if (!el || !dd) return;
             if (!list.length) { dd.classList.remove('show'); return; }
             el.innerHTML = list.map(u => `
-        <div class="recent-item js-recent-profile" data-profile="${Utils.escapeHTML(u)}">
-          <div class="flex items-center gap-2">
-            <span class="material-symbols-outlined text-sm text-on-surface-variant" aria-hidden="true">person</span>
-            <span class="text-sm text-on-surface font-label">${Utils.escapeHTML(u)}</span>
-          </div>
-          <button class="js-remove-profile text-on-surface-variant hover:text-error transition-colors" aria-label="Remove ${Utils.escapeHTML(u)}" data-profile="${Utils.escapeHTML(u)}">
-            <span class="material-symbols-outlined text-xs" aria-hidden="true">close</span>
-          </button>
-        </div>`).join('');
+              <div class="recent-item js-recent-profile" data-profile="${Utils.escapeHTML(u)}">
+                <div class="flex items-center gap-2">
+                  <span class="material-symbols-outlined text-sm text-on-surface-variant" aria-hidden="true">person</span>
+                  <span class="text-sm text-on-surface font-label">${Utils.escapeHTML(u)}</span>
+                </div>
+                <button class="js-remove-profile text-on-surface-variant hover:text-error transition-colors" aria-label="Remove ${Utils.escapeHTML(u)}" data-profile="${Utils.escapeHTML(u)}">
+                  <span class="material-symbols-outlined text-xs" aria-hidden="true">close</span>
+                </button>
+              </div>`).join('');
           },
 
           renderRepoDropdown() {
@@ -1427,15 +1208,15 @@
             if (!el || !dd) return;
             if (!list.length) { dd.classList.remove('show'); return; }
             el.innerHTML = list.map(q => `
-        <div class="recent-item js-recent-repo" data-query="${Utils.escapeHTML(q)}">
-          <div class="flex items-center gap-2">
-            <span class="material-symbols-outlined text-sm text-on-surface-variant" aria-hidden="true">manage_search</span>
-            <span class="text-sm text-on-surface font-label">${Utils.escapeHTML(q)}</span>
-          </div>
-          <button class="js-remove-repo text-on-surface-variant hover:text-error transition-colors" aria-label="Remove ${Utils.escapeHTML(q)}" data-query="${Utils.escapeHTML(q)}">
-            <span class="material-symbols-outlined text-xs" aria-hidden="true">close</span>
-          </button>
-        </div>`).join('');
+              <div class="recent-item js-recent-repo" data-query="${Utils.escapeHTML(q)}">
+                <div class="flex items-center gap-2">
+                  <span class="material-symbols-outlined text-sm text-on-surface-variant" aria-hidden="true">manage_search</span>
+                  <span class="text-sm text-on-surface font-label">${Utils.escapeHTML(q)}</span>
+                </div>
+                <button class="js-remove-repo text-on-surface-variant hover:text-error transition-colors" aria-label="Remove ${Utils.escapeHTML(q)}" data-query="${Utils.escapeHTML(q)}">
+                  <span class="material-symbols-outlined text-xs" aria-hidden="true">close</span>
+                </button>
+              </div>`).join('');
           },
 
           removeProfile(u) {
@@ -1500,54 +1281,36 @@
 
           handlePopState(e) {
             const state = e.state;
-            if (!state || state.view === 'landing') {
-              UI.transition(() => UI.switchView('landing'));
-              return;
-            }
-            if (state.view === 'dashboard' && state.user) {
-              API.fetchProfile(state.user, false);
-            } else if (state.view === 'compare' && state.a && state.b) {
+            if (!state || state.view === 'landing') { UI.transition(() => UI.switchView('landing')); return; }
+            if (state.view === 'dashboard' && state.user) { API.fetchProfile(state.user, false); }
+            else if (state.view === 'compare' && state.a && state.b) {
               document.getElementById('compare-input-a').value = state.a;
               document.getElementById('compare-input-b').value = state.b;
               API.executeCompare(state.a, state.b, false);
-            } else if (state.view === 'compare') {
-              UI.transition(() => UI.switchView('compare'));
-              App.resetCompare();
-            } else if (state.view === 'repo-search') {
+            } else if (state.view === 'compare') { UI.transition(() => UI.switchView('compare')); App.resetCompare(); }
+            else if (state.view === 'repo-search') {
               UI.transition(() => UI.switchView('repo-search'));
               if (state.q) RepoSearch.searchQuery(state.q, false);
               else RepoSearch.reset();
             } else if (state.view === 'repo-detail' && state.owner && state.repo) {
               RepoDetail.open(state.owner, state.repo, false);
-            } else {
-              UI.transition(() => UI.switchView(state.view));
-            }
+            } else { UI.transition(() => UI.switchView(state.view)); }
           },
 
           parseUrl() {
             const params = new URLSearchParams(window.location.search);
-            if (params.has('owner') && params.has('repo')) {
-              RepoDetail.open(params.get('owner'), params.get('repo'), false);
-            } else if (params.has('user')) {
-              API.fetchProfile(params.get('user'), false);
-            } else if (params.has('a') && params.has('b')) {
+            if (params.has('owner') && params.has('repo')) { RepoDetail.open(params.get('owner'), params.get('repo'), false); }
+            else if (params.has('user')) { API.fetchProfile(params.get('user'), false); }
+            else if (params.has('a') && params.has('b')) {
               const a = params.get('a'), b = params.get('b');
               document.getElementById('compare-input-a').value = a;
               document.getElementById('compare-input-b').value = b;
               UI.switchView('compare');
               API.executeCompare(a, b, false);
-            } else if (params.has('q')) {
-              UI.switchView('repo-search');
-              RepoSearch.searchQuery(params.get('q'), false);
-            } else if (params.get('view') === 'repo-search') {
-              UI.switchView('repo-search');
-              RepoSearch.reset();
-            } else if (params.get('view') === 'compare') {
-              UI.switchView('compare');
-              App.resetCompare();
-            } else {
-              UI.switchView('landing');
-            }
+            } else if (params.has('q')) { UI.switchView('repo-search'); RepoSearch.searchQuery(params.get('q'), false); }
+            else if (params.get('view') === 'repo-search') { UI.switchView('repo-search'); RepoSearch.reset(); }
+            else if (params.get('view') === 'compare') { UI.switchView('compare'); App.resetCompare(); }
+            else { UI.switchView('landing'); }
           }
         };
 
@@ -1577,17 +1340,14 @@
             });
             const target = document.getElementById(view === 'landing' ? 'landing-screen' : view + '-screen');
             if (target) target.style.display = view === 'landing' ? 'flex' : 'block';
-
             const nav = document.getElementById('main-nav');
             if (nav) nav.style.display = view !== 'landing' ? 'block' : 'none';
-
             if (view !== 'landing') {
               ['dashboard', 'compare', 'repo-search'].forEach(t => {
                 const el = document.getElementById('tab-' + t);
                 if (el) el.classList.toggle('active', view === t);
               });
             }
-
             window.scrollTo(0, 0);
             RecentSearches.hideAll();
           },
@@ -1644,15 +1404,12 @@
             setTxt('profile-name', escapedName);
             setTxt('profile-login', '@' + Utils.escapeHTML(user.login));
             setTxt('profile-bio', Utils.escapeHTML(user.bio || 'No bio provided.'));
-
             const gl = document.getElementById('github-link');
             if (gl) gl.href = user.html_url;
             const grl = document.getElementById('github-repos-link');
             if (grl) grl.href = user.html_url + '?tab=repositories';
             const sn = document.getElementById('search-input-nav');
             if (sn) sn.value = user.login;
-
-            // hide all meta fields first, then show what we have
             ['profile-location', 'profile-website', 'profile-company', 'profile-created'].forEach(id => {
               const el = document.getElementById(id);
               if (el) { el.classList.add('hidden'); el.classList.remove('flex'); }
@@ -1667,10 +1424,7 @@
               const el = document.getElementById('profile-website');
               if (el) { el.classList.remove('hidden'); el.classList.add('flex'); }
               const link = document.getElementById('profile-website-link');
-              if (link) {
-                link.textContent = user.blog.replace(/^https?:\/\//, '').split('/')[0];
-                link.href = Utils.sanitizeUrl(user.blog);
-              }
+              if (link) { link.textContent = user.blog.replace(/^https?:\/\//, '').split('/')[0]; link.href = Utils.sanitizeUrl(user.blog); }
             }
             if (user.company) {
               const el = document.getElementById('profile-company');
@@ -1692,8 +1446,6 @@
             setTxt('stat-stars', Utils.formatNum(totalStars));
             setTxt('stat-repos', Utils.formatNum(user.public_repos));
             setTxt('stat-following', Utils.formatNum(user.following));
-
-            // contextual labels
             const fLabel = document.getElementById('stat-followers-label');
             if (fLabel) {
               const f = user.followers;
@@ -1705,7 +1457,6 @@
               else if (f < 10000) fLabel.textContent = 'Top-tier GitHub influencer';
               else fLabel.textContent = 'Elite — top 0.1% of GitHub';
             }
-
             const sLabel = document.getElementById('stat-stars-label');
             if (sLabel) {
               if (totalStars === 0) sLabel.textContent = 'No starred repos yet';
@@ -1716,7 +1467,6 @@
               else if (totalStars < 10000) sLabel.textContent = 'Highly impactful repositories';
               else sLabel.textContent = 'Legendary open-source impact';
             }
-
             const rLabel = document.getElementById('stat-repos-label');
             if (rLabel) {
               if (ownRepoCount === 0) rLabel.textContent = 'No original repos yet';
@@ -1725,7 +1475,6 @@
               else if (ownRepoCount < 50) rLabel.textContent = 'Prolific — ' + ownRepoCount + ' original projects';
               else rLabel.textContent = 'Power contributor — ' + ownRepoCount + ' repos';
             }
-
             const foLabel = document.getElementById('stat-following-label');
             if (foLabel) {
               const ratio = user.followers > 0 ? (user.followers / Math.max(user.following, 1)).toFixed(1) : 0;
@@ -1745,23 +1494,19 @@
               { label: 'Code Quality', icon: 'military_tech', raw: totalStars / Math.max(ownRepoCount, 1), score: 10 * (1 - Math.exp(-(totalStars / Math.max(ownRepoCount, 1)) / 40)), max: 10 },
               { label: 'Account Maturity', icon: 'calendar_month', raw: accountAge, score: Math.min(10, accountAge), max: 10 }
             ];
-
             const totalScore = Math.round(components.reduce((s, c) => s + c.score, 0));
             let grade, gradeBg;
             if (totalScore >= 85) { grade = 'S'; gradeBg = 'bg-secondary/10 text-secondary'; }
             else if (totalScore >= 65) { grade = 'A'; gradeBg = 'bg-primary/10 text-primary'; }
             else if (totalScore >= 40) { grade = 'B'; gradeBg = 'bg-tertiary/10 text-tertiary'; }
             else { grade = 'C'; gradeBg = 'bg-outline-variant/20 text-on-surface-variant'; }
-
             const gradeDesc = { S: 'Elite developer profile', A: 'Strong, impactful presence', B: 'Growing community footprint', C: 'Early-stage developer' }[grade];
-
             const sv = document.getElementById('score-value');
             if (sv) sv.textContent = totalScore;
             const gradeEl = document.getElementById('score-grade');
             if (gradeEl) { gradeEl.textContent = 'Grade ' + grade; gradeEl.className = 'text-xs font-label font-bold px-2 py-0.5 rounded-full ' + gradeBg; }
             const sl = document.getElementById('score-label');
             if (sl) sl.textContent = gradeDesc;
-
             const circumference = 188.5;
             const offset = circumference - (totalScore / 100) * circumference;
             const ringColors = { S: '#97f999', A: '#83aeff', B: '#ffa366', C: '#a8abb3' };
@@ -1769,26 +1514,12 @@
               const ring = document.getElementById('score-ring-fill');
               if (ring) { ring.style.strokeDashoffset = offset; ring.style.stroke = ringColors[grade]; }
             });
-
             const sb = document.getElementById('score-breakdown');
             if (sb) {
               sb.innerHTML = components.slice(0, 3).map(c => {
                 const pct = Math.round((c.score / c.max) * 100);
                 const barColor = pct >= 70 ? '#97f999' : pct >= 40 ? '#83aeff' : '#ffa366';
-                return (
-                  '<div class="score-pill">' +
-                  '<div class="flex items-center gap-1.5 text-on-surface-variant">' +
-                  '<span class="material-symbols-outlined" style="font-size:12px" aria-hidden="true">' + c.icon + '</span>' +
-                  Utils.escapeHTML(c.label) +
-                  '</div>' +
-                  '<div class="flex items-center gap-2">' +
-                  '<div style="width:48px;height:4px;background:rgba(255,255,255,0.08);border-radius:2px;overflow:hidden">' +
-                  '<div style="width:' + pct + '%;height:100%;background:' + barColor + ';border-radius:2px"></div>' +
-                  '</div>' +
-                  '<span style="color:' + barColor + ';font-weight:700;font-size:11px">' + pct + '%</span>' +
-                  '</div>' +
-                  '</div>'
-                );
+                return '<div class="score-pill"><div class="flex items-center gap-1.5 text-on-surface-variant"><span class="material-symbols-outlined" style="font-size:12px" aria-hidden="true">' + c.icon + '</span>' + Utils.escapeHTML(c.label) + '</div><div class="flex items-center gap-2"><div style="width:48px;height:4px;background:rgba(255,255,255,0.08);border-radius:2px;overflow:hidden"><div style="width:' + pct + '%;height:100%;background:' + barColor + ';border-radius:2px"></div></div><span style="color:' + barColor + ';font-weight:700;font-size:11px">' + pct + '%</span></div></div>';
               }).join('');
             }
           },
@@ -1803,23 +1534,10 @@
               return;
             }
             c.innerHTML = topLangs.map(({ lang, pct }) =>
-              '<div class="group">' +
-              '<div class="flex justify-between items-end mb-2">' +
-              '<span class="text-sm font-medium text-on-surface flex items-center gap-2">' +
-              '<span class="w-2 h-2 rounded-full flex-shrink-0" style="background:' + Utils.getLangColor(lang) + '"></span>' +
-              Utils.escapeHTML(lang) +
-              '</span>' +
-              '<span class="text-xs font-label text-on-surface-variant">' + pct + '%</span>' +
-              '</div>' +
-              '<div class="w-full bg-surface-container-highest rounded-full h-2 overflow-hidden">' +
-              '<div class="lang-bar h-full rounded-full" style="background:' + Utils.getLangColor(lang) + '" data-width="' + pct + '"></div>' +
-              '</div>' +
-              '</div>'
+              '<div class="group"><div class="flex justify-between items-end mb-2"><span class="text-sm font-medium text-on-surface flex items-center gap-2"><span class="w-2 h-2 rounded-full flex-shrink-0" style="background:' + Utils.getLangColor(lang) + '"></span>' + Utils.escapeHTML(lang) + '</span><span class="text-xs font-label text-on-surface-variant">' + pct + '%</span></div><div class="w-full bg-surface-container-highest rounded-full h-2 overflow-hidden"><div class="lang-bar h-full rounded-full" style="background:' + Utils.getLangColor(lang) + '" data-width="' + pct + '"></div></div></div>'
             ).join('');
-
             const forkedNote = totalRepoCount > ownRepoCount ? ' (forks excluded)' : '';
             if (meta) meta.textContent = 'Based on ' + ownRepoCount + ' original repositories' + forkedNote + '.';
-
             Utils.nextFrame(() => {
               document.querySelectorAll('.lang-bar').forEach(b => { b.style.width = b.dataset.width + '%'; });
             });
@@ -1829,10 +1547,7 @@
             const g = document.getElementById('repos-grid');
             const subtitle = document.getElementById('repos-subtitle');
             if (!g) return;
-            if (!topRepos.length) {
-              g.innerHTML = '<p class="text-on-surface-variant text-sm col-span-3">No repositories found.</p>';
-              return;
-            }
+            if (!topRepos.length) { g.innerHTML = '<p class="text-on-surface-variant text-sm col-span-3">No repositories found.</p>'; return; }
             if (subtitle) {
               subtitle.textContent = totalRepoCount <= 6
                 ? 'Showing all ' + topRepos.length + ' repositor' + (topRepos.length === 1 ? 'y' : 'ies') + '.'
@@ -1840,41 +1555,10 @@
             }
             g.innerHTML = topRepos.map(repo => {
               const topics = (repo.topics || []).slice(0, 4);
-              const topicsHtml = topics.length
-                ? '<div class="flex flex-wrap gap-1 mt-3">' + topics.map(t => '<span class="topic-chip">' + Utils.escapeHTML(t) + '</span>').join('') + '</div>'
-                : '';
+              const topicsHtml = topics.length ? '<div class="flex flex-wrap gap-1 mt-3">' + topics.map(t => '<span class="topic-chip">' + Utils.escapeHTML(t) + '</span>').join('') + '</div>' : '';
               const ownerLogin = Utils.escapeHTML(repo.owner ? repo.owner.login : '');
               const repoName = Utils.escapeHTML(repo.name);
-              return (
-                '<div class="bg-surface-container p-6 rounded-xl hover:bg-surface-bright transition-all transform hover:-translate-y-1 cursor-pointer" ' +
-                'onclick="RepoDetail.open(\'' + ownerLogin + '\',\'' + repoName + '\',true)" ' +
-                'role="button" tabindex="0" ' +
-                'onkeydown="if(event.key===\'Enter\'||event.key===\' \')RepoDetail.open(\'' + ownerLogin + '\',\'' + repoName + '\',true)">' +
-                '<div class="flex justify-between items-start mb-4">' +
-                '<span class="material-symbols-outlined text-primary" aria-hidden="true">' + (repo.fork ? 'fork_right' : 'folder_open') + '</span>' +
-                '<div class="flex gap-4">' +
-                '<div class="flex items-center gap-1 text-on-surface-variant text-xs font-label">' +
-                '<span class="material-symbols-outlined text-[14px]" aria-hidden="true">star</span>' + Utils.formatNum(repo.stargazers_count) +
-                '</div>' +
-                '<div class="flex items-center gap-1 text-on-surface-variant text-xs font-label">' +
-                '<span class="material-symbols-outlined text-[14px]" aria-hidden="true">fork_right</span>' + Utils.formatNum(repo.forks_count) +
-                '</div>' +
-                '</div>' +
-                '</div>' +
-                '<h3 class="text-lg font-bold mb-2 hover:text-primary transition-colors font-headline truncate">' + repoName + '</h3>' +
-                '<p class="text-sm text-on-surface-variant mb-2 line-clamp-2">' + (Utils.escapeHTML(repo.description) || 'No description provided.') + '</p>' +
-                topicsHtml +
-                '<div class="flex items-center justify-between mt-4">' +
-                '<div class="flex items-center gap-2">' +
-                (repo.language
-                  ? '<span class="w-2.5 h-2.5 rounded-full flex-shrink-0" style="background:' + Utils.getLangColor(repo.language) + '"></span>' +
-                  '<span class="text-xs font-label uppercase tracking-widest text-on-surface-variant">' + Utils.escapeHTML(repo.language) + '</span>'
-                  : '<span class="text-xs font-label text-on-surface-variant">—</span>') +
-                '</div>' +
-                (repo.fork ? '<span class="text-[10px] font-label text-on-surface-variant/50 uppercase tracking-wider border border-outline-variant/20 px-1.5 py-0.5 rounded">Forked</span>' : '') +
-                '</div>' +
-                '</div>'
-              );
+              return '<div class="bg-surface-container p-6 rounded-xl hover:bg-surface-bright transition-all transform hover:-translate-y-1 cursor-pointer" onclick="RepoDetail.open(\'' + ownerLogin + '\',\'' + repoName + '\',true)" role="button" tabindex="0" onkeydown="if(event.key===\'Enter\'||event.key===\' \')RepoDetail.open(\'' + ownerLogin + '\',\'' + repoName + '\',true)"><div class="flex justify-between items-start mb-4"><span class="material-symbols-outlined text-primary" aria-hidden="true">' + (repo.fork ? 'fork_right' : 'folder_open') + '</span><div class="flex gap-4"><div class="flex items-center gap-1 text-on-surface-variant text-xs font-label"><span class="material-symbols-outlined text-[14px]" aria-hidden="true">star</span>' + Utils.formatNum(repo.stargazers_count) + '</div><div class="flex items-center gap-1 text-on-surface-variant text-xs font-label"><span class="material-symbols-outlined text-[14px]" aria-hidden="true">fork_right</span>' + Utils.formatNum(repo.forks_count) + '</div></div></div><h3 class="text-lg font-bold mb-2 hover:text-primary transition-colors font-headline truncate">' + repoName + '</h3><p class="text-sm text-on-surface-variant mb-2 line-clamp-2">' + (Utils.escapeHTML(repo.description) || 'No description provided.') + '</p>' + topicsHtml + '<div class="flex items-center justify-between mt-4"><div class="flex items-center gap-2">' + (repo.language ? '<span class="w-2.5 h-2.5 rounded-full flex-shrink-0" style="background:' + Utils.getLangColor(repo.language) + '"></span><span class="text-xs font-label uppercase tracking-widest text-on-surface-variant">' + Utils.escapeHTML(repo.language) + '</span>' : '<span class="text-xs font-label text-on-surface-variant">—</span>') + '</div>' + (repo.fork ? '<span class="text-[10px] font-label text-on-surface-variant/50 uppercase tracking-wider border border-outline-variant/20 px-1.5 py-0.5 rounded">Forked</span>' : '') + '</div></div>';
             }).join('');
           },
 
@@ -1889,23 +1573,11 @@
               if (lg) lg.textContent = '@' + d.user.login;
               const lk = document.getElementById('cmp-link-' + side);
               if (lk) lk.href = d.user.html_url;
-
               const grade = d.score >= 85 ? 'S' : d.score >= 65 ? 'A' : d.score >= 40 ? 'B' : 'C';
-              const gradeColors = {
-                S: 'text-secondary bg-secondary/10',
-                A: 'text-primary bg-primary/10',
-                B: 'text-tertiary bg-tertiary/10',
-                C: 'text-on-surface-variant bg-outline-variant/10'
-              };
+              const gradeColors = { S: 'text-secondary bg-secondary/10', A: 'text-primary bg-primary/10', B: 'text-tertiary bg-tertiary/10', C: 'text-on-surface-variant bg-outline-variant/10' };
               const sw = document.getElementById('cmp-score-' + side + '-wrap');
-              if (sw) sw.innerHTML =
-                '<div class="flex items-center gap-2">' +
-                '<span class="text-2xl font-black font-headline ' + (side === 'a' ? 'text-primary' : 'text-tertiary') + '">' + d.score + '</span>' +
-                '<span class="text-xs font-label font-bold px-2 py-0.5 rounded-full ' + gradeColors[grade] + '">Grade ' + grade + '</span>' +
-                '</div>' +
-                '<p class="text-xs text-on-surface-variant font-label mt-1">Profile Score</p>';
+              if (sw) sw.innerHTML = '<div class="flex items-center gap-2"><span class="text-2xl font-black font-headline ' + (side === 'a' ? 'text-primary' : 'text-tertiary') + '">' + d.score + '</span><span class="text-xs font-label font-bold px-2 py-0.5 rounded-full ' + gradeColors[grade] + '">Grade ' + grade + '</span></div><p class="text-xs text-on-surface-variant font-label mt-1">Profile Score</p>';
             });
-
             const stats = [
               { label: 'Followers', va: a.user.followers, vb: b.user.followers, fmt: Utils.formatNum.bind(Utils), higherBetter: true },
               { label: 'Total Stars', va: a.totalStars, vb: b.totalStars, fmt: Utils.formatNum.bind(Utils), higherBetter: true },
@@ -1916,7 +1588,6 @@
               { label: 'Account Age', va: a.accountAge, vb: b.accountAge, fmt: v => v.toFixed(1) + 'y', higherBetter: true },
               { label: 'Profile Score', va: a.score, vb: b.score, fmt: v => String(v), higherBetter: true }
             ];
-
             const csr = document.getElementById('compare-stat-rows');
             if (csr) {
               csr.innerHTML = stats.map(stat => {
@@ -1926,90 +1597,36 @@
                 const aWins = stat.higherBetter ? stat.va > stat.vb : stat.va < stat.vb;
                 const bWins = stat.higherBetter ? stat.vb > stat.va : stat.vb < stat.va;
                 const tie = stat.va === stat.vb;
-                return (
-                  '<div class="px-6 py-5">' +
-                  '<div class="flex items-center justify-between mb-3">' +
-                  '<div class="flex items-center gap-2">' +
-                  '<span class="font-label text-xs font-semibold text-on-surface uppercase tracking-widest">' + Utils.escapeHTML(stat.label) + '</span>' +
-                  (!tie ? '<span class="winner-badge">' + (aWins ? Utils.escapeHTML(a.user.login) : Utils.escapeHTML(b.user.login)) + ' wins</span>' : '') +
-                  '</div>' +
-                  '</div>' +
-                  '<div class="grid grid-cols-2 gap-4">' +
-                  '<div>' +
-                  '<div class="flex justify-between text-xs font-label mb-1.5">' +
-                  '<span class="text-on-surface-variant">' + Utils.escapeHTML(a.user.login) + '</span>' +
-                  '<span class="' + (aWins ? 'text-primary font-bold' : 'text-on-surface-variant') + '">' + Utils.escapeHTML(String(stat.fmt(stat.va))) + '</span>' +
-                  '</div>' +
-                  '<div class="compare-bar-wrap"><div class="compare-bar" style="width:0%;background:#83aeff" data-w="' + pctA + '"></div></div>' +
-                  '</div>' +
-                  '<div>' +
-                  '<div class="flex justify-between text-xs font-label mb-1.5">' +
-                  '<span class="text-on-surface-variant">' + Utils.escapeHTML(b.user.login) + '</span>' +
-                  '<span class="' + (bWins ? 'text-tertiary font-bold' : 'text-on-surface-variant') + '">' + Utils.escapeHTML(String(stat.fmt(stat.vb))) + '</span>' +
-                  '</div>' +
-                  '<div class="compare-bar-wrap"><div class="compare-bar" style="width:0%;background:#ffa366" data-w="' + pctB + '"></div></div>' +
-                  '</div>' +
-                  '</div>' +
-                  '</div>'
-                );
+                return '<div class="px-6 py-5"><div class="flex items-center justify-between mb-3"><div class="flex items-center gap-2"><span class="font-label text-xs font-semibold text-on-surface uppercase tracking-widest">' + Utils.escapeHTML(stat.label) + '</span>' + (!tie ? '<span class="winner-badge">' + (aWins ? Utils.escapeHTML(a.user.login) : Utils.escapeHTML(b.user.login)) + ' wins</span>' : '') + '</div></div><div class="grid grid-cols-2 gap-4"><div><div class="flex justify-between text-xs font-label mb-1.5"><span class="text-on-surface-variant">' + Utils.escapeHTML(a.user.login) + '</span><span class="' + (aWins ? 'text-primary font-bold' : 'text-on-surface-variant') + '">' + Utils.escapeHTML(String(stat.fmt(stat.va))) + '</span></div><div class="compare-bar-wrap"><div class="compare-bar" style="width:0%;background:#83aeff" data-w="' + pctA + '"></div></div></div><div><div class="flex justify-between text-xs font-label mb-1.5"><span class="text-on-surface-variant">' + Utils.escapeHTML(b.user.login) + '</span><span class="' + (bWins ? 'text-tertiary font-bold' : 'text-on-surface-variant') + '">' + Utils.escapeHTML(String(stat.fmt(stat.vb))) + '</span></div><div class="compare-bar-wrap"><div class="compare-bar" style="width:0%;background:#ffa366" data-w="' + pctB + '"></div></div></div></div></div>';
               }).join('');
-              Utils.nextFrame(() => {
-                document.querySelectorAll('.compare-bar').forEach(b => { b.style.width = b.dataset.w + '%'; });
-              });
+              Utils.nextFrame(() => { document.querySelectorAll('.compare-bar').forEach(b => { b.style.width = b.dataset.w + '%'; }); });
             }
-
-            // language breakdown per developer
             ['a', 'b'].forEach(side => {
               const d = side === 'a' ? a : b;
               const color = side === 'a' ? '#83aeff' : '#ffa366';
               const title = document.getElementById('cmp-lang-title-' + side);
-              if (title) title.innerHTML =
-                '<span class="w-3 h-3 rounded-full inline-block" style="background:' + color + '"></span> ' +
-                Utils.escapeHTML(d.user.login) + "'s Languages";
-
+              if (title) title.innerHTML = '<span class="w-3 h-3 rounded-full inline-block" style="background:' + color + '"></span> ' + Utils.escapeHTML(d.user.login) + "'s Languages";
               const allLangTotal = d.topLangs.reduce((s, l) => s + l.n, 0) || 1;
               const langsEl = document.getElementById('cmp-langs-' + side);
               if (langsEl) {
                 langsEl.innerHTML = d.topLangs.map(({ lang, n }) => {
                   const pct = ((n / allLangTotal) * 100).toFixed(1);
-                  return (
-                    '<div>' +
-                    '<div class="flex justify-between text-xs font-label mb-1">' +
-                    '<span class="flex items-center gap-1.5">' +
-                    '<span class="w-2 h-2 rounded-full inline-block" style="background:' + Utils.getLangColor(lang) + '"></span>' +
-                    Utils.escapeHTML(lang) +
-                    '</span>' +
-                    '<span class="text-on-surface-variant">' + pct + '%</span>' +
-                    '</div>' +
-                    '<div class="w-full bg-surface-container-highest rounded-full h-1.5 overflow-hidden">' +
-                    '<div class="lang-bar h-full rounded-full" style="background:' + Utils.getLangColor(lang) + '" data-width="' + pct + '"></div>' +
-                    '</div>' +
-                    '</div>'
-                  );
+                  return '<div><div class="flex justify-between text-xs font-label mb-1"><span class="flex items-center gap-1.5"><span class="w-2 h-2 rounded-full inline-block" style="background:' + Utils.getLangColor(lang) + '"></span>' + Utils.escapeHTML(lang) + '</span><span class="text-on-surface-variant">' + pct + '%</span></div><div class="w-full bg-surface-container-highest rounded-full h-1.5 overflow-hidden"><div class="lang-bar h-full rounded-full" style="background:' + Utils.getLangColor(lang) + '" data-width="' + pct + '"></div></div></div>';
                 }).join('');
-                Utils.nextFrame(() => {
-                  document.querySelectorAll('#cmp-langs-' + side + ' .lang-bar').forEach(b => { b.style.width = b.dataset.width + '%'; });
-                });
+                Utils.nextFrame(() => { document.querySelectorAll('#cmp-langs-' + side + ' .lang-bar').forEach(b => { b.style.width = b.dataset.width + '%'; }); });
               }
             });
-
-            // winner banner
             const winnerEl = document.getElementById('compare-winner-content');
             if (winnerEl) {
               const aPoints = stats.filter(s => s.higherBetter ? s.va > s.vb : s.va < s.vb).length;
               const bPoints = stats.filter(s => s.higherBetter ? s.vb > s.va : s.vb < s.va).length;
               if (aPoints === bPoints) {
-                winnerEl.innerHTML =
-                  '<div class="text-2xl font-black font-headline text-on-surface">It\'s a tie! 🤝</div>' +
-                  '<p class="text-on-surface-variant text-sm mt-1">Both developers are evenly matched across ' + stats.length + ' categories.</p>';
+                winnerEl.innerHTML = '<div class="text-2xl font-black font-headline text-on-surface">It\'s a tie! 🤝</div><p class="text-on-surface-variant text-sm mt-1">Both developers are evenly matched across ' + stats.length + ' categories.</p>';
               } else {
                 const winner = aPoints > bPoints ? a : b;
                 const winColor = aPoints > bPoints ? '#83aeff' : '#ffa366';
                 const winPoints = Math.max(aPoints, bPoints);
-                winnerEl.innerHTML =
-                  '<img src="' + winner.user.avatar_url + '" alt="Winner Avatar" class="w-16 h-16 rounded-full border-2 mx-auto mb-3 object-cover" style="border-color:' + winColor + '"/>' +
-                  '<div class="text-2xl font-black font-headline" style="color:' + winColor + '">' + Utils.escapeHTML(winner.user.name || winner.user.login) + '</div>' +
-                  '<p class="text-on-surface-variant text-sm mt-1">Wins <strong>' + winPoints + ' of ' + stats.length + '</strong> categories with a profile score of <strong>' + winner.score + '/100</strong></p>';
+                winnerEl.innerHTML = '<img src="' + winner.user.avatar_url + '" alt="Winner Avatar" class="w-16 h-16 rounded-full border-2 mx-auto mb-3 object-cover" style="border-color:' + winColor + '"/><div class="text-2xl font-black font-headline" style="color:' + winColor + '">' + Utils.escapeHTML(winner.user.name || winner.user.login) + '</div><p class="text-on-surface-variant text-sm mt-1">Wins <strong>' + winPoints + ' of ' + stats.length + '</strong> categories with a profile score of <strong>' + winner.score + '/100</strong></p>';
               }
             }
           }
@@ -2021,12 +1638,7 @@
           _controller: null,
           CACHE_TTL: 5 * 60 * 1000,
 
-          _abortPrevious() {
-            if (this._controller) this._controller.abort();
-            this._controller = new AbortController();
-            return this._controller.signal;
-          },
-
+          // ▼▼▼ ONLY THIS METHOD WAS CHANGED — proxy routes through Cloudflare Worker ▼▼▼
           async fetchWithFallback(url, signal) {
             if (this._cache.has(url)) {
               const cached = this._cache.get(url);
@@ -2034,8 +1646,13 @@
               this._cache.delete(url);
             }
             try {
+              // Route all GitHub API calls through the Cloudflare Worker proxy
+              // Replace the URL below with YOUR actual worker URL
+              const PROXY = 'https://devarchive-proxy.manurajg1806.workers.dev/proxy';
+              const proxiedUrl = url.replace('https://api.github.com', PROXY);
+
               const opts = signal ? { signal } : {};
-              const res = await fetch(url, opts);
+              const res = await fetch(proxiedUrl, opts);
               if (!res.ok) {
                 if (res.status === 404) throw new Error('GitHub user or resource not found.');
                 if (res.status === 403) {
@@ -2054,13 +1671,19 @@
               throw err;
             }
           },
+          // ▲▲▲ END OF CHANGED METHOD ▲▲▲
+
+          _abortPrevious() {
+            if (this._controller) this._controller.abort();
+            this._controller = new AbortController();
+            return this._controller.signal;
+          },
 
           async fetchAllUserRepos(username, signal) {
             let page = 1, allRepos = [];
             while (true) {
               const repos = await this.fetchWithFallback(
-                'https://api.github.com/users/' + encodeURIComponent(username) + '/repos?per_page=100&page=' + page + '&sort=pushed',
-                signal
+                'https://api.github.com/users/' + encodeURIComponent(username) + '/repos?per_page=100&page=' + page + '&sort=pushed', signal
               );
               allRepos.push(...repos);
               if (repos.length < 100 || page >= 10) break;
@@ -2075,34 +1698,21 @@
             const signal = this._abortPrevious();
             UI.transition(() => { UI.setDashboardSkeletons(); UI.switchView('dashboard'); });
             try {
-              // Fetch profile and first page of repos IN PARALLEL for speed
               const [user, repos] = await Promise.all([
                 this.fetchWithFallback('https://api.github.com/users/' + encodeURIComponent(username), signal),
                 this.fetchWithFallback('https://api.github.com/users/' + encodeURIComponent(username) + '/repos?per_page=100&sort=pushed', signal)
               ]);
               State.currentUser = user;
               State.currentRepos = repos;
-
               const ownRepos = repos.filter(r => !r.fork);
               const sortedByStars = [...repos].sort((a, b) => b.stargazers_count - a.stargazers_count);
               const totalStars = repos.reduce((s, r) => s + r.stargazers_count, 0);
               const totalForks = repos.reduce((s, r) => s + r.forks_count, 0);
-
-              // weight languages by repo star count
               const langMap = {};
-              ownRepos.forEach(r => {
-                if (r.language) {
-                  const w = r.stargazers_count > 0 ? 2 : 1;
-                  langMap[r.language] = (langMap[r.language] || 0) + w;
-                }
-              });
+              ownRepos.forEach(r => { if (r.language) { const w = r.stargazers_count > 0 ? 2 : 1; langMap[r.language] = (langMap[r.language] || 0) + w; } });
               const totalLangWeight = Object.values(langMap).reduce((a, b) => a + b, 0) || 1;
-              const topLangs = Object.entries(langMap).sort((a, b) => b[1] - a[1]).slice(0, 6)
-                .map(([lang, w]) => ({ lang, pct: ((w / totalLangWeight) * 100).toFixed(1) }));
-
-              const accountAge = user.created_at
-                ? (Date.now() - new Date(user.created_at)) / (1000 * 60 * 60 * 24 * 365) : 0;
-
+              const topLangs = Object.entries(langMap).sort((a, b) => b[1] - a[1]).slice(0, 6).map(([lang, w]) => ({ lang, pct: ((w / totalLangWeight) * 100).toFixed(1) }));
+              const accountAge = user.created_at ? (Date.now() - new Date(user.created_at)) / (1000 * 60 * 60 * 24 * 365) : 0;
               UI.transition(() => {
                 UI.renderProfile(user);
                 UI.renderStats(user, totalStars, totalForks, ownRepos.length);
@@ -2111,7 +1721,6 @@
                 UI.renderRepoCards(sortedByStars.slice(0, 6), repos.length);
                 DepGraph.render(ownRepos);
               });
-
               RecentSearches.addProfile(username);
               if (pushState) {
                 const url = new URL(window.location);
@@ -2119,10 +1728,8 @@
                 url.searchParams.set('user', username);
                 history.pushState({ view: 'dashboard', user: username }, '', url);
               }
-
-              // Fetch remaining repo pages in background for users with 100+ repos
               if (repos.length === 100 && user.public_repos > 100) {
-                this._fetchRemainingRepos(username, signal).catch(() => { });
+                this._fetchRemainingRepos(username, signal).catch(() => {});
               }
             } catch (err) {
               if (err.message === 'Request cancelled.') return;
@@ -2135,8 +1742,7 @@
             while (true) {
               try {
                 const repos = await this.fetchWithFallback(
-                  'https://api.github.com/users/' + encodeURIComponent(username) + '/repos?per_page=100&page=' + page + '&sort=pushed',
-                  signal
+                  'https://api.github.com/users/' + encodeURIComponent(username) + '/repos?per_page=100&page=' + page + '&sort=pushed', signal
                 );
                 State.currentRepos = State.currentRepos.concat(repos);
                 if (repos.length < 100 || page >= 10) break;
@@ -2153,12 +1759,9 @@
             const totalForks = repos.reduce((s, r) => s + r.forks_count, 0);
             const accountAge = user.created_at ? (Date.now() - new Date(user.created_at)) / (1000 * 60 * 60 * 24 * 365) : 0;
             const score = Utils.calcScore(user, totalStars, totalForks, ownRepos.length, accountAge);
-
             const langMap = {};
             ownRepos.forEach(r => { if (r.language) langMap[r.language] = (langMap[r.language] || 0) + 1; });
-            const topLangs = Object.entries(langMap).sort((a, b) => b[1] - a[1]).slice(0, 5)
-              .map(([lang, n]) => ({ lang, n }));
-
+            const topLangs = Object.entries(langMap).sort((a, b) => b[1] - a[1]).slice(0, 5).map(([lang, n]) => ({ lang, n }));
             return { user, repos, ownRepos, totalStars, totalForks, accountAge, score, topLangs };
           },
 
@@ -2212,90 +1815,48 @@
             if (!svgEl) return;
             svgEl.innerHTML = '';
             if (!repos || repos.length === 0) return;
-
             const width = svgEl.parentElement ? (svgEl.parentElement.clientWidth || 900) : 900;
             const height = 420;
             svgEl.setAttribute('viewBox', '0 0 ' + width + ' ' + height);
-
-            // group repos by language
             const langGroups = {};
-            repos.forEach(r => {
-              const lang = r.language || 'Other';
-              if (!langGroups[lang]) langGroups[lang] = [];
-              langGroups[lang].push(r);
-            });
+            repos.forEach(r => { const lang = r.language || 'Other'; if (!langGroups[lang]) langGroups[lang] = []; langGroups[lang].push(r); });
             const sortedLangs = Object.entries(langGroups).sort((a, b) => b[1].length - a[1].length).slice(0, 8);
-
             const nodes = [];
             const links = [];
-
-            // hub node = developer
             const hubNode = { id: '__hub__', type: 'hub', label: State.currentUser ? State.currentUser.login : 'Dev', stars: 0 };
             nodes.push(hubNode);
-
             sortedLangs.forEach(([lang, langRepos]) => {
-              const langNode = {
-                id: '__lang__' + lang, type: 'lang', label: lang,
-                stars: langRepos.reduce((s, r) => s + r.stargazers_count, 0)
-              };
+              const langNode = { id: '__lang__' + lang, type: 'lang', label: lang, stars: langRepos.reduce((s, r) => s + r.stargazers_count, 0) };
               nodes.push(langNode);
               links.push({ source: '__hub__', target: '__lang__' + lang, type: 'hub-lang' });
-
-              // top 4 repos per language
               langRepos.sort((a, b) => b.stargazers_count - a.stargazers_count).slice(0, 4).forEach(repo => {
                 nodes.push({ id: repo.full_name, type: 'repo', label: repo.name, lang, stars: repo.stargazers_count, url: repo.html_url, desc: repo.description });
                 links.push({ source: '__lang__' + lang, target: repo.full_name, type: 'lang-repo' });
               });
             });
-
             const d3svg = d3.select(svgEl);
             d3svg.style('background', '#080c11');
             const g = d3svg.append('g');
             d3svg.call(d3.zoom().scaleExtent([0.3, 3]).on('zoom', e => g.attr('transform', e.transform)));
-
             const link = g.append('g').selectAll('line').data(links).enter().append('line')
               .attr('class', 'dep-link')
               .attr('stroke-width', d => d.type === 'hub-lang' ? 2 : 1)
               .attr('stroke', d => d.type === 'hub-lang' ? 'rgba(131,174,255,0.3)' : 'rgba(131,174,255,0.12)');
-
             const nodeG = g.append('g').selectAll('.dep-node').data(nodes).enter().append('g')
               .attr('class', 'dep-node')
-              .call(d3.drag()
-                .on('start', dragstarted)
-                .on('drag', dragged)
-                .on('end', dragended));
-
+              .call(d3.drag().on('start', dragstarted).on('drag', dragged).on('end', dragended));
             nodeG.append('circle')
-              .attr('r', d => {
-                if (d.type === 'hub') return 28;
-                if (d.type === 'lang') return 18;
-                return 6 + Math.min(16, Math.sqrt(d.stars + 1) * 1.5);
-              })
-              .attr('fill', d => {
-                if (d.type === 'hub') return 'rgba(131,174,255,0.15)';
-                if (d.type === 'lang') return Utils.getLangColor(d.label) + '22';
-                return Utils.getLangColor(d.lang) + '18';
-              })
-              .attr('stroke', d => {
-                if (d.type === 'hub') return '#83aeff';
-                if (d.type === 'lang') return Utils.getLangColor(d.label);
-                return Utils.getLangColor(d.lang);
-              })
+              .attr('r', d => { if (d.type === 'hub') return 28; if (d.type === 'lang') return 18; return 6 + Math.min(16, Math.sqrt(d.stars + 1) * 1.5); })
+              .attr('fill', d => { if (d.type === 'hub') return 'rgba(131,174,255,0.15)'; if (d.type === 'lang') return Utils.getLangColor(d.label) + '22'; return Utils.getLangColor(d.lang) + '18'; })
+              .attr('stroke', d => { if (d.type === 'hub') return '#83aeff'; if (d.type === 'lang') return Utils.getLangColor(d.label); return Utils.getLangColor(d.lang); })
               .attr('stroke-width', d => d.type === 'hub' ? 2.5 : 1.5);
-
             nodeG.append('text')
-              .attr('dy', '0.35em')
-              .attr('text-anchor', 'middle')
-              .attr('fill', d => {
-                if (d.type === 'hub') return '#83aeff';
-                if (d.type === 'lang') return Utils.getLangColor(d.label);
-                return '#a8abb3';
-              })
+              .attr('dy', '0.35em').attr('text-anchor', 'middle')
+              .attr('fill', d => { if (d.type === 'hub') return '#83aeff'; if (d.type === 'lang') return Utils.getLangColor(d.label); return '#a8abb3'; })
               .attr('font-size', d => d.type === 'hub' ? '11px' : d.type === 'lang' ? '10px' : '8px')
               .attr('font-family', "'Space Grotesk', sans-serif")
               .attr('font-weight', d => d.type !== 'repo' ? '700' : '400')
               .text(d => d.label.length > 12 ? d.label.slice(0, 11) + '…' : d.label);
-
             const depTooltip = document.getElementById('dep-tooltip');
             nodeG
               .on('mouseenter', function (event, d) {
@@ -2306,8 +1867,7 @@
                   const repoCount = found ? found[1].length : 0;
                   content = '<strong>' + Utils.escapeHTML(d.label) + '</strong><br>' + repoCount + ' repos · ' + Utils.formatNum(d.stars) + ' stars';
                 } else {
-                  content = '<strong>' + Utils.escapeHTML(d.label) + '</strong><br>' + Utils.escapeHTML(d.lang || 'Unknown') + ' · ⭐ ' + Utils.formatNum(d.stars) +
-                    (d.desc ? '<br><span style="opacity:0.7">' + Utils.escapeHTML(d.desc.slice(0, 50)) + (d.desc.length > 50 ? '…' : '') + '</span>' : '');
+                  content = '<strong>' + Utils.escapeHTML(d.label) + '</strong><br>' + Utils.escapeHTML(d.lang || 'Unknown') + ' · ⭐ ' + Utils.formatNum(d.stars) + (d.desc ? '<br><span style="opacity:0.7">' + Utils.escapeHTML(d.desc.slice(0, 50)) + (d.desc.length > 50 ? '…' : '') + '</span>' : '');
                 }
                 depTooltip.innerHTML = content;
                 depTooltip.style.display = 'block';
@@ -2318,13 +1878,8 @@
                 depTooltip.style.left = (event.clientX - rect.left + 12) + 'px';
                 depTooltip.style.top = (event.clientY - rect.top - 28) + 'px';
               })
-              .on('mouseleave', function () {
-                if (depTooltip) depTooltip.style.display = 'none';
-              })
-              .on('click', function (event, d) {
-                if (d.type === 'repo' && d.url) window.open(d.url, '_blank', 'noopener noreferrer');
-              });
-
+              .on('mouseleave', function () { if (depTooltip) depTooltip.style.display = 'none'; })
+              .on('click', function (event, d) { if (d.type === 'repo' && d.url) window.open(d.url, '_blank', 'noopener noreferrer'); });
             if (this.simulation) this.simulation.stop();
             this.simulation = d3.forceSimulation(nodes)
               .force('link', d3.forceLink(links).id(d => d.id).distance(d => d.type === 'hub-lang' ? 90 : 55).strength(0.7))
@@ -2332,29 +1887,16 @@
               .force('center', d3.forceCenter(width / 2, height / 2))
               .force('collision', d3.forceCollide().radius(d => d.type === 'hub' ? 38 : d.type === 'lang' ? 28 : 20))
               .on('tick', () => {
-                link
-                  .attr('x1', d => d.source.x).attr('y1', d => d.source.y)
-                  .attr('x2', d => d.target.x).attr('y2', d => d.target.y);
+                link.attr('x1', d => d.source.x).attr('y1', d => d.source.y).attr('x2', d => d.target.x).attr('y2', d => d.target.y);
                 nodeG.attr('transform', d => 'translate(' + d.x + ',' + d.y + ')');
               });
-
-            function dragstarted(event, d) {
-              if (!event.active) DepGraph.simulation.alphaTarget(0.3).restart();
-              d.fx = d.x; d.fy = d.y;
-            }
+            function dragstarted(event, d) { if (!event.active) DepGraph.simulation.alphaTarget(0.3).restart(); d.fx = d.x; d.fy = d.y; }
             function dragged(event, d) { d.fx = event.x; d.fy = event.y; }
-            function dragended(event, d) {
-              if (!event.active) DepGraph.simulation.alphaTarget(0);
-              d.fx = null; d.fy = null;
-            }
-
+            function dragended(event, d) { if (!event.active) DepGraph.simulation.alphaTarget(0); d.fx = null; d.fy = null; }
             const legend = document.getElementById('dep-legend');
             if (legend) {
               legend.innerHTML = sortedLangs.slice(0, 8).map(([lang, lr]) =>
-                '<div class="flex items-center gap-1.5 text-xs font-label text-on-surface-variant">' +
-                '<span class="w-2.5 h-2.5 rounded-full flex-shrink-0" style="background:' + Utils.getLangColor(lang) + '"></span>' +
-                Utils.escapeHTML(lang) + ' <span class="text-on-surface-variant/50">(' + lr.length + ')</span>' +
-                '</div>'
+                '<div class="flex items-center gap-1.5 text-xs font-label text-on-surface-variant"><span class="w-2.5 h-2.5 rounded-full flex-shrink-0" style="background:' + Utils.getLangColor(lang) + '"></span>' + Utils.escapeHTML(lang) + ' <span class="text-on-surface-variant/50">(' + lr.length + ')</span></div>'
               ).join('');
             }
           }
@@ -2370,26 +1912,18 @@
             this.fromView = this._guessFromView();
             this.currentOwner = owner;
             this.currentRepo = repo;
-
             UI.switchView('repo-detail');
-
-            // reset tabs to overview
             document.querySelectorAll('[data-detail-tab]').forEach(t => t.classList.remove('active'));
             const overviewTab = document.querySelector('[data-detail-tab="overview"]');
             if (overviewTab) overviewTab.classList.add('active');
             document.querySelectorAll('.detail-panel').forEach(p => p.classList.remove('active'));
             const overviewPanel = document.getElementById('detail-panel-overview');
             if (overviewPanel) overviewPanel.classList.add('active');
-
             const backLabel = document.getElementById('repo-detail-back-label');
             if (backLabel) backLabel.textContent = this.fromView === 'dashboard' ? 'Back to dashboard' : 'Back to results';
-
-            // show skeletons while we load
             const setTxt = (id, v) => { const el = document.getElementById(id); if (el) el.textContent = v; };
             const setHTML = (id, v) => { const el = document.getElementById(id); if (el) el.innerHTML = v; };
-            setTxt('rd-name', repo);
-            setTxt('rd-owner', owner);
-            setTxt('rd-desc', 'Loading...');
+            setTxt('rd-name', repo); setTxt('rd-owner', owner); setTxt('rd-desc', 'Loading...');
             setHTML('rd-topics', '');
             setHTML('rd-stats-row', '<div class="skeleton h-20 rounded-xl"></div><div class="skeleton h-20 rounded-xl"></div><div class="skeleton h-20 rounded-xl"></div><div class="skeleton h-20 rounded-xl"></div>');
             setHTML('rd-overview-content', '<div class="skeleton h-4 w-full rounded mb-2"></div><div class="skeleton h-4 w-4/5 rounded"></div>');
@@ -2404,7 +1938,6 @@
             setHTML('rd-contrib-list', '');
             const conLoad = document.getElementById('rd-contrib-loading');
             if (conLoad) conLoad.style.display = 'block';
-
             if (pushState) {
               const url = new URL(window.location);
               url.search = '';
@@ -2412,27 +1945,19 @@
               url.searchParams.set('repo', repo);
               history.pushState({ view: 'repo-detail', owner, repo }, '', url);
             }
-
             try {
-              const repoData = await API.fetchWithFallback(
-                'https://api.github.com/repos/' + encodeURIComponent(owner) + '/' + encodeURIComponent(repo)
-              );
+              const repoData = await API.fetchWithFallback('https://api.github.com/repos/' + encodeURIComponent(owner) + '/' + encodeURIComponent(repo));
               this._renderHeader(repoData);
               this._renderOverview(repoData);
-
-              // fetch issues, releases, contributors in parallel
               const [issues, releases, contributors] = await Promise.allSettled([
                 API.fetchWithFallback('https://api.github.com/repos/' + encodeURIComponent(owner) + '/' + encodeURIComponent(repo) + '/issues?state=open&per_page=20'),
                 API.fetchWithFallback('https://api.github.com/repos/' + encodeURIComponent(owner) + '/' + encodeURIComponent(repo) + '/releases?per_page=10'),
                 API.fetchWithFallback('https://api.github.com/repos/' + encodeURIComponent(owner) + '/' + encodeURIComponent(repo) + '/contributors?per_page=15')
               ]);
-
               this._renderIssues(issues.status === 'fulfilled' ? issues.value : [], repoData.open_issues_count);
               this._renderReleases(releases.status === 'fulfilled' ? releases.value : []);
               this._renderContributors(contributors.status === 'fulfilled' ? contributors.value : []);
-            } catch (err) {
-              UI.showError(err.message);
-            }
+            } catch (err) { UI.showError(err.message); }
           },
 
           _guessFromView() {
@@ -2458,28 +1983,19 @@
           _renderHeader(repo) {
             const setTxt = (id, v) => { const el = document.getElementById(id); if (el) el.textContent = v; };
             const setHTML = (id, v) => { const el = document.getElementById(id); if (el) el.innerHTML = v; };
-            setTxt('rd-name', repo.name);
-            setTxt('rd-owner', repo.owner ? repo.owner.login : '');
+            setTxt('rd-name', repo.name); setTxt('rd-owner', repo.owner ? repo.owner.login : '');
             setTxt('rd-desc', repo.description || 'No description provided.');
             const ghLink = document.getElementById('rd-gh-link');
             if (ghLink) ghLink.href = repo.html_url;
-
             const topics = (repo.topics || []).slice(0, 8);
             setHTML('rd-topics', topics.map(t => '<span class="topic-chip">' + Utils.escapeHTML(t) + '</span>').join(''));
-
             const stats = [
               { icon: 'star', label: 'Stars', val: Utils.formatNum(repo.stargazers_count), color: 'text-primary' },
               { icon: 'fork_right', label: 'Forks', val: Utils.formatNum(repo.forks_count), color: 'text-tertiary' },
               { icon: 'remove_red_eye', label: 'Watchers', val: Utils.formatNum(repo.watchers_count), color: 'text-secondary' },
               { icon: 'bug_report', label: 'Open Issues', val: Utils.formatNum(repo.open_issues_count), color: 'text-error' }
             ];
-            setHTML('rd-stats-row', stats.map(s =>
-              '<div class="detail-stat">' +
-              '<span class="material-symbols-outlined ' + s.color + ' text-2xl mb-1 block" aria-hidden="true">' + s.icon + '</span>' +
-              '<div class="text-2xl font-black font-headline ' + s.color + '">' + s.val + '</div>' +
-              '<div class="text-xs font-label text-on-surface-variant mt-1">' + s.label + '</div>' +
-              '</div>'
-            ).join(''));
+            setHTML('rd-stats-row', stats.map(s => '<div class="detail-stat"><span class="material-symbols-outlined ' + s.color + ' text-2xl mb-1 block" aria-hidden="true">' + s.icon + '</span><div class="text-2xl font-black font-headline ' + s.color + '">' + s.val + '</div><div class="text-xs font-label text-on-surface-variant mt-1">' + s.label + '</div></div>').join(''));
           },
 
           _renderOverview(repo) {
@@ -2492,17 +2008,14 @@
               repo.fork ? '<div class="flex items-center gap-3 p-3 bg-tertiary/5 border border-tertiary/10 rounded-lg"><span class="material-symbols-outlined text-tertiary text-sm" aria-hidden="true">fork_right</span><span class="font-label text-sm text-on-surface">Forked repository</span></div>' : '',
               repo.archived ? '<div class="flex items-center gap-3 p-3 bg-error/5 border border-error/10 rounded-lg"><span class="material-symbols-outlined text-error text-sm" aria-hidden="true">archive</span><span class="font-label text-sm text-on-surface">Archived</span></div>' : ''
             ].filter(Boolean);
-
             const oc = document.getElementById('rd-overview-content');
             if (oc) oc.innerHTML = overview.join('');
-
             const details = [
               repo.homepage ? '<div class="flex items-center gap-2 text-on-surface-variant"><span class="material-symbols-outlined text-sm" aria-hidden="true">link</span><a href="' + Utils.sanitizeUrl(repo.homepage) + '" target="_blank" rel="noopener noreferrer" class="text-primary hover:underline truncate text-sm">' + Utils.escapeHTML(repo.homepage.replace(/^https?:\/\//, '')) + '</a></div>' : '',
               '<div class="flex items-center gap-2 text-on-surface-variant"><span class="material-symbols-outlined text-sm" aria-hidden="true">code</span><span class="text-on-surface text-sm">' + Utils.escapeHTML(repo.visibility || 'public') + '</span></div>',
               repo.default_branch ? '<div class="flex items-center gap-2 text-on-surface-variant"><span class="material-symbols-outlined text-sm" aria-hidden="true">device_hub</span><span class="text-on-surface text-sm">' + Utils.escapeHTML(repo.default_branch) + '</span></div>' : '',
               repo.size ? '<div class="flex items-center gap-2 text-on-surface-variant"><span class="material-symbols-outlined text-sm" aria-hidden="true">storage</span><span class="text-on-surface text-sm">' + (repo.size / 1024).toFixed(1) + ' MB</span></div>' : ''
             ].filter(Boolean);
-
             const dc = document.getElementById('rd-details-content');
             if (dc) dc.innerHTML = details.join('');
           },
@@ -2514,31 +2027,11 @@
             if (badge) badge.textContent = Utils.formatNum(totalOpen || 0);
             const meta = document.getElementById('rd-issues-meta');
             if (meta) meta.textContent = 'Showing ' + Math.min(issues.length, 20) + ' of ' + Utils.formatNum(totalOpen || 0) + ' open issues';
-
             const list = document.getElementById('rd-issues-list');
             if (!list) return;
-            if (!issues.length) {
-              list.innerHTML = '<div class="py-12 text-center text-on-surface-variant text-sm font-label"><span class="material-symbols-outlined text-2xl block mb-2" aria-hidden="true">check_circle</span>No open issues 🎉</div>';
-              return;
-            }
+            if (!issues.length) { list.innerHTML = '<div class="py-12 text-center text-on-surface-variant text-sm font-label"><span class="material-symbols-outlined text-2xl block mb-2" aria-hidden="true">check_circle</span>No open issues 🎉</div>'; return; }
             list.innerHTML = issues.map(issue =>
-              '<div class="issue-item">' +
-              '<span class="material-symbols-outlined text-secondary text-base flex-shrink-0 mt-0.5" aria-hidden="true">radio_button_unchecked</span>' +
-              '<div class="flex-1 min-w-0">' +
-              '<a href="' + Utils.escapeHTML(issue.html_url) + '" target="_blank" rel="noopener noreferrer" class="text-sm font-semibold text-on-surface hover:text-primary transition-colors line-clamp-1 font-headline">' +
-              Utils.escapeHTML(issue.title) +
-              '</a>' +
-              '<div class="flex items-center gap-3 mt-1 flex-wrap">' +
-              '<span class="text-xs font-label text-on-surface-variant">#' + issue.number + '</span>' +
-              '<span class="text-xs font-label text-on-surface-variant">by ' + Utils.escapeHTML((issue.user && issue.user.login) || 'unknown') + '</span>' +
-              '<span class="text-xs font-label text-on-surface-variant">' + Utils.formatDate(issue.created_at) + '</span>' +
-              (issue.labels || []).slice(0, 3).map(l =>
-                '<span class="text-[10px] font-label px-1.5 py-0.5 rounded-full" style="background:#' + l.color + '22;color:#' + l.color + ';border:1px solid #' + l.color + '44">' + Utils.escapeHTML(l.name) + '</span>'
-              ).join('') +
-              '</div>' +
-              '</div>' +
-              (issue.comments > 0 ? '<div class="flex items-center gap-1 text-xs font-label text-on-surface-variant flex-shrink-0"><span class="material-symbols-outlined text-xs" aria-hidden="true">chat_bubble_outline</span>' + issue.comments + '</div>' : '') +
-              '</div>'
+              '<div class="issue-item"><span class="material-symbols-outlined text-secondary text-base flex-shrink-0 mt-0.5" aria-hidden="true">radio_button_unchecked</span><div class="flex-1 min-w-0"><a href="' + Utils.escapeHTML(issue.html_url) + '" target="_blank" rel="noopener noreferrer" class="text-sm font-semibold text-on-surface hover:text-primary transition-colors line-clamp-1 font-headline">' + Utils.escapeHTML(issue.title) + '</a><div class="flex items-center gap-3 mt-1 flex-wrap"><span class="text-xs font-label text-on-surface-variant">#' + issue.number + '</span><span class="text-xs font-label text-on-surface-variant">by ' + Utils.escapeHTML((issue.user && issue.user.login) || 'unknown') + '</span><span class="text-xs font-label text-on-surface-variant">' + Utils.formatDate(issue.created_at) + '</span>' + (issue.labels || []).slice(0, 3).map(l => '<span class="text-[10px] font-label px-1.5 py-0.5 rounded-full" style="background:#' + l.color + '22;color:#' + l.color + ';border:1px solid #' + l.color + '44">' + Utils.escapeHTML(l.name) + '</span>').join('') + '</div></div>' + (issue.comments > 0 ? '<div class="flex items-center gap-1 text-xs font-label text-on-surface-variant flex-shrink-0"><span class="material-symbols-outlined text-xs" aria-hidden="true">chat_bubble_outline</span>' + issue.comments + '</div>' : '') + '</div>'
             ).join('');
           },
 
@@ -2547,28 +2040,9 @@
             if (relLoad) relLoad.style.display = 'none';
             const list = document.getElementById('rd-releases-list');
             if (!list) return;
-            if (!releases.length) {
-              list.innerHTML = '<div class="bg-surface-container-low rounded-xl p-12 text-center text-on-surface-variant text-sm font-label"><span class="material-symbols-outlined text-2xl block mb-2" aria-hidden="true">new_releases</span>No releases yet</div>';
-              return;
-            }
+            if (!releases.length) { list.innerHTML = '<div class="bg-surface-container-low rounded-xl p-12 text-center text-on-surface-variant text-sm font-label"><span class="material-symbols-outlined text-2xl block mb-2" aria-hidden="true">new_releases</span>No releases yet</div>'; return; }
             list.innerHTML = releases.map((r, i) =>
-              '<div class="release-card">' +
-              '<div class="flex items-start justify-between gap-4 mb-2">' +
-              '<div class="flex items-center gap-3 flex-wrap">' +
-              (i === 0 ? '<span class="text-[10px] font-label bg-secondary/15 text-secondary border border-secondary/25 px-2 py-0.5 rounded-full">Latest</span>' : '') +
-              (r.prerelease ? '<span class="text-[10px] font-label bg-tertiary/15 text-tertiary border border-tertiary/25 px-2 py-0.5 rounded-full">Pre-release</span>' : '') +
-              '<a href="' + Utils.escapeHTML(r.html_url) + '" target="_blank" rel="noopener noreferrer" class="text-base font-bold font-headline text-on-surface hover:text-primary transition-colors">' +
-              Utils.escapeHTML(r.tag_name) + ' — ' + Utils.escapeHTML(r.name || r.tag_name) +
-              '</a>' +
-              '</div>' +
-              '<span class="text-xs font-label text-on-surface-variant flex-shrink-0">' + Utils.formatDate(r.published_at) + '</span>' +
-              '</div>' +
-              (r.body ? '<p class="text-sm text-on-surface-variant line-clamp-3 font-body">' + Utils.escapeHTML(r.body.slice(0, 280)) + (r.body.length > 280 ? '…' : '') + '</p>' : '') +
-              '<div class="flex items-center gap-4 mt-3 text-xs font-label text-on-surface-variant">' +
-              (r.assets && r.assets.length ? '<span class="flex items-center gap-1"><span class="material-symbols-outlined text-xs" aria-hidden="true">download</span>' + r.assets.length + ' asset' + (r.assets.length !== 1 ? 's' : '') + '</span>' : '') +
-              '<span>by ' + Utils.escapeHTML((r.author && r.author.login) || 'unknown') + '</span>' +
-              '</div>' +
-              '</div>'
+              '<div class="release-card"><div class="flex items-start justify-between gap-4 mb-2"><div class="flex items-center gap-3 flex-wrap">' + (i === 0 ? '<span class="text-[10px] font-label bg-secondary/15 text-secondary border border-secondary/25 px-2 py-0.5 rounded-full">Latest</span>' : '') + (r.prerelease ? '<span class="text-[10px] font-label bg-tertiary/15 text-tertiary border border-tertiary/25 px-2 py-0.5 rounded-full">Pre-release</span>' : '') + '<a href="' + Utils.escapeHTML(r.html_url) + '" target="_blank" rel="noopener noreferrer" class="text-base font-bold font-headline text-on-surface hover:text-primary transition-colors">' + Utils.escapeHTML(r.tag_name) + ' — ' + Utils.escapeHTML(r.name || r.tag_name) + '</a></div><span class="text-xs font-label text-on-surface-variant flex-shrink-0">' + Utils.formatDate(r.published_at) + '</span></div>' + (r.body ? '<p class="text-sm text-on-surface-variant line-clamp-3 font-body">' + Utils.escapeHTML(r.body.slice(0, 280)) + (r.body.length > 280 ? '…' : '') + '</p>' : '') + '<div class="flex items-center gap-4 mt-3 text-xs font-label text-on-surface-variant">' + (r.assets && r.assets.length ? '<span class="flex items-center gap-1"><span class="material-symbols-outlined text-xs" aria-hidden="true">download</span>' + r.assets.length + ' asset' + (r.assets.length !== 1 ? 's' : '') + '</span>' : '') + '<span>by ' + Utils.escapeHTML((r.author && r.author.login) || 'unknown') + '</span></div></div>'
             ).join('');
           },
 
@@ -2577,25 +2051,10 @@
             if (conLoad) conLoad.style.display = 'none';
             const list = document.getElementById('rd-contrib-list');
             if (!list) return;
-            if (!contributors.length) {
-              list.innerHTML = '<p class="text-on-surface-variant text-sm font-label text-center py-8">No contributor data available.</p>';
-              return;
-            }
+            if (!contributors.length) { list.innerHTML = '<p class="text-on-surface-variant text-sm font-label text-center py-8">No contributor data available.</p>'; return; }
             const maxContribs = (contributors[0] && contributors[0].contributions) || 1;
             list.innerHTML = contributors.map((c, i) =>
-              '<div class="flex items-center gap-4">' +
-              '<span class="text-xs font-label text-on-surface-variant w-5 text-right flex-shrink-0">' + (i + 1) + '</span>' +
-              '<img src="' + Utils.escapeHTML(c.avatar_url) + '" alt="' + Utils.escapeHTML(c.login) + '" class="w-8 h-8 rounded-full flex-shrink-0 border border-outline-variant/20" loading="lazy"/>' +
-              '<a href="' + Utils.escapeHTML(c.html_url) + '" target="_blank" rel="noopener noreferrer" class="text-sm font-label font-semibold text-on-surface hover:text-primary transition-colors w-28 truncate flex-shrink-0">' +
-              Utils.escapeHTML(c.login) +
-              '</a>' +
-              '<div class="flex-1">' +
-              '<div class="w-full bg-surface-container-highest rounded h-2 overflow-hidden">' +
-              '<div class="contrib-bar" style="width:' + ((c.contributions / maxContribs) * 100).toFixed(1) + '%"></div>' +
-              '</div>' +
-              '</div>' +
-              '<span class="text-xs font-label text-on-surface-variant flex-shrink-0 w-20 text-right">' + Utils.formatNum(c.contributions) + ' commits</span>' +
-              '</div>'
+              '<div class="flex items-center gap-4"><span class="text-xs font-label text-on-surface-variant w-5 text-right flex-shrink-0">' + (i + 1) + '</span><img src="' + Utils.escapeHTML(c.avatar_url) + '" alt="' + Utils.escapeHTML(c.login) + '" class="w-8 h-8 rounded-full flex-shrink-0 border border-outline-variant/20" loading="lazy"/><a href="' + Utils.escapeHTML(c.html_url) + '" target="_blank" rel="noopener noreferrer" class="text-sm font-label font-semibold text-on-surface hover:text-primary transition-colors w-28 truncate flex-shrink-0">' + Utils.escapeHTML(c.login) + '</a><div class="flex-1"><div class="w-full bg-surface-container-highest rounded h-2 overflow-hidden"><div class="contrib-bar" style="width:' + ((c.contributions / maxContribs) * 100).toFixed(1) + '%"></div></div></div><span class="text-xs font-label text-on-surface-variant flex-shrink-0 w-20 text-right">' + Utils.formatNum(c.contributions) + ' commits</span></div>'
             ).join('');
           }
         };
@@ -2609,11 +2068,7 @@
           totalCount: 0,
 
           reset() {
-            this.currentQuery = '';
-            this.currentSort = 'stars';
-            this.currentLang = '';
-            this.currentPage = 1;
-            this.totalCount = 0;
+            this.currentQuery = ''; this.currentSort = 'stars'; this.currentLang = ''; this.currentPage = 1; this.totalCount = 0;
             const inp = document.getElementById('repo-search-input');
             if (inp) inp.value = '';
             const empty = document.getElementById('repo-search-empty');
@@ -2654,14 +2109,12 @@
             const query = this.currentQuery;
             if (!query) return;
             this.currentPage = page;
-
             const empty = document.getElementById('repo-search-empty');
             const results = document.getElementById('repo-search-results');
             const loading = document.getElementById('repo-search-loading');
             if (empty) empty.style.display = 'none';
             if (results) results.style.display = 'none';
             if (loading) loading.style.display = 'block';
-
             try {
               const data = await API.searchRepos(query, this.currentSort, this.currentLang, page);
               this.totalCount = Math.min(data.total_count, 1000);
@@ -2685,57 +2138,22 @@
             const results = document.getElementById('repo-search-results');
             if (loading) loading.style.display = 'none';
             if (results) results.style.display = 'block';
-
             const totalPages = Math.min(Math.ceil(this.totalCount / 10), 100);
             const countEl = document.getElementById('repo-results-count');
             if (countEl) countEl.textContent = this.totalCount.toLocaleString() + ' repositories found for "' + query + '"';
-
             const grid = document.getElementById('repo-results-grid');
             if (grid) {
               grid.innerHTML = repos.map(repo => {
-                const langDot = repo.language
-                  ? '<span class="w-2.5 h-2.5 rounded-full flex-shrink-0" style="background:' + Utils.getLangColor(repo.language) + '"></span>' +
-                  '<span class="font-label text-xs text-on-surface-variant">' + Utils.escapeHTML(repo.language) + '</span>'
-                  : '';
+                const langDot = repo.language ? '<span class="w-2.5 h-2.5 rounded-full flex-shrink-0" style="background:' + Utils.getLangColor(repo.language) + '"></span><span class="font-label text-xs text-on-surface-variant">' + Utils.escapeHTML(repo.language) + '</span>' : '';
                 const topics = (repo.topics || []).slice(0, 3);
-                const topicsHtml = topics.length
-                  ? '<div class="flex flex-wrap gap-1 mt-3">' + topics.map(t => '<span class="topic-chip">' + Utils.escapeHTML(t) + '</span>').join('') + '</div>'
-                  : '';
+                const topicsHtml = topics.length ? '<div class="flex flex-wrap gap-1 mt-3">' + topics.map(t => '<span class="topic-chip">' + Utils.escapeHTML(t) + '</span>').join('') + '</div>' : '';
                 const updated = repo.updated_at ? new Date(repo.updated_at).toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' }) : '';
                 const ownerLogin = Utils.escapeHTML(repo.owner ? repo.owner.login : '');
                 const ownerAvatar = Utils.escapeHTML(repo.owner ? repo.owner.avatar_url : '');
                 const repoName = Utils.escapeHTML(repo.name);
-                return (
-                  '<div class="repo-card cursor-pointer" ' +
-                  'onclick="RepoDetail.open(\'' + ownerLogin + '\',\'' + repoName + '\',true)" ' +
-                  'role="button" tabindex="0" ' +
-                  'onkeydown="if(event.key===\'Enter\'||event.key===\' \')RepoDetail.open(\'' + ownerLogin + '\',\'' + repoName + '\',true)">' +
-                  '<div class="flex items-start justify-between mb-3 gap-4">' +
-                  '<div class="flex-1 min-w-0">' +
-                  '<div class="flex items-center gap-2 mb-1">' +
-                  '<img src="' + ownerAvatar + '" alt="' + ownerLogin + '" class="w-5 h-5 rounded-full flex-shrink-0" loading="lazy"/>' +
-                  '<span class="text-xs font-label text-on-surface-variant truncate">' + ownerLogin + '</span>' +
-                  '</div>' +
-                  '<h3 class="text-base font-bold font-headline text-on-surface hover:text-primary transition-colors truncate">' + repoName + '</h3>' +
-                  '</div>' +
-                  '<div class="flex items-center gap-1 flex-shrink-0 bg-primary/8 border border-primary/15 rounded-full px-3 py-1">' +
-                  '<span class="material-symbols-outlined text-primary" style="font-size:14px" aria-hidden="true">star</span>' +
-                  '<span class="text-sm font-bold text-primary font-label">' + Utils.formatNum(repo.stargazers_count) + '</span>' +
-                  '</div>' +
-                  '</div>' +
-                  '<p class="text-sm text-on-surface-variant leading-relaxed line-clamp-2 mb-3">' + (Utils.escapeHTML(repo.description) || 'No description.') + '</p>' +
-                  topicsHtml +
-                  '<div class="flex items-center gap-4 mt-4 text-xs font-label text-on-surface-variant">' +
-                  '<div class="flex items-center gap-1.5">' + langDot + '</div>' +
-                  '<div class="flex items-center gap-1"><span class="material-symbols-outlined" style="font-size:13px" aria-hidden="true">fork_right</span>' + Utils.formatNum(repo.forks_count) + '</div>' +
-                  '<div class="flex items-center gap-1"><span class="material-symbols-outlined" style="font-size:13px" aria-hidden="true">remove_red_eye</span>' + Utils.formatNum(repo.watchers_count || 0) + '</div>' +
-                  (updated ? '<div class="ml-auto flex items-center gap-1"><span class="material-symbols-outlined" style="font-size:12px" aria-hidden="true">schedule</span>' + updated + '</div>' : '') +
-                  '</div>' +
-                  '</div>'
-                );
+                return '<div class="repo-card cursor-pointer" onclick="RepoDetail.open(\'' + ownerLogin + '\',\'' + repoName + '\',true)" role="button" tabindex="0" onkeydown="if(event.key===\'Enter\'||event.key===\' \')RepoDetail.open(\'' + ownerLogin + '\',\'' + repoName + '\',true)"><div class="flex items-start justify-between mb-3 gap-4"><div class="flex-1 min-w-0"><div class="flex items-center gap-2 mb-1"><img src="' + ownerAvatar + '" alt="' + ownerLogin + '" class="w-5 h-5 rounded-full flex-shrink-0" loading="lazy"/><span class="text-xs font-label text-on-surface-variant truncate">' + ownerLogin + '</span></div><h3 class="text-base font-bold font-headline text-on-surface hover:text-primary transition-colors truncate">' + repoName + '</h3></div><div class="flex items-center gap-1 flex-shrink-0 bg-primary/8 border border-primary/15 rounded-full px-3 py-1"><span class="material-symbols-outlined text-primary" style="font-size:14px" aria-hidden="true">star</span><span class="text-sm font-bold text-primary font-label">' + Utils.formatNum(repo.stargazers_count) + '</span></div></div><p class="text-sm text-on-surface-variant leading-relaxed line-clamp-2 mb-3">' + (Utils.escapeHTML(repo.description) || 'No description.') + '</p>' + topicsHtml + '<div class="flex items-center gap-4 mt-4 text-xs font-label text-on-surface-variant"><div class="flex items-center gap-1.5">' + langDot + '</div><div class="flex items-center gap-1"><span class="material-symbols-outlined" style="font-size:13px" aria-hidden="true">fork_right</span>' + Utils.formatNum(repo.forks_count) + '</div><div class="flex items-center gap-1"><span class="material-symbols-outlined" style="font-size:13px" aria-hidden="true">remove_red_eye</span>' + Utils.formatNum(repo.watchers_count || 0) + '</div>' + (updated ? '<div class="ml-auto flex items-center gap-1"><span class="material-symbols-outlined" style="font-size:12px" aria-hidden="true">schedule</span>' + updated + '</div>' : '') + '</div></div>';
               }).join('');
             }
-
             const pagHtml = this.buildPagination(this.currentPage, totalPages);
             const pag = document.getElementById('repo-pagination');
             const pagBot = document.getElementById('repo-pagination-bottom');
@@ -2751,9 +2169,7 @@
             const end = Math.min(total, current + 2);
             if (start > 1) pages.push('<button onclick="RepoSearch.goToPage(1)" class="filter-pill">1</button>');
             if (start > 2) pages.push('<span class="text-on-surface-variant text-sm px-2">…</span>');
-            for (let i = start; i <= end; i++) {
-              pages.push('<button onclick="RepoSearch.goToPage(' + i + ')" class="filter-pill' + (i === current ? ' active' : '') + '">' + i + '</button>');
-            }
+            for (let i = start; i <= end; i++) { pages.push('<button onclick="RepoSearch.goToPage(' + i + ')" class="filter-pill' + (i === current ? ' active' : '') + '">' + i + '</button>'); }
             if (end < total - 1) pages.push('<span class="text-on-surface-variant text-sm px-2">…</span>');
             if (end < total) pages.push('<button onclick="RepoSearch.goToPage(' + total + ')" class="filter-pill">' + total + '</button>');
             if (current < total) pages.push('<button onclick="RepoSearch.goToPage(' + (current + 1) + ')" class="filter-pill">Next →</button>');
@@ -2825,19 +2241,14 @@
             const nameB = ib ? ib.value.trim() : '';
             if (!nameA || !nameB) { UI.showError('Enter two GitHub usernames to compare.'); return; }
             if (nameA.toLowerCase() === nameB.toLowerCase()) { UI.showError('Enter two different usernames.'); return; }
-
             const btn = document.getElementById('compare-go-btn');
             const originalHTML = btn ? btn.innerHTML : '';
-            if (btn) {
-              btn.disabled = true;
-              btn.innerHTML = '<span class="material-symbols-outlined text-sm animate-spin" aria-hidden="true">progress_activity</span><span>Loading...</span>';
-            }
+            if (btn) { btn.disabled = true; btn.innerHTML = '<span class="material-symbols-outlined text-sm animate-spin" aria-hidden="true">progress_activity</span><span>Loading...</span>'; }
             await API.executeCompare(nameA, nameB, true);
             if (btn) { btn.disabled = false; btn.innerHTML = originalHTML; }
           }
         };
 
-        // expose modules used in inline onclick attributes
         window.RepoSearch = RepoSearch;
         window.RepoDetail = RepoDetail;
         window.RecentSearches = RecentSearches;
@@ -2848,63 +2259,19 @@
           if (el) el.addEventListener(event, handler);
         }
 
-        // landing search
-        bindEvent('search-btn-landing', 'click', () => {
-          const v = document.getElementById('search-input-landing').value.trim();
-          if (v) App.search(v);
-        });
-        bindEvent('search-input-landing', 'keydown', e => {
-          if (e.key === 'Enter') { const v = e.target.value.trim(); if (v) App.search(v); }
-        });
-
-        // nav search
-        bindEvent('search-btn-nav', 'click', () => {
-          const v = document.getElementById('search-input-nav').value.trim();
-          if (v) App.search(v);
-        });
-        bindEvent('search-input-nav', 'keydown', e => {
-          if (e.key === 'Enter') { const v = e.target.value.trim(); if (v) App.search(v); }
-        });
+        bindEvent('search-btn-landing', 'click', () => { const v = document.getElementById('search-input-landing').value.trim(); if (v) App.search(v); });
+        bindEvent('search-input-landing', 'keydown', e => { if (e.key === 'Enter') { const v = e.target.value.trim(); if (v) App.search(v); } });
+        bindEvent('search-btn-nav', 'click', () => { const v = document.getElementById('search-input-nav').value.trim(); if (v) App.search(v); });
+        bindEvent('search-input-nav', 'keydown', e => { if (e.key === 'Enter') { const v = e.target.value.trim(); if (v) App.search(v); } });
         bindEvent('search-input-nav', 'focus', () => RecentSearches.showProfileDropdown());
-        bindEvent('search-input-nav', 'input', () => {
-          const v = document.getElementById('search-input-nav').value.trim();
-          const dd = document.getElementById('nav-recent-dropdown');
-          if (!v) RecentSearches.showProfileDropdown();
-          else if (dd) dd.classList.remove('show');
-        });
-
-        // compare inputs — tab between them, enter to submit
-        bindEvent('compare-input-a', 'keydown', e => {
-          if (e.key === 'Enter') { const ib = document.getElementById('compare-input-b'); if (ib) ib.focus(); }
-        });
-        bindEvent('compare-input-b', 'keydown', e => {
-          if (e.key === 'Enter') {
-            const a = document.getElementById('compare-input-a').value.trim();
-            const b = e.target.value.trim();
-            if (a && b) App.runCompare();
-          }
-        });
-
-        // repo search
-        bindEvent('repo-search-btn', 'click', () => {
-          const q = document.getElementById('repo-search-input').value.trim();
-          if (q) { RepoSearch.currentQuery = q; RepoSearch.executeSearch(1); }
-        });
-        bindEvent('repo-search-input', 'keydown', e => {
-          if (e.key === 'Enter') {
-            const q = e.target.value.trim();
-            if (q) { RepoSearch.currentQuery = q; RepoSearch.executeSearch(1); }
-          }
-        });
+        bindEvent('search-input-nav', 'input', () => { const v = document.getElementById('search-input-nav').value.trim(); const dd = document.getElementById('nav-recent-dropdown'); if (!v) RecentSearches.showProfileDropdown(); else if (dd) dd.classList.remove('show'); });
+        bindEvent('compare-input-a', 'keydown', e => { if (e.key === 'Enter') { const ib = document.getElementById('compare-input-b'); if (ib) ib.focus(); } });
+        bindEvent('compare-input-b', 'keydown', e => { if (e.key === 'Enter') { const a = document.getElementById('compare-input-a').value.trim(); const b = e.target.value.trim(); if (a && b) App.runCompare(); } });
+        bindEvent('repo-search-btn', 'click', () => { const q = document.getElementById('repo-search-input').value.trim(); if (q) { RepoSearch.currentQuery = q; RepoSearch.executeSearch(1); } });
+        bindEvent('repo-search-input', 'keydown', e => { if (e.key === 'Enter') { const q = e.target.value.trim(); if (q) { RepoSearch.currentQuery = q; RepoSearch.executeSearch(1); } } });
         bindEvent('repo-search-input', 'focus', () => RecentSearches.showRepoDropdown());
-        bindEvent('repo-search-input', 'input', () => {
-          const v = document.getElementById('repo-search-input').value.trim();
-          const dd = document.getElementById('repo-recent-dropdown');
-          if (!v) RecentSearches.showRepoDropdown();
-          else if (dd) dd.classList.remove('show');
-        });
+        bindEvent('repo-search-input', 'input', () => { const v = document.getElementById('repo-search-input').value.trim(); const dd = document.getElementById('repo-recent-dropdown'); if (!v) RecentSearches.showRepoDropdown(); else if (dd) dd.classList.remove('show'); });
 
-        // event delegation for recent dropdowns (profile)
         const navRecentList = document.getElementById('nav-recent-list');
         if (navRecentList) {
           navRecentList.addEventListener('click', e => {
@@ -2915,7 +2282,6 @@
           });
         }
 
-        // event delegation for recent dropdowns (repo)
         const repoRecentList = document.getElementById('repo-recent-list');
         if (repoRecentList) {
           repoRecentList.addEventListener('click', e => {
@@ -2926,7 +2292,6 @@
           });
         }
 
-        // close dropdowns on outside click
         document.addEventListener('click', e => {
           const navWrap = document.getElementById('nav-search-wrap');
           const repoWrap = document.getElementById('repo-search-wrap');
@@ -2936,7 +2301,6 @@
           if (repoWrap && !repoWrap.contains(e.target) && repoDd) repoDd.classList.remove('show');
         });
 
-        // kick off routing
         if (document.readyState === 'loading') {
           document.addEventListener('DOMContentLoaded', () => Router.init());
         } else {
