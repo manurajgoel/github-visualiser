@@ -363,23 +363,134 @@
         <p class="text-on-surface-variant text-lg">Side-by-side developer comparison with detailed metrics</p>
       </section>
 
-      <section class="mb-10">
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 max-w-3xl">
-          <div class="relative">
-            <span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-on-surface-variant" aria-hidden="true">person</span>
-            <input id="compare-input-a" class="compare-input pl-10" type="text" placeholder="First username..." autocomplete="off" spellcheck="false" aria-label="First developer username" />
-          </div>
-          <div class="relative">
-            <span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-on-surface-variant" aria-hidden="true">person</span>
-            <input id="compare-input-b" class="compare-input pl-10" type="text" placeholder="Second username..." autocomplete="off" spellcheck="false" aria-label="Second developer username" />
-          </div>
-        </div>
-        <button id="compare-go-btn" onclick="App.runCompare()"
-          class="mt-4 bg-primary text-on-primary font-semibold px-8 py-3 rounded-xl text-sm hover:bg-primary-fixed active:scale-95 transition-all inline-flex items-center gap-2 disabled:opacity-75 disabled:cursor-not-allowed disabled:active:scale-100">
-          <span class="material-symbols-outlined text-sm" aria-hidden="true">compare_arrows</span>
-          <span>Compare Developers</span>
-        </button>
-      </section>
+<section class="mb-10">
+  <!-- centered input card -->
+  <div style="
+    max-width: 640px;
+    margin: 0 auto 32px auto;
+    background: #0f141a;
+    border: 1px solid rgba(131,174,255,0.15);
+    border-radius: 16px;
+    padding: 28px 32px;
+  ">
+    <p style="
+      font-size: 11px;
+      font-family: 'Space Grotesk', sans-serif;
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      color: #a8abb3;
+      text-align: center;
+      margin-bottom: 20px;
+    ">Enter two GitHub usernames to compare</p>
+
+    <!-- two inputs side by side with VS in between -->
+    <div style="display:grid;grid-template-columns:1fr auto 1fr;align-items:center;gap:12px;margin-bottom:20px">
+
+      <!-- Input A -->
+      <div style="position:relative">
+        <span class="material-symbols-outlined" style="
+          position:absolute;left:14px;top:50%;transform:translateY(-50%);
+          font-size:16px;color:#83aeff;pointer-events:none;
+        ">person</span>
+        <input id="compare-input-a"
+          type="text"
+          placeholder="First username…"
+          autocomplete="off"
+          spellcheck="false"
+          aria-label="First developer username"
+          style="
+            width:100%;
+            background: rgba(131,174,255,0.06);
+            border: 1px solid rgba(131,174,255,0.2);
+            border-radius: 10px;
+            padding: 12px 14px 12px 40px;
+            font-size: 14px;
+            font-family: 'Space Grotesk', sans-serif;
+            color: #f1f3fc;
+            outline: none;
+            transition: border-color 0.2s, box-shadow 0.2s;
+            box-sizing: border-box;
+          "
+          onfocus="this.style.borderColor='rgba(131,174,255,0.6)';this.style.boxShadow='0 0 0 3px rgba(131,174,255,0.1)'"
+          onblur="this.style.borderColor='rgba(131,174,255,0.2)';this.style.boxShadow='none'"
+        />
+      </div>
+
+      <!-- VS badge -->
+      <div style="
+        width:32px;height:32px;border-radius:50%;
+        background:#151a21;
+        border:1px solid rgba(131,174,255,0.2);
+        display:flex;align-items:center;justify-content:center;
+        font-size:10px;font-weight:700;
+        font-family:'Space Grotesk',sans-serif;
+        color:#a8abb3;letter-spacing:0.05em;
+        flex-shrink:0;
+      ">VS</div>
+
+      <!-- Input B -->
+      <div style="position:relative">
+        <span class="material-symbols-outlined" style="
+          position:absolute;left:14px;top:50%;transform:translateY(-50%);
+          font-size:16px;color:#ffa366;pointer-events:none;
+        ">person</span>
+        <input id="compare-input-b"
+          type="text"
+          placeholder="Second username…"
+          autocomplete="off"
+          spellcheck="false"
+          aria-label="Second developer username"
+          style="
+            width:100%;
+            background: rgba(255,163,102,0.06);
+            border: 1px solid rgba(255,163,102,0.2);
+            border-radius: 10px;
+            padding: 12px 14px 12px 40px;
+            font-size: 14px;
+            font-family: 'Space Grotesk', sans-serif;
+            color: #f1f3fc;
+            outline: none;
+            transition: border-color 0.2s, box-shadow 0.2s;
+            box-sizing: border-box;
+          "
+          onfocus="this.style.borderColor='rgba(255,163,102,0.6)';this.style.boxShadow='0 0 0 3px rgba(255,163,102,0.1)'"
+          onblur="this.style.borderColor='rgba(255,163,102,0.2)';this.style.boxShadow='none'"
+        />
+      </div>
+    </div>
+
+    <!-- Compare button centered -->
+    <div style="display:flex;justify-content:center">
+      <button id="compare-go-btn" onclick="App.runCompare()"
+        style="
+          background: linear-gradient(135deg, #83aeff, #4f91ff);
+          color: #002d64;
+          font-weight: 700;
+          font-family: 'Space Grotesk', sans-serif;
+          font-size: 13px;
+          padding: 12px 32px;
+          border-radius: 10px;
+          border: none;
+          cursor: pointer;
+          display: inline-flex;
+          align-items: center;
+          gap: 8px;
+          letter-spacing: 0.03em;
+          transition: opacity 0.2s, transform 0.15s;
+        "
+        onmouseover="this.style.opacity='0.9'"
+        onmouseout="this.style.opacity='1'"
+        onmousedown="this.style.transform='scale(0.97)'"
+        onmouseup="this.style.transform='scale(1)'"
+        disabled-style="opacity:0.6;cursor:not-allowed"
+        aria-label="Compare Developers"
+      >
+        <span class="material-symbols-outlined" style="font-size:16px" aria-hidden="true">compare_arrows</span>
+        Compare Developers
+      </button>
+    </div>
+  </div>
+</section>
 
       <div id="compare-results" style="display:none">
         <section class="grid grid-cols-2 gap-6 mb-8">

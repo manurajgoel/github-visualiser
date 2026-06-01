@@ -69,20 +69,18 @@ const UI = {
   },
 
   setCompareSkeletons() {
-    const setEl = (id, html) => { const el = document.getElementById(id); if (el) el.innerHTML = html; };
-    ['a', 'b'].forEach(side => {
-      const av = document.getElementById('cmp-avatar-' + side);
-      if (av) av.src = 'data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=';
-      setEl('cmp-name-'  + side, '<div class="skeleton h-6 w-3/4 mx-auto rounded mb-2"></div>');
-      setEl('cmp-login-' + side, '<div class="skeleton h-4 w-1/2 mx-auto rounded"></div>');
-      setEl('cmp-score-' + side + '-wrap', '<div class="skeleton h-10 w-24 mx-auto rounded mt-3"></div>');
-    });
-    setEl('compare-stat-rows', Array(8).fill('<div class="px-6 py-5"><div class="skeleton h-3 w-full rounded mb-3"></div><div class="grid grid-cols-2 gap-4"><div><div class="skeleton h-3 w-16 rounded mb-1.5"></div><div class="skeleton h-2 w-full rounded"></div></div><div><div class="skeleton h-3 w-16 rounded mb-1.5"></div><div class="skeleton h-2 w-full rounded"></div></div></div></div>').join(''));
-    ['a', 'b'].forEach(side => {
-      setEl('cmp-lang-title-' + side, '<div class="skeleton h-4 w-32 rounded"></div>');
-      setEl('cmp-langs-' + side, Array(4).fill('<div class="mb-3"><div class="flex justify-between mb-1"><div class="skeleton h-3 w-20 rounded"></div><div class="skeleton h-3 w-8 rounded"></div></div><div class="skeleton h-1.5 w-full rounded"></div></div>').join(''));
-    });
-    setEl('compare-winner-content', '<div class="skeleton h-16 w-16 rounded-full mx-auto mb-3"></div><div class="skeleton h-6 w-48 rounded mx-auto mb-2"></div>');
+    const cr = document.getElementById('compare-results');
+    if (cr) {
+      cr.innerHTML =
+        '<div class="grid grid-cols-2 gap-4 mb-6" style="align-items:center">' +
+          '<div class="skeleton h-48 rounded-xl"></div>' +
+          '<div class="skeleton h-48 rounded-xl"></div>' +
+        '</div>' +
+        '<div class="skeleton h-64 rounded-xl mb-4"></div>' +
+        '<div class="skeleton h-80 rounded-xl mb-4"></div>' +
+        '<div class="skeleton h-48 rounded-xl mb-4"></div>' +
+        '<div class="skeleton h-16 rounded-xl"></div>';
+    }
   },
 
   // ── PROFILE RENDER ───────────────────────────────────────
@@ -146,23 +144,23 @@ const UI = {
     const fLabel = document.getElementById('stat-followers-label');
     if (fLabel) {
       const f = user.followers;
-      if (f === 0)          fLabel.textContent = 'Just getting started';
-      else if (f < 10)      fLabel.textContent = f + ' people follow this dev';
-      else if (f < 100)     fLabel.textContent = 'Growing community presence';
-      else if (f < 500)     fLabel.textContent = 'Notable open-source contributor';
-      else if (f < 2000)    fLabel.textContent = 'Established GitHub developer';
-      else if (f < 10000)   fLabel.textContent = 'Top-tier GitHub influencer';
-      else                  fLabel.textContent = 'Elite — top 0.1% of GitHub';
+      if (f === 0)        fLabel.textContent = 'Just getting started';
+      else if (f < 10)    fLabel.textContent = f + ' people follow this dev';
+      else if (f < 100)   fLabel.textContent = 'Growing community presence';
+      else if (f < 500)   fLabel.textContent = 'Notable open-source contributor';
+      else if (f < 2000)  fLabel.textContent = 'Established GitHub developer';
+      else if (f < 10000) fLabel.textContent = 'Top-tier GitHub influencer';
+      else                fLabel.textContent = 'Elite — top 0.1% of GitHub';
     }
     const sLabel = document.getElementById('stat-stars-label');
     if (sLabel) {
-      if (totalStars === 0)       sLabel.textContent = 'No starred repos yet';
-      else if (totalStars < 10)   sLabel.textContent = totalStars + ' total stars earned';
-      else if (totalStars < 100)  sLabel.textContent = 'Building an open-source footprint';
-      else if (totalStars < 500)  sLabel.textContent = 'Solid community traction';
-      else if (totalStars < 2000) sLabel.textContent = 'Strong open-source impact';
-      else if (totalStars < 10000)sLabel.textContent = 'Highly impactful repositories';
-      else                        sLabel.textContent = 'Legendary open-source impact';
+      if (totalStars === 0)        sLabel.textContent = 'No starred repos yet';
+      else if (totalStars < 10)    sLabel.textContent = totalStars + ' total stars earned';
+      else if (totalStars < 100)   sLabel.textContent = 'Building an open-source footprint';
+      else if (totalStars < 500)   sLabel.textContent = 'Solid community traction';
+      else if (totalStars < 2000)  sLabel.textContent = 'Strong open-source impact';
+      else if (totalStars < 10000) sLabel.textContent = 'Highly impactful repositories';
+      else                         sLabel.textContent = 'Legendary open-source impact';
     }
     const rLabel = document.getElementById('stat-repos-label');
     if (rLabel) {
@@ -174,13 +172,12 @@ const UI = {
     }
     const foLabel = document.getElementById('stat-following-label');
     if (foLabel) {
-      const ratio = user.followers > 0
-        ? (user.followers / Math.max(user.following, 1)).toFixed(1) : 0;
-      if (user.following === 0)  foLabel.textContent = 'Not following anyone yet';
-      else if (user.following < 10) foLabel.textContent = 'Selective networker';
-      else if (ratio > 5)        foLabel.textContent = ratio + '× follower/following ratio';
-      else if (ratio > 2)        foLabel.textContent = 'Well-networked developer';
-      else                       foLabel.textContent = 'Follows ' + user.following + ' developers';
+      const ratio = user.followers > 0 ? (user.followers / Math.max(user.following, 1)).toFixed(1) : 0;
+      if (user.following === 0)    foLabel.textContent = 'Not following anyone yet';
+      else if (user.following < 10)foLabel.textContent = 'Selective networker';
+      else if (ratio > 5)          foLabel.textContent = ratio + '× follower/following ratio';
+      else if (ratio > 2)          foLabel.textContent = 'Well-networked developer';
+      else                         foLabel.textContent = 'Follows ' + user.following + ' developers';
     }
   },
 
@@ -278,7 +275,7 @@ const UI = {
         : 'Top 6 repositories by stars — ' + totalRepoCount + ' total.';
     }
     g.innerHTML = topRepos.map(repo => {
-      const topics    = (repo.topics || []).slice(0, 4);
+      const topics     = (repo.topics || []).slice(0, 4);
       const topicsHtml = topics.length
         ? '<div class="flex flex-wrap gap-1 mt-3">' + topics.map(t => '<span class="topic-chip">' + Utils.escapeHTML(t) + '</span>').join('') + '</div>'
         : '';
@@ -309,117 +306,349 @@ const UI = {
     }).join('');
   },
 
-  // ── COMPARE RENDER ───────────────────────────────────────
+  // ══════════════════════════════════════════════════════════
+  // ── COMPARE RENDER (REDESIGNED) ───────────────────────────
+  // ══════════════════════════════════════════════════════════
 
   renderCompare(a, b) {
-    ['a', 'b'].forEach(side => {
-      const d = side === 'a' ? a : b;
-      const av = document.getElementById('cmp-avatar-' + side);
-      if (av) { av.src = d.user.avatar_url; av.alt = 'Profile of ' + Utils.escapeHTML(d.user.login); }
-      const nm = document.getElementById('cmp-name-'  + side);
-      if (nm) nm.textContent = d.user.name || d.user.login;
-      const lg = document.getElementById('cmp-login-' + side);
-      if (lg) lg.textContent = '@' + d.user.login;
-      const lk = document.getElementById('cmp-link-'  + side);
-      if (lk) lk.href = d.user.html_url;
-      const grade = d.score >= 85 ? 'S' : d.score >= 65 ? 'A' : d.score >= 40 ? 'B' : 'C';
-      const gradeColors = { S: 'text-secondary bg-secondary/10', A: 'text-primary bg-primary/10', B: 'text-tertiary bg-tertiary/10', C: 'text-on-surface-variant bg-outline-variant/10' };
-      const sw = document.getElementById('cmp-score-' + side + '-wrap');
-      if (sw) sw.innerHTML =
-        '<div class="flex items-center gap-2">' +
-        '<span class="text-2xl font-black font-headline ' + (side === 'a' ? 'text-primary' : 'text-tertiary') + '">' + d.score + '</span>' +
-        '<span class="text-xs font-label font-bold px-2 py-0.5 rounded-full ' + gradeColors[grade] + '">Grade ' + grade + '</span>' +
-        '</div><p class="text-xs text-on-surface-variant font-label mt-1">Profile Score</p>';
-    });
+    const cr = document.getElementById('compare-results');
+    if (!cr) return;
 
-    const stats = [
-      { label: 'Followers',     va: a.user.followers,    vb: b.user.followers,    fmt: Utils.formatNum.bind(Utils), higherBetter: true },
-      { label: 'Total Stars',   va: a.totalStars,        vb: b.totalStars,        fmt: Utils.formatNum.bind(Utils), higherBetter: true },
-      { label: 'Public Repos',  va: a.user.public_repos, vb: b.user.public_repos, fmt: v => String(v),             higherBetter: true },
-      { label: 'Own Repos',     va: a.ownRepos.length,   vb: b.ownRepos.length,   fmt: v => String(v),             higherBetter: true },
-      { label: 'Total Forks',   va: a.totalForks,        vb: b.totalForks,        fmt: Utils.formatNum.bind(Utils), higherBetter: true },
-      { label: 'Following',     va: a.user.following,    vb: b.user.following,    fmt: Utils.formatNum.bind(Utils), higherBetter: false },
-      { label: 'Account Age',   va: a.accountAge,        vb: b.accountAge,        fmt: v => v.toFixed(1) + 'y',    higherBetter: true },
-      { label: 'Profile Score', va: a.score,             vb: b.score,             fmt: v => String(v),             higherBetter: true }
+    // ── helpers ──────────────────────────────────────────
+    const getInitials = user => {
+      const name = user.name || user.login || '??';
+      return name.split(/\s+/).map(w => w[0]).join('').toUpperCase().slice(0, 2);
+    };
+
+    const gradeInfo = score => {
+      if (score >= 85) return { grade: 'S', bg: 'rgba(151,249,153,0.12)', color: '#97f999', border: 'rgba(151,249,153,0.3)' };
+      if (score >= 65) return { grade: 'A', bg: 'rgba(131,174,255,0.12)', color: '#83aeff', border: 'rgba(131,174,255,0.3)' };
+      if (score >= 40) return { grade: 'B', bg: 'rgba(255,163,102,0.12)', color: '#ffa366', border: 'rgba(255,163,102,0.3)' };
+      return                  { grade: 'C', bg: 'rgba(168,171,179,0.12)', color: '#a8abb3', border: 'rgba(168,171,179,0.3)' };
+    };
+
+    // log scale bar width — makes huge differences still visible
+    const logWidth = (val, maxVal) => {
+      if (maxVal <= 0) return 0;
+      if (val <= 0) return 0;
+      return Math.round((Math.log10(Math.max(val, 0.1)) / Math.log10(Math.max(maxVal, 0.1))) * 100);
+    };
+
+    const gi_a = gradeInfo(a.score);
+    const gi_b = gradeInfo(b.score);
+
+    // ── 1. PROFILE CARDS ─────────────────────────────────
+    const profileCardsHTML =
+      '<div style="display:grid;grid-template-columns:1fr auto 1fr;align-items:center;gap:12px;margin-bottom:20px">' +
+
+      // Card A
+      '<div class="cmp-profile-card side-a">' +
+        '<div class="cmp-avatar-initials side-a">' + Utils.escapeHTML(getInitials(a.user)) + '</div>' +
+        '<div style="font-size:18px;font-weight:800;font-family:Inter,sans-serif;color:#f1f3fc;margin-bottom:3px">' + Utils.escapeHTML(a.user.name || a.user.login) + '</div>' +
+        '<div style="font-size:11px;font-family:Space Grotesk,sans-serif;color:#a8abb3;margin-bottom:10px">@' + Utils.escapeHTML(a.user.login) + '</div>' +
+        '<div class="cmp-grade-badge" style="background:' + gi_a.bg + ';color:' + gi_a.color + ';border:1px solid ' + gi_a.border + '">Grade ' + gi_a.grade + '</div>' +
+        '<div class="cmp-big-score" style="color:' + gi_a.color + '">' + a.score + '</div>' +
+        '<div class="cmp-score-label">profile score</div>' +
+      '</div>' +
+
+      // VS
+      '<div class="cmp-vs-divider"><div class="cmp-vs-badge">VS</div></div>' +
+
+      // Card B
+      '<div class="cmp-profile-card side-b">' +
+        '<div class="cmp-avatar-initials side-b">' + Utils.escapeHTML(getInitials(b.user)) + '</div>' +
+        '<div style="font-size:18px;font-weight:800;font-family:Inter,sans-serif;color:#f1f3fc;margin-bottom:3px">' + Utils.escapeHTML(b.user.name || b.user.login) + '</div>' +
+        '<div style="font-size:11px;font-family:Space Grotesk,sans-serif;color:#a8abb3;margin-bottom:10px">@' + Utils.escapeHTML(b.user.login) + '</div>' +
+        '<div class="cmp-grade-badge" style="background:' + gi_b.bg + ';color:' + gi_b.color + ';border:1px solid ' + gi_b.border + '">Grade ' + gi_b.grade + '</div>' +
+        '<div class="cmp-big-score" style="color:' + gi_b.color + '">' + b.score + '</div>' +
+        '<div class="cmp-score-label">profile score</div>' +
+      '</div>' +
+
+      '</div>';
+
+    // ── 2. HEAD-TO-HEAD METRICS ───────────────────────────
+    const metrics = [
+      { label: 'Followers',     va: a.user.followers,    vb: b.user.followers,    fmt: Utils.formatNum.bind(Utils) },
+      { label: 'Total Stars',   va: a.totalStars,        vb: b.totalStars,        fmt: Utils.formatNum.bind(Utils) },
+      { label: 'Public Repos',  va: a.user.public_repos, vb: b.user.public_repos, fmt: v => String(v) },
+      { label: 'Total Forks',   va: a.totalForks,        vb: b.totalForks,        fmt: Utils.formatNum.bind(Utils) },
+      { label: 'Account Age',   va: a.accountAge,        vb: b.accountAge,        fmt: v => v.toFixed(1) + 'y' },
+      { label: 'Profile Score', va: a.score,             vb: b.score,             fmt: v => String(v) }
     ];
 
-    const csr = document.getElementById('compare-stat-rows');
-    if (csr) {
-      csr.innerHTML = stats.map(stat => {
-        const maxVal = Math.max(stat.va, stat.vb, 1);
-        const pctA   = Math.round((stat.va / maxVal) * 100);
-        const pctB   = Math.round((stat.vb / maxVal) * 100);
-        const aWins  = stat.higherBetter ? stat.va > stat.vb : stat.va < stat.vb;
-        const bWins  = stat.higherBetter ? stat.vb > stat.va : stat.vb < stat.va;
-        const tie    = stat.va === stat.vb;
-        return '<div class="px-6 py-5">' +
-          '<div class="flex items-center justify-between mb-3">' +
-          '<div class="flex items-center gap-2">' +
-          '<span class="font-label text-xs font-semibold text-on-surface uppercase tracking-widest">' + Utils.escapeHTML(stat.label) + '</span>' +
-          (!tie ? '<span class="winner-badge">' + (aWins ? Utils.escapeHTML(a.user.login) : Utils.escapeHTML(b.user.login)) + ' wins</span>' : '') +
-          '</div></div>' +
-          '<div class="grid grid-cols-2 gap-4">' +
-          '<div><div class="flex justify-between text-xs font-label mb-1.5">' +
-          '<span class="text-on-surface-variant">' + Utils.escapeHTML(a.user.login) + '</span>' +
-          '<span class="' + (aWins ? 'text-primary font-bold' : 'text-on-surface-variant') + '">' + Utils.escapeHTML(String(stat.fmt(stat.va))) + '</span>' +
-          '</div><div class="compare-bar-wrap"><div class="compare-bar" style="width:0%;background:#83aeff" data-w="' + pctA + '"></div></div></div>' +
-          '<div><div class="flex justify-between text-xs font-label mb-1.5">' +
-          '<span class="text-on-surface-variant">' + Utils.escapeHTML(b.user.login) + '</span>' +
-          '<span class="' + (bWins ? 'text-tertiary font-bold' : 'text-on-surface-variant') + '">' + Utils.escapeHTML(String(stat.fmt(stat.vb))) + '</span>' +
-          '</div><div class="compare-bar-wrap"><div class="compare-bar" style="width:0%;background:#ffa366" data-w="' + pctB + '"></div></div></div>' +
-          '</div></div>';
-      }).join('');
-      Utils.nextFrame(() => {
-        document.querySelectorAll('.compare-bar').forEach(b => { b.style.width = b.dataset.w + '%'; });
-      });
-    }
+    let metricRowsHTML = '';
+    metrics.forEach(m => {
+      const aWins  = m.va > m.vb;
+      const bWins  = m.vb > m.va;
+      const maxVal = Math.max(m.va, m.vb, 1);
+      const wA     = logWidth(m.va, maxVal);
+      const wB     = logWidth(m.vb, maxVal);
 
-    ['a', 'b'].forEach(side => {
-      const d     = side === 'a' ? a : b;
-      const color = side === 'a' ? '#83aeff' : '#ffa366';
-      const title = document.getElementById('cmp-lang-title-' + side);
-      if (title) title.innerHTML =
-        '<span class="w-3 h-3 rounded-full inline-block" style="background:' + color + '"></span> ' +
-        Utils.escapeHTML(d.user.login) + "'s Languages";
-      const allLangTotal = d.topLangs.reduce((s, l) => s + l.n, 0) || 1;
-      const langsEl = document.getElementById('cmp-langs-' + side);
-      if (langsEl) {
-        langsEl.innerHTML = d.topLangs.map(({ lang, n }) => {
-          const pct = ((n / allLangTotal) * 100).toFixed(1);
-          return '<div>' +
-            '<div class="flex justify-between text-xs font-label mb-1">' +
-            '<span class="flex items-center gap-1.5">' +
-            '<span class="w-2 h-2 rounded-full inline-block" style="background:' + Utils.getLangColor(lang) + '"></span>' +
-            Utils.escapeHTML(lang) + '</span>' +
-            '<span class="text-on-surface-variant">' + pct + '%</span>' +
+      metricRowsHTML +=
+        '<div class="h2h-metric-row">' +
+          '<div class="h2h-metric-label-row">' +
+            '<span class="h2h-metric-name">' + Utils.escapeHTML(m.label) + '</span>' +
+            (!aWins && !bWins ? '' :
+              '<span class="h2h-winner-pill' + (bWins ? ' side-b' : '') + '">' +
+                Utils.escapeHTML(aWins ? a.user.login : b.user.login) + ' wins' +
+              '</span>') +
+          '</div>' +
+          '<div class="h2h-bars-wrap">' +
+            // Side A
+            '<div class="h2h-bar-side">' +
+              '<div class="h2h-bar-meta">' +
+                '<span class="h2h-bar-username">' + Utils.escapeHTML(a.user.login) + '</span>' +
+                '<span class="h2h-bar-value' + (aWins ? ' winner' : '') + '">' + Utils.escapeHTML(String(m.fmt(m.va))) + '</span>' +
+              '</div>' +
+              '<div class="h2h-bar-track">' +
+                '<div class="h2h-bar-fill side-a" style="width:0" data-w="' + wA + '"></div>' +
+              '</div>' +
             '</div>' +
-            '<div class="w-full bg-surface-container-highest rounded-full h-1.5 overflow-hidden">' +
-            '<div class="lang-bar h-full rounded-full" style="background:' + Utils.getLangColor(lang) + '" data-width="' + pct + '"></div>' +
-            '</div></div>';
-        }).join('');
-        Utils.nextFrame(() => {
-          document.querySelectorAll('#cmp-langs-' + side + ' .lang-bar').forEach(b => { b.style.width = b.dataset.width + '%'; });
-        });
-      }
+            // Side B
+            '<div class="h2h-bar-side">' +
+              '<div class="h2h-bar-meta">' +
+                '<span class="h2h-bar-username">' + Utils.escapeHTML(b.user.login) + '</span>' +
+                '<span class="h2h-bar-value' + (bWins ? ' winner-b' : '') + '">' + Utils.escapeHTML(String(m.fmt(m.vb))) + '</span>' +
+              '</div>' +
+              '<div class="h2h-bar-track">' +
+                '<div class="h2h-bar-fill side-b" style="width:0" data-w="' + wB + '"></div>' +
+              '</div>' +
+            '</div>' +
+          '</div>' +
+        '</div>';
     });
 
-    const winnerEl = document.getElementById('compare-winner-content');
-    if (winnerEl) {
-      const aPoints = stats.filter(s => s.higherBetter ? s.va > s.vb : s.va < s.vb).length;
-      const bPoints = stats.filter(s => s.higherBetter ? s.vb > s.va : s.vb < s.va).length;
-      if (aPoints === bPoints) {
-        winnerEl.innerHTML =
-          '<div class="text-2xl font-black font-headline text-on-surface">It\'s a tie! 🤝</div>' +
-          '<p class="text-on-surface-variant text-sm mt-1">Both developers are evenly matched across ' + stats.length + ' categories.</p>';
-      } else {
-        const winner    = aPoints > bPoints ? a : b;
-        const winColor  = aPoints > bPoints ? '#83aeff' : '#ffa366';
-        const winPoints = Math.max(aPoints, bPoints);
-        winnerEl.innerHTML =
-          '<img src="' + winner.user.avatar_url + '" alt="Winner Avatar" class="w-16 h-16 rounded-full border-2 mx-auto mb-3 object-cover" style="border-color:' + winColor + '"/>' +
-          '<div class="text-2xl font-black font-headline" style="color:' + winColor + '">' + Utils.escapeHTML(winner.user.name || winner.user.login) + '</div>' +
-          '<p class="text-on-surface-variant text-sm mt-1">Wins <strong>' + winPoints + ' of ' + stats.length + '</strong> categories with a profile score of <strong>' + winner.score + '/100</strong></p>';
-      }
+    const h2hHTML =
+      '<div class="h2h-section">' +
+        '<div class="h2h-section-title">Head-to-Head Metrics</div>' +
+        metricRowsHTML +
+      '</div>';
+
+    // ── 3. SKILL RADAR ────────────────────────────────────
+    // 5 dimensions scored 0-100 each
+    const radarDims = ['Community\nReach', 'Open Source\nImpact', 'Productivity', 'Consistency', 'Repo\nQuality'];
+
+    const calcRadarScores = d => [
+      Math.round(Math.min(100, 25 * (1 - Math.exp(-d.user.followers / 300)) * 4)),         // community reach
+      Math.round(Math.min(100, 40 * (1 - Math.exp(-(d.totalStars + d.totalForks * 1.5) / 1500)) * 2.5)), // open source impact
+      Math.round(Math.min(100, 15 * (1 - Math.exp(-d.ownRepos.length / 30)) * 6.67)),       // productivity
+      Math.round(Math.min(100, d.accountAge >= 1 ? Math.min(100, (d.ownRepos.length / Math.max(d.accountAge, 1)) * 8) : 0)), // consistency
+      Math.round(Math.min(100, 10 * (1 - Math.exp(-(d.totalStars / Math.max(d.ownRepos.length, 1)) / 40)) * 10)) // repo quality
+    ];
+
+    const scoresA = calcRadarScores(a);
+    const scoresB = calcRadarScores(b);
+
+    const radarHTML =
+      '<div class="radar-section">' +
+        '<div class="radar-section-title">Skill Radar</div>' +
+        '<svg id="skill-radar-svg" width="420" height="320" viewBox="0 0 420 320"></svg>' +
+        '<div class="radar-legend">' +
+          '<div class="radar-legend-item"><div class="radar-legend-dot" style="background:#83aeff"></div>' + Utils.escapeHTML(a.user.login) + '</div>' +
+          '<div class="radar-legend-item"><div class="radar-legend-dot" style="background:#ffa366"></div>' + Utils.escapeHTML(b.user.login) + '</div>' +
+        '</div>' +
+      '</div>';
+
+    // ── 4. COMPARISON INSIGHTS ────────────────────────────
+    const starsPerRepoA = a.ownRepos.length > 0 ? Math.round(a.totalStars / a.ownRepos.length) : 0;
+    const starsPerRepoB = b.ownRepos.length > 0 ? Math.round(b.totalStars / b.ownRepos.length) : 0;
+
+    // Shared languages
+    const langsA = new Set(a.topLangs.map(l => l.lang));
+    const langsB = new Set(b.topLangs.map(l => l.lang));
+    const shared = [...langsA].filter(l => langsB.has(l));
+
+    // Follower ratio text
+    const followerRatio = a.user.followers > b.user.followers
+      ? (a.user.followers / Math.max(b.user.followers, 1)).toFixed(0) + '×'
+      : (b.user.followers / Math.max(a.user.followers, 1)).toFixed(0) + '×';
+    const followerLeader = a.user.followers >= b.user.followers ? a.user : b.user;
+    const followerTrailer = a.user.followers >= b.user.followers ? b.user : a.user;
+
+    const insightCommunity = Utils.escapeHTML(followerLeader.login) + ' has ' + followerRatio + ' more followers' +
+      (followerLeader.followers >= 10000 ? ', placing in the top 0.1% of GitHub globally.' : ' than ' + Utils.escapeHTML(followerTrailer.login) + '.');
+
+    const insightStars = starsPerRepoA >= starsPerRepoB
+      ? Utils.escapeHTML(a.user.login) + ' averages ~' + starsPerRepoA + ' stars/repo. ' +
+        (starsPerRepoB === 0 ? Utils.escapeHTML(b.user.login) + ' has no starred repos yet — strong growth potential.' : Utils.escapeHTML(b.user.login) + ' averages ~' + starsPerRepoB + ' stars/repo.')
+      : Utils.escapeHTML(b.user.login) + ' averages ~' + starsPerRepoB + ' stars/repo. ' +
+        (starsPerRepoA === 0 ? Utils.escapeHTML(a.user.login) + ' has no starred repos yet — strong growth potential.' : Utils.escapeHTML(a.user.login) + ' averages ~' + starsPerRepoA + ' stars/repo.');
+
+    const ageLeader = a.accountAge >= b.accountAge ? a.user : b.user;
+    const ageYrs    = Math.floor(Math.max(a.accountAge, b.accountAge));
+    const insightAge = Utils.escapeHTML(ageLeader.login) + "'s " + ageYrs + 'yr tenure shows sustained long-term output, not a single viral moment.';
+
+    const insightLang = shared.length > 0
+      ? 'Both devs share ' + shared.slice(0, 3).map(Utils.escapeHTML).join(' + ') + ' as primary tools — they operate in the same domain.'
+      : 'No overlapping primary languages — these developers work in distinct tech ecosystems.';
+
+    const insightsHTML =
+      '<div class="insights-section">' +
+        '<div class="insights-title">' +
+          '<span style="color:#ffa366;font-size:14px">✦</span> Comparison Insights' +
+        '</div>' +
+        '<div class="insights-grid">' +
+          '<div class="insight-card"><div class="insight-card-title">Community reach</div><div class="insight-card-body">' + insightCommunity + '</div></div>' +
+          '<div class="insight-card"><div class="insight-card-title">Star efficiency</div><div class="insight-card-body">' + insightStars + '</div></div>' +
+          '<div class="insight-card"><div class="insight-card-title">Account maturity</div><div class="insight-card-body">' + insightAge + '</div></div>' +
+          '<div class="insight-card"><div class="insight-card-title">Language overlap</div><div class="insight-card-body">' + insightLang + '</div></div>' +
+        '</div>' +
+      '</div>';
+
+    // ── 5. OVERALL WINNER BANNER ──────────────────────────
+    const aWinCount = metrics.filter(m => m.va > m.vb).length;
+    const bWinCount = metrics.filter(m => m.vb > m.va).length;
+    const total     = metrics.length;
+    let winnerHTML;
+
+    if (aWinCount === bWinCount) {
+      winnerHTML =
+        '<div class="winner-banner-new" style="justify-content:center;text-align:center">' +
+          '<div>' +
+            '<div style="font-size:22px;font-weight:900;font-family:Inter,sans-serif;color:#f1f3fc;margin-bottom:4px">It\'s a tie! 🤝</div>' +
+            '<div style="font-size:12px;font-family:Space Grotesk,sans-serif;color:#a8abb3">Both developers are evenly matched across ' + total + ' categories.</div>' +
+          '</div>' +
+        '</div>';
+    } else {
+      const winner   = aWinCount > bWinCount ? a : b;
+      const winCount = Math.max(aWinCount, bWinCount);
+      const isA      = aWinCount > bWinCount;
+      const wColor   = isA ? '#83aeff' : '#ffa366';
+      const wBg      = isA ? 'rgba(131,174,255,0.12)' : 'rgba(255,163,102,0.12)';
+      const wBorder  = isA ? 'rgba(131,174,255,0.3)'  : 'rgba(255,163,102,0.3)';
+      winnerHTML =
+        '<div class="winner-banner-new" style="border-color:' + wBorder + '">' +
+          '<div class="winner-banner-left">' +
+            '<div class="winner-avatar-sm" style="background:' + wBg + ';color:' + wColor + ';border:2px solid ' + wBorder + '">' +
+              Utils.escapeHTML(getInitials(winner.user)) +
+            '</div>' +
+            '<div>' +
+              '<div class="winner-banner-text-top">Overall winner —</div>' +
+              '<div class="winner-banner-name">' + Utils.escapeHTML(winner.user.name || winner.user.login) + '</div>' +
+              '<div class="winner-banner-sub">Wins ' + winCount + ' of ' + total + ' scored categories with a profile score of ' + winner.score + '/' + total * Math.round(100 / total) * total / total + 100 + '</div>' +
+            '</div>' +
+          '</div>' +
+          '<div class="winner-wins-badge" style="background:' + wBg + ';color:' + wColor + ';border:2px solid ' + wBorder + '">' +
+            winCount + '/' + total +
+          '</div>' +
+        '</div>';
     }
+
+    // ── Inject everything ─────────────────────────────────
+    cr.innerHTML = profileCardsHTML + h2hHTML + radarHTML + insightsHTML + winnerHTML;
+
+    // ── Animate bars after paint ──────────────────────────
+    Utils.nextFrame(() => {
+      cr.querySelectorAll('.h2h-bar-fill').forEach(b => {
+        b.style.width = b.dataset.w + '%';
+      });
+    });
+
+    // ── Draw radar chart with D3 ──────────────────────────
+    UI._drawRadar(scoresA, scoresB, radarDims, a.user.login, b.user.login);
+  },
+
+  // ── D3 RADAR CHART ───────────────────────────────────────
+  _drawRadar(scoresA, scoresB, dims, loginA, loginB) {
+    const svgEl = document.getElementById('skill-radar-svg');
+    if (!svgEl || typeof d3 === 'undefined') return;
+
+    svgEl.innerHTML = '';
+    const W = 420, H = 320;
+    const cx = W / 2, cy = H / 2 + 10;
+    const R  = 110;
+    const n  = dims.length;
+    const levels = 4;
+
+    const angle = i => (Math.PI * 2 * i / n) - Math.PI / 2;
+    const coord = (val, i, maxR) => ({
+      x: cx + maxR * (val / 100) * Math.cos(angle(i)),
+      y: cy + maxR * (val / 100) * Math.sin(angle(i))
+    });
+
+    const svg = d3.select(svgEl);
+
+    // Background rings
+    for (let lv = 1; lv <= levels; lv++) {
+      const r = R * (lv / levels);
+      const pts = Array.from({ length: n }, (_, i) => {
+        const a = angle(i);
+        return [cx + r * Math.cos(a), cy + r * Math.sin(a)];
+      });
+      svg.append('polygon')
+        .attr('points', pts.map(p => p.join(',')).join(' '))
+        .attr('fill', 'none')
+        .attr('stroke', 'rgba(131,174,255,0.1)')
+        .attr('stroke-width', 1);
+    }
+
+    // Axis lines
+    Array.from({ length: n }, (_, i) => {
+      const a = angle(i);
+      svg.append('line')
+        .attr('x1', cx).attr('y1', cy)
+        .attr('x2', cx + R * Math.cos(a))
+        .attr('y2', cy + R * Math.sin(a))
+        .attr('stroke', 'rgba(131,174,255,0.15)')
+        .attr('stroke-width', 1);
+    });
+
+    // Polygon builder
+    const polyPoints = (scores) =>
+      scores.map((s, i) => {
+        const c = coord(s, i, R);
+        return c.x + ',' + c.y;
+      }).join(' ');
+
+    // Area A
+    svg.append('polygon')
+      .attr('points', polyPoints(scoresA))
+      .attr('fill', 'rgba(131,174,255,0.12)')
+      .attr('stroke', '#83aeff')
+      .attr('stroke-width', 2)
+      .attr('stroke-linejoin', 'round');
+
+    // Dots A
+    scoresA.forEach((s, i) => {
+      const c = coord(s, i, R);
+      svg.append('circle').attr('cx', c.x).attr('cy', c.y).attr('r', 3)
+        .attr('fill', '#83aeff');
+    });
+
+    // Area B
+    svg.append('polygon')
+      .attr('points', polyPoints(scoresB))
+      .attr('fill', 'rgba(255,163,102,0.1)')
+      .attr('stroke', '#ffa366')
+      .attr('stroke-width', 2)
+      .attr('stroke-linejoin', 'round');
+
+    // Dots B
+    scoresB.forEach((s, i) => {
+      const c = coord(s, i, R);
+      svg.append('circle').attr('cx', c.x).attr('cy', c.y).attr('r', 3)
+        .attr('fill', '#ffa366');
+    });
+
+    // Axis labels
+    dims.forEach((dim, i) => {
+      const a   = angle(i);
+      const lx  = cx + (R + 22) * Math.cos(a);
+      const ly  = cy + (R + 22) * Math.sin(a);
+      const lines = dim.split('\n');
+      const text = svg.append('text')
+        .attr('x', lx).attr('y', ly)
+        .attr('text-anchor', 'middle')
+        .attr('dominant-baseline', 'middle')
+        .attr('fill', '#a8abb3')
+        .attr('font-size', '10')
+        .attr('font-family', 'Space Grotesk, sans-serif');
+      lines.forEach((line, li) => {
+        text.append('tspan')
+          .attr('x', lx)
+          .attr('dy', li === 0 ? (lines.length > 1 ? '-0.5em' : '0') : '1.2em')
+          .text(line);
+      });
+    });
   }
 };
