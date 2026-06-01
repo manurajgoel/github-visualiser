@@ -2,8 +2,6 @@
 # 🚀 DevArchive
 **A GitHub profile visualizer that transforms raw data into developer intelligence**
 
-## Link : https://manurajgoel.github.io/github-visualiser/
-
 ## 🧠 The Problem
 GitHub shows you the data. But it doesn't tell you the *story*.
 
