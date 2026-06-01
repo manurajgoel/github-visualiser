@@ -886,7 +886,23 @@ body {
   flex-shrink: 0;
 }
 
-
 /* Compare input placeholders */
 #compare-input-a::placeholder { color: rgba(131, 174, 255, 0.35); }
 #compare-input-b::placeholder { color: rgba(255, 163, 102, 0.35); }
+
+/* ── Landing entrance animation ── */
+@keyframes landingFadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.landing-enter {
+  opacity: 0;
+  animation: landingFadeUp 0.55s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
